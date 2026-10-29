@@ -191,6 +191,59 @@ class PageTest(unittest.TestCase):
         self.assertIn("No open pull requests", board.render_html([], "t"))
 
 
+class SplitQueryTest(unittest.TestCase):
+    @staticmethod
+    def base(numbers, more=False, cursor=None):
+        nodes = [{k: v for k, v in node(n).items() if k != "commits"} for n in numbers]
+        return {"data": {"repository": {"isPrivate": False, "pullRequests": {"pageInfo": {"hasNextPage": more, "endCursor": cursor}, "nodes": nodes}}}}
+
+    @staticmethod
+    def checks(numbers, conclusion="SUCCESS"):
+        nodes = [{"number": n, "commits": rollup("SUCCESS" if conclusion == "SUCCESS" else "FAILURE", check("ci", conclusion))} for n in numbers]
+        return {"data": {"repository": {"pullRequests": {"nodes": nodes}}}}
+
+    def test_the_page_query_no_longer_asks_for_checks_and_the_checks_query_does(self):
+        self.assertNotIn("commits", board.QUERY)
+        self.assertNotIn("statusCheckRollup", board.QUERY)
+        self.assertIn("statusCheckRollup", board.CHECKS_QUERY)
+        self.assertIn("orderBy", board.CHECKS_QUERY)
+
+    def test_each_pr_gets_its_checks_from_the_second_query_with_the_same_cursor(self):
+        seen = []
+
+        def run(owner, name, after, size):
+            seen.append(("base", after, size))
+            return self.base([1, 2], True, "c1") if after is None else self.base([3])
+
+        def checks_run(owner, name, after, size):
+            seen.append(("checks", after, size))
+            return self.checks([1, 2] if after is None else [3], "FAILURE" if after else "SUCCESS")
+
+        data = board.fetch(["o/r"], run, checks_run)
+        self.assertEqual([n["number"] for n in data["o/r"]], [1, 2, 3])
+        self.assertEqual(board.classify("o/r", data["o/r"][0])["checks"], "passing")
+        self.assertEqual(board.classify("o/r", data["o/r"][2])["checks"], "failing: ci")
+        self.assertEqual(seen, [("base", None, board.PAGE_SIZE), ("checks", None, board.PAGE_SIZE), ("base", "c1", board.PAGE_SIZE), ("checks", "c1", board.PAGE_SIZE)])
+
+    def test_a_failing_checks_query_retries_the_page_with_a_smaller_size_then_gives_up(self):
+        sizes = []
+
+        def checks_run(owner, name, after, size):
+            sizes.append(size)
+            raise subprocess.CalledProcessError(1, "gh", stderr="Something went wrong")
+
+        data = board.fetch(["o/r"], lambda *a: self.base([1]), checks_run)
+        self.assertEqual((data, sizes), ({"o/r": None}, [board.PAGE_SIZE, board.SMALL_PAGE_SIZE]))
+
+    def test_a_pr_the_checks_query_does_not_return_fails_the_page_instead_of_showing_no_checks(self):
+        data = board.fetch(["o/r"], lambda *a: self.base([1, 2]), lambda *a: self.checks([1]))
+        self.assertEqual(data, {"o/r": None})
+
+    def test_without_a_checks_runner_the_nodes_keep_what_the_page_query_gave(self):
+        data = board.fetch(["o/r"], lambda *a: self.base([1]))
+        self.assertNotIn("commits", data["o/r"][0])
+
+
 class PublicOnlyTest(unittest.TestCase):
     page = staticmethod(FetchTest.page) if False else None
 

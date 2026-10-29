@@ -47,6 +47,20 @@ query($owner: String!, $name: String!, $after: String, $size: Int!) {
         author { login }
         labels(first: 10) { nodes { name } }
         reviews(last: 20) { nodes { state author { login } } }
+      }
+    }
+  }
+}
+"""
+
+# The checks come in a second query over the same page: GitHub answers "something went wrong" for one big repo
+# when they are in the same query as the rest (measured in the workflow), though each part alone works.
+CHECKS_QUERY = """
+query($owner: String!, $name: String!, $after: String, $size: Int!) {
+  repository(owner: $owner, name: $name) {
+    pullRequests(states: OPEN, first: $size, after: $after, orderBy: {field: CREATED_AT, direction: ASC}) {
+      nodes {
+        number
         commits(last: 1) { nodes { commit { statusCheckRollup { state contexts(first: 30) { nodes {
           __typename ... on CheckRun { name conclusion status } ... on StatusContext { context state } } } } } } }
       }
@@ -269,21 +283,25 @@ def render_summary(rows: list[dict], url: str) -> str:
 
 # -- reading GitHub -------------------------------------------------------------------------
 
-def gh_graphql(owner: str, name: str, after: str | None, size: int) -> dict:
-    args = ["gh", "api", "graphql", "-f", f"query={QUERY}", "-F", f"owner={owner}", "-F", f"name={name}", "-F", f"size={size}"]
+def gh_graphql(owner: str, name: str, after: str | None, size: int, query: str = QUERY) -> dict:
+    args = ["gh", "api", "graphql", "-f", f"query={query}", "-F", f"owner={owner}", "-F", f"name={name}", "-F", f"size={size}"]
     if after:
         args += ["-F", f"after={after}"]
     out = subprocess.run(args, capture_output=True, text=True, timeout=120, check=True).stdout
     return json.loads(out)
 
 
-def fetch(repos, run: Callable[[str, str, str | None, int], dict] = gh_graphql) -> dict:
+def gh_graphql_checks(owner: str, name: str, after: str | None, size: int) -> dict:
+    return gh_graphql(owner, name, after, size, CHECKS_QUERY)
+
+
+def fetch(repos, run: Callable[[str, str, str | None, int], dict] | None = None, checks_run: Callable[[str, str, str | None, int], dict] | None = None) -> dict:
     """{repo: [PR nodes]}, or None for a repo that could not be read (so the page can say so)."""
     data: dict = {}
     for repo in repos:
         owner, name = repo.split("/", 1)
         try:
-            data[repo] = _read_repo(owner, name, run)
+            data[repo] = _read_repo(owner, name, run or gh_graphql, checks_run if run else gh_graphql_checks)
         except PrivateRepo:
             print("skipped a repo that is not public", file=sys.stderr)
     return data
@@ -327,7 +345,14 @@ class PrivateRepo(Exception):
     """The board is public: a private repo is never read into it, and never named on it."""
 
 
-def _read_repo(owner: str, name: str, run: Callable[[str, str, str | None, int], dict]) -> list | None:
+def _with_checks(page_nodes: list, checks: dict) -> None:
+    """Put each PR's commits (from the checks query over the same page) on its node; a PR the checks query lacks fails the page."""
+    commits = {n["number"]: n.get("commits") for n in checks["data"]["repository"]["pullRequests"]["nodes"]}
+    for node in page_nodes:
+        node["commits"] = commits[node["number"]]
+
+
+def _read_repo(owner: str, name: str, run: Callable[[str, str, str | None, int], dict], checks_run: Callable[[str, str, str | None, int], dict] | None = None) -> list | None:
     for size in (PAGE_SIZE, SMALL_PAGE_SIZE):
         nodes, after = [], None
         try:
@@ -338,6 +363,8 @@ def _read_repo(owner: str, name: str, run: Callable[[str, str, str | None, int],
                 if repository.get("isPrivate") is not False:  # private, or not stated: refuse
                     raise PrivateRepo
                 page = repository["pullRequests"]
+                if checks_run:
+                    _with_checks(page["nodes"], checks_run(owner, name, after, size))
                 nodes += page["nodes"]
                 if not page["pageInfo"]["hasNextPage"]:
                     return nodes
