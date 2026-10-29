@@ -472,6 +472,17 @@ class FixtureRunTest(unittest.TestCase):
             with open(os.path.join(tmp, "board.json"), encoding="utf-8") as f:
                 self.assertEqual(json.load(f)["generated"], "third")
 
+    def test_only_if_changed_still_writes_a_file_that_is_missing(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            fixture = os.path.join(tmp, "data.json")
+            with open(fixture, "w", encoding="utf-8") as f:
+                json.dump({"o/r": [node(1)]}, f)
+            args = ["--fixture", fixture, "--out", tmp, "--url", "u", "--only-if-changed", "--now", "t"]
+            board.main(args)
+            os.remove(os.path.join(tmp, "daily.txt"))
+            board.main(args)
+            self.assertTrue(os.path.exists(os.path.join(tmp, "daily.txt")))
+
     def test_only_if_changed_writes_when_a_repo_becomes_unreadable(self):
         with tempfile.TemporaryDirectory() as tmp:
             fixture = os.path.join(tmp, "data.json")

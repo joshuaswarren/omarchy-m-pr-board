@@ -30,6 +30,7 @@ RC_LABEL = re.compile(r"^(rc[- ]?blocker|release[- ]?blocker|blocker|rc)$", re.I
 FAILED = {"FAILURE", "TIMED_OUT", "STARTUP_FAILURE"}
 APPROVAL_GATE = "approve"  # a check some repos use to say "no approving review yet"
 MAX_LISTED = 12
+OUTPUT_FILES = ("index.html", "summary.txt", "daily.txt", "board.json")
 MAX_DAILY_STUCK = 20  # stuck team PRs named one by one in the daily text
 GROUPS = (("team", "Omarchy M team"), ("contributor", "Existing contributors"), ("other", "Everyone else"))
 MAX_MERGED_PAGES = 60  # 100 per page: more than 6000 merged PRs in one repo is not read to the end
@@ -531,7 +532,8 @@ def _same_as_saved(out: str, rows: list[dict], unreadable: list[str]) -> bool:
             saved = json.load(f)
     except (OSError, ValueError):
         return False
-    return saved.get("rows") == rows and saved.get("unreadable") == unreadable
+    complete = all(os.path.exists(os.path.join(out, name)) for name in OUTPUT_FILES)  # a file added since the last write must be written
+    return complete and saved.get("rows") == rows and saved.get("unreadable") == unreadable
 
 
 def _load_data(args) -> tuple[dict, dict]:
