@@ -140,7 +140,7 @@ class PageTest(unittest.TestCase):
         html = board.render_html(self.rows(), "2026-10-29 12:00 UTC")
         self.assertNotIn("<script>alert(1)</script>", html)
         self.assertIn("&lt;script&gt;alert(1)&lt;/script&gt;", html)
-        self.assertLess(html.index("Can merge now"), html.index("Everything else"))
+        self.assertLess(html.index("Omarchy M team"), html.index("Everyone else"))
         self.assertIn("2026-10-29 12:00 UTC", html)
         self.assertIn("unknown", html)
 

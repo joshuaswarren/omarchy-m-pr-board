@@ -30,6 +30,9 @@ RC_LABEL = re.compile(r"^(rc[- ]?blocker|release[- ]?blocker|blocker|rc)$", re.I
 FAILED = {"FAILURE", "TIMED_OUT", "STARTUP_FAILURE"}
 APPROVAL_GATE = "approve"  # a check some repos use to say "no approving review yet"
 MAX_LISTED = 12
+GROUPS = (("team", "Omarchy M team"), ("contributor", "Existing contributors"), ("other", "Everyone else"))
+MAX_MERGED_PAGES = 60  # 100 per page: more than 6000 merged PRs in one repo is not read to the end
+TEAM_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "team.json")
 MAINTAINER_KINDS = ("Needs review", "Workflow run needs approval", "Branch rules")  # what a maintainer or reviewer must do
 PAGE_SIZE, SMALL_PAGE_SIZE = 20, 5  # a big repo's check lists can make GitHub answer 502
 
@@ -54,6 +57,25 @@ query($owner: String!, $name: String!, $after: String, $size: Int!) {
 
 
 # -- one PR -> one row ----------------------------------------------------------------------
+
+MERGED_QUERY = """
+query($owner: String!, $name: String!, $after: String, $size: Int!) {
+  repository(owner: $owner, name: $name) {
+    isPrivate
+    pullRequests(states: MERGED, first: $size, after: $after) {
+      pageInfo { hasNextPage endCursor }
+      nodes { author { login } }
+    }
+  }
+}
+"""
+
+
+def load_team(path: str = TEAM_FILE) -> set[str]:
+    """The lower-case GitHub logins of the Omarchy M team: a plain JSON list."""
+    with open(path, encoding="utf-8") as f:
+        return {login.lower() for login in json.load(f)}
+
 
 def _contexts(node: dict) -> list[dict]:
     commits = (node.get("commits") or {}).get("nodes") or []
@@ -141,13 +163,15 @@ def _gate_failing(node: dict) -> bool:
                for c in _contexts(node))
 
 
-def classify(repo: str, node: dict) -> dict:
+def classify(repo: str, node: dict, team: set | None = None, merged: dict | None = None) -> dict:
     checks, failing, needs_run_approval = _checks(node)
     approved, changes = _reviews(node)
     kind, blocker = _blocker(node, checks, failing, needs_run_approval, changes, _gate_failing(node))
     labels = [(label or {}).get("name", "") for label in (node.get("labels") or {}).get("nodes") or []]
+    login = ((node.get("author") or {}).get("login") or "").lower()
+    group = "team" if login and login in (team or ()) else "contributor" if login and login in ((merged or {}).get(repo) or ()) else "other"
     return {
-        "repo": repo, "number": node["number"], "title": node.get("title") or "", "url": node.get("url") or f"https://github.com/{repo}/pull/{node['number']}",
+        "group": group, "repo": repo, "number": node["number"], "title": node.get("title") or "", "url": node.get("url") or f"https://github.com/{repo}/pull/{node['number']}",
         "owner": (node.get("author") or {}).get("login") or "unknown",
         "merge": {"MERGEABLE": "mergeable", "CONFLICTING": "conflicts"}.get(node.get("mergeable") or "", "unknown"),
         "checks": checks, "approvals": _approvals_text(node.get("reviewDecision"), approved, changes),
@@ -157,9 +181,10 @@ def classify(repo: str, node: dict) -> dict:
     }
 
 
-def rows_from(data: dict) -> list[dict]:
-    rows = [classify(repo, node) for repo, nodes in data.items() for node in nodes or []]
-    return sorted(rows, key=lambda r: (not r["can_merge"], r["repo"], r["number"]))
+def rows_from(data: dict, team: set | None = None, merged: dict | None = None) -> list[dict]:
+    rows = [classify(repo, node, team, merged) for repo, nodes in data.items() for node in nodes or []]
+    order = [key for key, _ in GROUPS]
+    return sorted(rows, key=lambda r: (order.index(r["group"]), not r["can_merge"], r["repo"], r["number"]))
 
 
 # -- output ---------------------------------------------------------------------------------
@@ -179,8 +204,6 @@ def _table(rows: list[dict]) -> str:
 
 
 def render_html(rows: list[dict], generated: str, unreadable: Sequence[str] = ()) -> str:
-    ready = [r for r in rows if r["can_merge"]]
-    rest = [r for r in rows if not r["can_merge"]]
     parts = [
         "<!doctype html><meta charset=utf-8><title>Omarchy M pull requests</title>",
         "<style>body{font:14px system-ui;margin:2rem}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px;text-align:left;vertical-align:top}th{background:#eee}</style>",
@@ -190,14 +213,17 @@ def render_html(rows: list[dict], generated: str, unreadable: Sequence[str] = ()
     if not rows:
         parts.append("<p>No open pull requests were read.</p>")
     else:
-        parts += [f"<h2>Can merge now ({len(ready)})</h2>", _table(ready) if ready else "<p>None.</p>",
-                  f"<h2>Everything else ({len(rest)})</h2>", _table(rest) if rest else "<p>None.</p>"]
+        for key, title in GROUPS:
+            part = [r for r in rows if r["group"] == key]
+            ready = sum(r["can_merge"] for r in part)
+            parts += [f"<h2>{title} ({len(part)} open, {ready} can merge now)</h2>", _table(part) if part else "<p>None.</p>"]
     if unreadable:
         parts.append("<p>Not read this time: " + ", ".join(html.escape(r) for r in unreadable) + ".</p>")
     parts.append("<p>How to read it. Blocking item: the first thing in the way, in this order: draft, conflicts, requested changes, failing check, "
                  "workflow run waiting for a maintainer, missing review, running checks, branch behind, branch rules. RC blocker: yes when the PR carries a "
                  "label named rc, rc-blocker, release blocker or blocker. Can merge now: GitHub reports the PR clean, with no conflicts and every required check "
-                 "and review satisfied; a repo that requires no review shows approvals as not required. Maclab: unknown, because maclab's job records are not public.</p>")
+                 "and review satisfied; a repo that requires no review shows approvals as not required. Maclab: unknown, because maclab's job records are not public. "
+                 "Sections: the Omarchy M team, then people with an earlier merged PR in the same repo, then everyone else.</p>")
     return "\n".join(parts) + "\n"
 
 
@@ -235,6 +261,8 @@ def render_summary(rows: list[dict], url: str) -> str:
     others = Counter(r["kind"] for r in stuck if r["kind"] not in MAINTAINER_KINDS).most_common()
     if others:
         lines.append("Waiting on the author or a run: " + ", ".join(f"{kind} {count}" for kind, count in others) + ".")
+    counts = {key: sum(r["group"] == key for r in rows) for key, _ in GROUPS}
+    lines.append(f"Team {counts['team']}, existing contributors {counts['contributor']}, everyone else {counts['other']}.")
     lines.append(f"Each PR and what it needs: {url}")
     return "\n".join(lines) + "\n"
 
@@ -259,6 +287,40 @@ def fetch(repos, run: Callable[[str, str, str | None, int], dict] = gh_graphql) 
         except PrivateRepo:
             print("skipped a repo that is not public", file=sys.stderr)
     return data
+
+
+def gh_graphql_merged(owner: str, name: str, after: str | None, size: int) -> dict:
+    args = ["gh", "api", "graphql", "-f", f"query={MERGED_QUERY}", "-F", f"owner={owner}", "-F", f"name={name}", "-F", f"size={size}"]
+    if after:
+        args += ["-F", f"after={after}"]
+    return json.loads(subprocess.run(args, capture_output=True, text=True, timeout=120, check=True).stdout)
+
+
+def fetch_merged(repos, run: Callable[[str, str, str | None, int], dict] = gh_graphql_merged) -> dict:
+    """{repo: set of lower-case logins with a merged PR there}, or None for a repo whose history could not be read. A private repo is dropped."""
+    merged: dict = {}
+    for repo in repos:
+        owner, name = repo.split("/", 1)
+        logins: set[str] = set()
+        after = None
+        try:
+            for _ in range(MAX_MERGED_PAGES):
+                repository = run(owner, name, after, 100)["data"]["repository"]
+                if repository is None:
+                    raise KeyError("repository")
+                if repository.get("isPrivate") is not False:
+                    raise PrivateRepo
+                page = repository["pullRequests"]
+                logins |= {n["author"]["login"].lower() for n in page["nodes"] if n.get("author") and n["author"].get("login")}
+                if not page["pageInfo"]["hasNextPage"]:
+                    break
+                after = page["pageInfo"]["endCursor"]
+            merged[repo] = logins
+        except PrivateRepo:
+            print("skipped a repo that is not public", file=sys.stderr)
+        except (subprocess.SubprocessError, KeyError, TypeError, ValueError):
+            merged[repo] = None
+    return merged
 
 
 class PrivateRepo(Exception):
@@ -294,25 +356,34 @@ def _same_as_saved(out: str, rows: list[dict], unreadable: list[str]) -> bool:
     return saved.get("rows") == rows and saved.get("unreadable") == unreadable
 
 
+def _load_data(args) -> tuple[dict, dict]:
+    """(PR nodes by repo, merged-PR logins by repo): from a fixture, or from GitHub (and then saved when asked)."""
+    if args.fixture:
+        with open(args.fixture, encoding="utf-8") as f:
+            saved = json.load(f)
+        prs, merged = (saved["prs"], saved.get("merged", {})) if "prs" in saved else (saved, {})
+    else:
+        repos = [r for r in args.repos.split(",") if r]
+        prs, merged = fetch(repos), fetch_merged(repos)
+        if args.save:
+            with open(args.save, "w", encoding="utf-8") as f:
+                json.dump({"prs": prs, "merged": {repo: None if logins is None else sorted(logins) for repo, logins in merged.items()}}, f)
+    return prs, {repo: None if logins is None else set(logins) for repo, logins in merged.items()}
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=(__doc__ or "").splitlines()[0])
-    ap.add_argument("--fixture", help="read this saved data (repo -> PR nodes) instead of GitHub")
+    ap.add_argument("--fixture", help="read this saved data ({prs, merged}, or just repo -> PR nodes) instead of GitHub")
     ap.add_argument("--save", help="also save the data read from GitHub to this file")
+    ap.add_argument("--team", default=TEAM_FILE, help="the team file (default: team.json beside board.py)")
     ap.add_argument("--out", required=True)
     ap.add_argument("--url", default="")
     ap.add_argument("--now", default=None)
     ap.add_argument("--only-if-changed", action="store_true", help="write nothing when the rows and the unreadable repos match the board.json already in --out")
     ap.add_argument("--repos", default=",".join(REPOS))
     args = ap.parse_args(argv)
-    if args.fixture:
-        with open(args.fixture, encoding="utf-8") as f:
-            data = json.load(f)
-    else:
-        data = fetch([r for r in args.repos.split(",") if r])
-        if args.save:
-            with open(args.save, "w", encoding="utf-8") as f:
-                json.dump(data, f)
-    rows = rows_from(data)
+    data, merged = _load_data(args)
+    rows = rows_from(data, load_team(args.team), merged)
     unreadable = sorted(repo for repo, nodes in data.items() if nodes is None)
     generated = args.now or time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime())
     if args.only_if_changed and _same_as_saved(args.out, rows, unreadable):
