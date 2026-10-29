@@ -1,0 +1,38 @@
+name: refresh
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["board.py", ".github/workflows/refresh.yml"]
+permissions:
+  contents: write
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tests
+        run: python3 -m unittest discover -s tests
+      - name: Build the page and commit it when it changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "pr-board"
+          git config user.email "pr-board@users.noreply.github.com"
+          url="https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/"
+          for attempt in 1 2 3; do
+            python3 board.py --out docs --url "$url" --only-if-changed
+            git add docs
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m "Refresh the board"
+            if git push; then exit 0; fi
+            # someone pushed meanwhile: start again from their tip
+            git fetch origin main
+            git reset --hard origin/main
+          done
+          exit 1
