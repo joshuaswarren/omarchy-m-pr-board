@@ -472,6 +472,33 @@ class FixtureRunTest(unittest.TestCase):
             with open(os.path.join(tmp, "board.json"), encoding="utf-8") as f:
                 self.assertEqual(json.load(f)["generated"], "third")
 
+    def test_only_if_changed_writes_when_the_wording_changed_but_no_row_did(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            fixture = os.path.join(tmp, "data.json")
+            with open(fixture, "w", encoding="utf-8") as f:
+                json.dump({"o/r": [node(1)]}, f)
+            args = ["--fixture", fixture, "--out", tmp, "--url", "u", "--only-if-changed"]
+            board.main([*args, "--now", "first"])
+            original = board.render_daily
+            board.render_daily = lambda rows, url: "new wording\n"
+            try:
+                board.main([*args, "--now", "second"])
+            finally:
+                board.render_daily = original
+            with open(os.path.join(tmp, "daily.txt"), encoding="utf-8") as f:
+                self.assertEqual(f.read(), "new wording\n")
+
+    def test_only_if_changed_keeps_the_time_when_nothing_changed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            fixture = os.path.join(tmp, "data.json")
+            with open(fixture, "w", encoding="utf-8") as f:
+                json.dump({"o/r": [node(1)]}, f)
+            args = ["--fixture", fixture, "--out", tmp, "--url", "u", "--only-if-changed"]
+            board.main([*args, "--now", "first"])
+            board.main([*args, "--now", "second"])
+            with open(os.path.join(tmp, "index.html"), encoding="utf-8") as f:
+                self.assertIn("Last change: first", f.read())
+
     def test_only_if_changed_still_writes_a_file_that_is_missing(self):
         with tempfile.TemporaryDirectory() as tmp:
             fixture = os.path.join(tmp, "data.json")

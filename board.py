@@ -30,7 +30,6 @@ RC_LABEL = re.compile(r"^(rc[- ]?blocker|release[- ]?blocker|blocker|rc)$", re.I
 FAILED = {"FAILURE", "TIMED_OUT", "STARTUP_FAILURE"}
 APPROVAL_GATE = "approve"  # a check some repos use to say "no approving review yet"
 MAX_LISTED = 12
-OUTPUT_FILES = ("index.html", "summary.txt", "daily.txt", "board.json")
 MAX_DAILY_STUCK = 20  # stuck team PRs named one by one in the daily text
 GROUPS = (("team", "Omarchy M team"), ("contributor", "Existing contributors"), ("other", "Everyone else"))
 MAX_MERGED_PAGES = 60  # 100 per page: more than 6000 merged PRs in one repo is not read to the end
@@ -526,14 +525,23 @@ def _worse_than_saved(out: str, unreadable: list[str]) -> bool:
     return len(unreadable) > len(saved.get("unreadable", []))
 
 
-def _same_as_saved(out: str, rows: list[dict], unreadable: list[str]) -> bool:
+def _outputs(rows: list[dict], unreadable: list[str], generated: str, url: str) -> dict[str, str]:
+    return {"index.html": render_html(rows, generated, unreadable), "summary.txt": render_summary(rows, url), "daily.txt": render_daily(rows, url),
+            "board.json": json.dumps({"generated": generated, "rows": rows, "unreadable": unreadable}, indent=1) + "\n"}
+
+
+def _same_as_saved(out: str, rows: list[dict], unreadable: list[str], url: str) -> bool:
+    """True when every file in out is exactly what would be written now, apart from the time: so a changed row, a changed text and a missing file all count as changes."""
     try:
         with open(os.path.join(out, "board.json"), encoding="utf-8") as f:
-            saved = json.load(f)
-    except (OSError, ValueError):
+            saved_time = json.load(f)["generated"]
+        for name, text in _outputs(rows, unreadable, saved_time, url).items():
+            with open(os.path.join(out, name), encoding="utf-8") as f:
+                if f.read() != text:
+                    return False
+    except (OSError, ValueError, KeyError):
         return False
-    complete = all(os.path.exists(os.path.join(out, name)) for name in OUTPUT_FILES)  # a file added since the last write must be written
-    return complete and saved.get("rows") == rows and saved.get("unreadable") == unreadable
+    return True
 
 
 def _load_data(args) -> tuple[dict, dict]:
@@ -559,7 +567,7 @@ def main(argv=None) -> int:
     ap.add_argument("--out", required=True)
     ap.add_argument("--url", default="")
     ap.add_argument("--now", default=None)
-    ap.add_argument("--only-if-changed", action="store_true", help="write nothing when the rows and the unreadable repos match the board.json already in --out")
+    ap.add_argument("--only-if-changed", action="store_true", help="write nothing when every file in --out is already what would be written, apart from the time")
     ap.add_argument("--keep-last-good", action="store_true", help="write nothing when more repos are unreadable than in the board.json already in --out")
     ap.add_argument("--repos", default=",".join(REPOS))
     args = ap.parse_args(argv)
@@ -567,15 +575,13 @@ def main(argv=None) -> int:
     rows = rows_from(data, load_team(args.team), merged)
     unreadable = sorted(repo for repo, nodes in data.items() if nodes is None)
     generated = args.now or time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime())
-    if args.only_if_changed and _same_as_saved(args.out, rows, unreadable):
+    if args.only_if_changed and _same_as_saved(args.out, rows, unreadable, args.url):
         return 0
     if args.keep_last_good and _worse_than_saved(args.out, unreadable):
         print("more repos are unreadable than on the saved page: keeping the saved page", file=sys.stderr)
         return 0
     os.makedirs(args.out, exist_ok=True)
-    outputs = {"index.html": render_html(rows, generated, unreadable), "summary.txt": render_summary(rows, args.url), "daily.txt": render_daily(rows, args.url),
-               "board.json": json.dumps({"generated": generated, "rows": rows, "unreadable": unreadable}, indent=1) + "\n"}
-    for name, text in outputs.items():
+    for name, text in _outputs(rows, unreadable, generated, args.url).items():
         with open(os.path.join(args.out, name), "w", encoding="utf-8") as f:
             f.write(text)
     return 1 if rows == [] and unreadable else 0
