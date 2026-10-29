@@ -22,7 +22,7 @@ class LiveFixtureTest(unittest.TestCase):
     def test_every_pr_becomes_one_row_with_every_field(self):
         rows = board.rows_from(DATA, TEAM, MERGED)
         self.assertEqual(len(rows), sum(len(nodes) for nodes in DATA.values()))
-        fields = {"group", "draft", "repo", "number", "title", "url", "owner", "merge", "checks", "approvals", "maclab", "kind", "blocker", "can_merge", "rc_blocker", "updated"}
+        fields = {"group", "draft", "state", "repo", "number", "title", "url", "owner", "merge", "checks", "approvals", "maclab", "kind", "blocker", "can_merge", "rc_blocker", "updated"}
         for r in rows:
             self.assertEqual(set(r), fields)
             self.assertTrue(r["blocker"])

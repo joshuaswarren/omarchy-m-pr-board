@@ -75,39 +75,59 @@ class PageSectionsTest(unittest.TestCase):
         self.assertIn("r #3 by alice", board.render_html(rows, "t"))
 
 
-class RowChipsTest(unittest.TestCase):
+class StateTest(unittest.TestCase):
+    def state(self, **over):
+        return board.classify("o/r", node(1, **over))["state"]
+
+    def test_a_green_clean_pr_is_ready_to_merge(self):
+        self.assertEqual(self.state(), "ready to merge")
+
+    def test_a_draft_is_held_whatever_else_is_wrong_with_it(self):
+        self.assertEqual(self.state(isDraft=True, mergeable="CONFLICTING", mergeStateStatus="DIRTY"), "held")
+
+    def test_a_missing_review_a_run_waiting_for_a_maintainer_and_branch_rules_need_review(self):
+        self.assertEqual(self.state(reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED"), "needs review")
+        self.assertEqual(self.state(commits=rollup("PENDING", check("build", "ACTION_REQUIRED")), mergeStateStatus="BLOCKED", reviewDecision="REVIEW_REQUIRED"), "needs review")
+        self.assertEqual(self.state(mergeStateStatus="BLOCKED"), "needs review")
+
+    def test_conflicts_failing_checks_requested_changes_and_a_branch_behind_need_fixes(self):
+        self.assertEqual(self.state(mergeable="CONFLICTING", mergeStateStatus="DIRTY"), "needs fixes")
+        self.assertEqual(self.state(commits=rollup("FAILURE", check("lint", "FAILURE"))), "needs fixes")
+        self.assertEqual(self.state(reviewDecision="CHANGES_REQUESTED", reviews={"nodes": [{"state": "CHANGES_REQUESTED", "author": {"login": "x"}}]}), "needs fixes")
+        self.assertEqual(self.state(mergeStateStatus="BEHIND"), "needs fixes")
+
+    def test_running_checks_and_an_unknown_merge_state_are_waiting(self):
+        self.assertEqual(self.state(commits=rollup("PENDING", check("build", None, "IN_PROGRESS")), mergeStateStatus="BLOCKED"), "waiting")
+        self.assertEqual(self.state(mergeable="UNKNOWN", mergeStateStatus="UNKNOWN"), "waiting")
+        self.assertEqual(board.classify("o/r", {"number": 5, "_unread": True})["state"], "waiting")
+
+    def test_every_blocking_kind_has_a_state_and_every_state_a_colour(self):
+        kinds = {"None", "Draft", "Merge conflicts", "Changes requested", "Failing check", "Workflow run needs approval", "Needs review", "Checks running",
+                 "Branch behind", "Mergeability unknown", "Branch rules", "Unread"}
+        self.assertEqual(set(board.KIND_STATE), kinds)
+        self.assertEqual(set(board.KIND_STATE.values()), set(board.STATES))
+        self.assertEqual(set(board.STATE_CLASS), set(board.STATES))
+
+    def test_the_summary_and_the_page_agree_on_what_is_ready(self):
+        rows = board.rows_from({"o/r": [node(1), node(2, isDraft=True), node(3, reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED")]})
+        self.assertEqual([r["can_merge"] for r in rows], [r["state"] == "ready to merge" for r in rows])
+
+
+class ChipsTest(unittest.TestCase):
     def chips(self, **over):
         return board._chips(board.classify("o/r", node(1, **over)))
 
-    def test_a_green_approved_clean_pr_has_three_chips_and_they_are_green(self):
-        self.assertEqual(self.chips(), [("ok", "CI passing"), ("ok", "approved"), ("ok", "mergeable")])
+    def test_a_row_has_one_state_chip_and_nothing_else_by_default(self):
+        self.assertEqual(self.chips(), [("ok", "ready to merge")])
 
-    def test_a_draft_gets_a_draft_chip_first(self):
-        self.assertEqual(self.chips(isDraft=True)[0], ("draft", "draft"))
+    def test_each_state_has_its_colour(self):
+        self.assertEqual(self.chips(isDraft=True), [("draft", "held")])
+        self.assertEqual(self.chips(reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED"), [("warn", "needs review")])
+        self.assertEqual(self.chips(mergeable="CONFLICTING", mergeStateStatus="DIRTY"), [("bad", "needs fixes")])
+        self.assertEqual(self.chips(mergeStateStatus="BEHIND")[0][1], "needs fixes")
 
-    def test_the_defaults_say_nothing_no_ci_and_no_review_rule_show_no_chip(self):
-        chips = self.chips(commits={"nodes": [{"commit": {"statusCheckRollup": None}}]}, reviewDecision=None, reviews={"nodes": []})
-        self.assertEqual(chips, [("ok", "mergeable")])
-
-    def test_failing_ci_conflicts_and_requested_changes_are_red(self):
-        chips = self.chips(commits=rollup("FAILURE", check("lint", "FAILURE")), mergeable="CONFLICTING", mergeStateStatus="DIRTY", reviewDecision="CHANGES_REQUESTED",
-                           reviews={"nodes": [{"state": "CHANGES_REQUESTED", "author": {"login": "x"}}]})
-        self.assertEqual(chips, [("bad", "CI failing"), ("bad", "changes requested"), ("bad", "conflicts")])
-
-    def test_running_ci_and_a_missing_review_are_yellow(self):
-        chips = self.chips(commits=rollup("PENDING", check("build", None, "IN_PROGRESS")), reviewDecision="REVIEW_REQUIRED", reviews={"nodes": []})
-        self.assertEqual(chips[:2], [("warn", "CI running"), ("warn", "needs review")])
-
-    def test_an_approval_that_does_not_satisfy_the_rule_is_not_shown_as_approved(self):
-        chips = self.chips(reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED")
-        self.assertIn(("warn", "needs review"), chips)
-        self.assertNotIn(("ok", "approved"), chips)
-
-    def test_an_rc_blocker_gets_its_chip_last(self):
-        self.assertEqual(self.chips(labels={"nodes": [{"name": "rc-blocker"}]})[-1], ("bad", "RC blocker"))
-
-    def test_an_unread_pr_shows_one_dim_chip_and_claims_nothing(self):
-        self.assertEqual(board._chips(board.classify("o/r", {"number": 5, "_unread": True})), [("", "details unavailable")])
+    def test_an_rc_blocker_gets_a_second_chip(self):
+        self.assertEqual(self.chips(labels={"nodes": [{"name": "rc-blocker"}]}), [("ok", "ready to merge"), ("bad", "RC blocker")])
 
 
 class RowHtmlTest(unittest.TestCase):
@@ -119,10 +139,37 @@ class RowHtmlTest(unittest.TestCase):
         self.assertIn('class="pr ready"', html)
         self.assertNotIn('class="why"', html)
 
-    def test_a_stuck_row_says_its_blocker_under_the_title(self):
-        html = self.html(pr(1, "alice", isDraft=True))
+    def test_a_row_that_needs_something_says_what_under_the_title(self):
+        html = self.html(pr(1, "alice", mergeable="CONFLICTING", mergeStateStatus="DIRTY"))
         self.assertNotIn('class="pr ready"', html)
-        self.assertIn('<div class="why">Draft</div>', html)
+        self.assertIn('<div class="why">Merge conflicts with the base branch</div>', html)
+
+    def test_a_line_that_repeats_the_state_is_cut_and_a_more_specific_one_stays(self):
+        plain = self.html(pr(1, "alice", reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED"))
+        self.assertIn(">needs review<", plain)
+        self.assertNotIn('class="why"', plain)
+        specific = self.html(pr(1, "alice", mergeStateStatus="BLOCKED"))
+        self.assertIn('<div class="why">Blocked by branch rules', specific)
+        waiting = self.html(pr(1, "alice", commits=rollup("PENDING", check("build", None, "IN_PROGRESS")), mergeStateStatus="BLOCKED"))
+        self.assertIn('<div class="why">Checks still running</div>', waiting)
+
+    def test_held_prs_fold_into_one_closed_group_and_say_nothing_more(self):
+        html = self.html(pr(1, "alice"), pr(2, "alice", isDraft=True), pr(3, "alice", isDraft=True))
+        self.assertIn('<details class="held"><summary>2 held</summary>', html)
+        self.assertNotIn("<details open", html)
+        self.assertLess(html.index("r #1 by alice"), html.index('<details class="held">'))
+        self.assertLess(html.index('<details class="held">'), html.index("r #2 by alice"))
+        self.assertNotIn('<div class="why">Draft</div>', html)
+
+    def test_a_section_with_only_held_prs_shows_the_group_and_not_none(self):
+        html = self.html(pr(1, "alice", isDraft=True))
+        self.assertIn("1 held", html)
+        self.assertNotIn('<p class="none">None.</p>', html.split("Existing contributors")[0])
+
+    def test_the_active_prs_come_in_state_order(self):
+        html = self.html(pr(1, "alice", mergeable="CONFLICTING", mergeStateStatus="DIRTY"), pr(2, "alice", reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED"), pr(3, "alice"))
+        order = [html.index(f"r #{n} by alice") for n in (3, 2, 1)]
+        self.assertEqual(order, sorted(order))
 
     def test_the_age_is_a_time_element_with_the_date_as_its_plain_text(self):
         html = self.html(pr(1, "alice", updatedAt="2026-10-27T09:00:00Z"))
