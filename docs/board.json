@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29 18:25 UTC",
+ "generated": "2026-10-29 18:29 UTC",
  "rows": [
   {
    "group": "team",
@@ -102,6 +102,23 @@
    "can_merge": true,
    "rc_blocker": "no",
    "updated": "2026-10-26"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 245,
+   "title": "soc: apple: clpc: hand the T8140 GPU floor back 100 ms after the PMP stops limiting",
+   "url": "https://github.com/omacom/linux-aurora/pull/245",
+   "owner": "DjDeveloperr",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "approved by 1",
+   "maclab": "unknown",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "rc_blocker": "no",
+   "updated": "2026-10-29"
   },
   {
    "group": "team",
@@ -535,7 +552,7 @@
    "title": "Apple M6 (T8152) Mac mini base: PMGR, USB2, DART, NVMe, board fragments",
    "url": "https://github.com/omacom/linux-aurora/pull/191",
    "owner": "joshuaswarren",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "none yet",
    "maclab": "unknown",
@@ -637,7 +654,7 @@
    "title": "M6 audio: DART owned streams, ADMAC apertures, CIO reset, AOP audio and macaudio for the T8152 Mac mini",
    "url": "https://github.com/omacom/linux-aurora/pull/201",
    "owner": "joshuaswarren",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "failing: ci / host tests (tools), ci / host tests (tools), ci / package, ci / result, ci / result",
    "approvals": "none yet",
    "maclab": "unknown",
@@ -697,23 +714,6 @@
    "can_merge": false,
    "rc_blocker": "no",
    "updated": "2026-10-27"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/linux-aurora",
-   "number": 245,
-   "title": "soc: apple: clpc: hand the T8140 GPU floor back 100 ms after the PMP stops limiting",
-   "url": "https://github.com/omacom/linux-aurora/pull/245",
-   "owner": "DjDeveloperr",
-   "merge": "unknown",
-   "checks": "passing",
-   "approvals": "approved by 1",
-   "maclab": "unknown",
-   "kind": "Mergeability unknown",
-   "blocker": "GitHub has not computed mergeability yet",
-   "can_merge": false,
-   "rc_blocker": "no",
-   "updated": "2026-10-29"
   },
   {
    "group": "team",
@@ -824,7 +824,7 @@
    "title": "drm/asahi: reserve the M5 UAPI feature bits, command types and bind flag",
    "url": "https://github.com/omacom/linux-aurora/pull/273",
    "owner": "DjDeveloperr",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "none yet",
    "maclab": "unknown",
@@ -2065,7 +2065,7 @@
    "title": "media: apple: avd: av1: do not index reference_frame_ts with ref_frame_idx -1",
    "url": "https://github.com/omacom/linux-aurora/pull/260",
    "owner": "samucarre",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "none yet",
    "maclab": "unknown",
