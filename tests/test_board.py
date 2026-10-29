@@ -147,8 +147,8 @@ class PageTest(unittest.TestCase):
         self.assertNotIn("<script>alert(1)</script>", html)
         self.assertIn("&lt;script&gt;alert(1)&lt;/script&gt;", html)
         self.assertLess(html.index("Omarchy M team"), html.index("Everyone else"))
-        self.assertIn("2026-10-29 12:00 UTC", html)
-        self.assertIn("unknown", html)
+        self.assertIn("Last change: 2026-10-29 12:00 UTC", html)
+        self.assertIn("Maclab qualification is not shown", html)
 
     def test_the_summary_says_what_can_merge_and_what_waits_on_whom(self):
         text = board.render_summary(self.rows(), "https://example.invalid/board")
@@ -441,7 +441,7 @@ class FixtureRunTest(unittest.TestCase):
             self.assertEqual([(r["number"], r["can_merge"]) for r in saved["rows"]], [(1, True), (2, False)])
             self.assertEqual(saved["generated"], "2026-10-29 12:00 UTC")
             with open(os.path.join(tmp, "index.html"), encoding="utf-8") as f:
-                self.assertIn("o/r#1", f.read())
+                self.assertIn("r #1 by alice", f.read())
             with open(os.path.join(tmp, "summary.txt"), encoding="utf-8") as f:
                 self.assertIn("1 can merge now", f.read())
 

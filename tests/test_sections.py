@@ -12,7 +12,7 @@ import unittest
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 import board
-from test_board import node
+from test_board import check, node, rollup
 
 TEAM = {"alice", "bob"}
 
@@ -60,21 +60,95 @@ class PageSectionsTest(unittest.TestCase):
 
     def test_the_page_has_the_three_sections_in_order_with_counts(self):
         html = board.render_html(self.rows(), "t")
-        order = [html.index(h) for h in ("Omarchy M team (1 open, 1 can merge now)", "Existing contributors (1 open, 1 can merge now)", "Everyone else (1 open, 1 can merge now)")]
+        order = [html.index(h) for h in ("Omarchy M team", "Existing contributors", "Everyone else")]
         self.assertEqual(order, sorted(order))
+        self.assertEqual(html.count("<span>1 open, 1 can merge now</span>"), 3)
 
     def test_an_empty_section_says_none(self):
         html = board.render_html(board.rows_from({"o/r": [pr(1, "alice")]}, TEAM, {}), "t")
-        self.assertIn("Existing contributors (0 open", html)
-        self.assertIn("<p>None.</p>", html)
+        self.assertIn("Existing contributors<span>0 open, 0 can merge now</span>", html)
+        self.assertIn('<p class="none">None.</p>', html)
 
     def test_the_page_shows_the_login_only_never_a_name(self):
         rows = self.rows()
-        self.assertTrue(all(set(r) .isdisjoint({"team_name", "name"}) for r in rows))
-        self.assertIn("<td>alice</td>", board.render_html(rows, "t"))
+        self.assertTrue(all(set(r).isdisjoint({"team_name", "name"}) for r in rows))
+        self.assertIn("r #3 by alice", board.render_html(rows, "t"))
 
-    def test_the_summary_counts_the_sections(self):
-        self.assertIn("Team 1, existing contributors 1, everyone else 1.", board.render_summary(self.rows(), "u"))
+
+class RowChipsTest(unittest.TestCase):
+    def chips(self, **over):
+        return board._chips(board.classify("o/r", node(1, **over)))
+
+    def test_a_green_approved_clean_pr_has_three_chips_and_they_are_green(self):
+        self.assertEqual(self.chips(), [("ok", "CI passing"), ("ok", "approved"), ("ok", "mergeable")])
+
+    def test_a_draft_gets_a_draft_chip_first(self):
+        self.assertEqual(self.chips(isDraft=True)[0], ("draft", "draft"))
+
+    def test_the_defaults_say_nothing_no_ci_and_no_review_rule_show_no_chip(self):
+        chips = self.chips(commits={"nodes": [{"commit": {"statusCheckRollup": None}}]}, reviewDecision=None, reviews={"nodes": []})
+        self.assertEqual(chips, [("ok", "mergeable")])
+
+    def test_failing_ci_conflicts_and_requested_changes_are_red(self):
+        chips = self.chips(commits=rollup("FAILURE", check("lint", "FAILURE")), mergeable="CONFLICTING", mergeStateStatus="DIRTY", reviewDecision="CHANGES_REQUESTED",
+                           reviews={"nodes": [{"state": "CHANGES_REQUESTED", "author": {"login": "x"}}]})
+        self.assertEqual(chips, [("bad", "CI failing"), ("bad", "changes requested"), ("bad", "conflicts")])
+
+    def test_running_ci_and_a_missing_review_are_yellow(self):
+        chips = self.chips(commits=rollup("PENDING", check("build", None, "IN_PROGRESS")), reviewDecision="REVIEW_REQUIRED", reviews={"nodes": []})
+        self.assertEqual(chips[:2], [("warn", "CI running"), ("warn", "needs review")])
+
+    def test_an_approval_that_does_not_satisfy_the_rule_is_not_shown_as_approved(self):
+        chips = self.chips(reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED")
+        self.assertIn(("warn", "needs review"), chips)
+        self.assertNotIn(("ok", "approved"), chips)
+
+    def test_an_rc_blocker_gets_its_chip_last(self):
+        self.assertEqual(self.chips(labels={"nodes": [{"name": "rc-blocker"}]})[-1], ("bad", "RC blocker"))
+
+    def test_an_unread_pr_shows_one_dim_chip_and_claims_nothing(self):
+        self.assertEqual(board._chips(board.classify("o/r", {"number": 5, "_unread": True})), [("", "details unavailable")])
+
+
+class RowHtmlTest(unittest.TestCase):
+    def html(self, *nodes, **kw):
+        return board.render_html(board.rows_from({"o/r": list(nodes)}, TEAM, {}), "t", **kw)
+
+    def test_a_ready_row_is_marked_and_has_no_blocking_line(self):
+        html = self.html(pr(1, "alice"))
+        self.assertIn('class="pr ready"', html)
+        self.assertNotIn('class="why"', html)
+
+    def test_a_stuck_row_says_its_blocker_under_the_title(self):
+        html = self.html(pr(1, "alice", isDraft=True))
+        self.assertNotIn('class="pr ready"', html)
+        self.assertIn('<div class="why">Draft</div>', html)
+
+    def test_the_age_is_a_time_element_with_the_date_as_its_plain_text(self):
+        html = self.html(pr(1, "alice", updatedAt="2026-10-27T09:00:00Z"))
+        self.assertIn('<time class="chip" datetime="2026-10-27" title="last updated">2026-10-27</time>', html)
+        self.assertIn("document.querySelectorAll", html)
+
+    def test_a_title_a_login_and_a_url_cannot_break_out_of_the_page(self):
+        evil = pr(1, '"><img src=x>', title='<b onmouseover="x">t</b>', url='https://example.invalid/"><script>x</script>')
+        html = self.html(evil)
+        self.assertNotIn("<img src=x>", html)
+        self.assertNotIn('<b onmouseover', html)
+        self.assertNotIn('"><script>x</script>', html)
+
+    def test_the_page_has_no_external_request(self):
+        html = self.html(pr(1, "alice"))
+        for needle in ("http://", "https://fonts", "<link", "src="):
+            self.assertNotIn(needle, html.replace("https://example.invalid", ""), needle)
+
+    def test_the_page_is_dark_tokyo_night_and_fits_a_phone(self):
+        html = self.html(pr(1, "alice"))
+        self.assertIn("--night:#1a1b26", html)
+        self.assertIn('name="viewport"', html)
+        self.assertIn("@media(max-width", html)
+
+    def test_unreadable_repos_are_named_in_a_note(self):
+        self.assertIn('<p class="note">Not read this time: o/gone.</p>', self.html(pr(1, "alice"), unreadable=["o/gone"]))
 
 
 class DailyTest(unittest.TestCase):
