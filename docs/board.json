@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29 17:10 UTC",
+ "generated": "2026-10-29 17:04 UTC",
  "rows": [
   {
    "repo": "chriskearney/maclab",
@@ -1751,15 +1751,15 @@
    "title": "Let the engine inspect and plan the M3 Ultra Mac Studio",
    "url": "https://github.com/omacom/omarchy-mac-installer/pull/134",
    "owner": "joshuaswarren",
-   "merge": "conflicts",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "none yet",
    "maclab": "unknown",
-   "kind": "Merge conflicts",
-   "blocker": "Merge conflicts with the base branch",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
    "can_merge": false,
    "rc_blocker": "no",
-   "updated": "2026-10-28"
+   "updated": "2026-10-29"
   },
   {
    "repo": "omacom/omarchy-mac-installer",
