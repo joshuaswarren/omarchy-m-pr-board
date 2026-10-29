@@ -200,7 +200,11 @@ def ref(r: dict) -> str:
 
 
 def _listed(rows: list[dict]) -> str:
-    text = ", ".join(ref(r) for r in rows[:MAX_LISTED])
+    """The first MAX_LISTED PRs, one repo name per run of numbers: linux-aurora 110, 146; mesa 5."""
+    groups: dict[str, list[str]] = {}
+    for r in rows[:MAX_LISTED]:
+        groups.setdefault(short(r["repo"]), []).append(str(r["number"]))
+    text = "; ".join(f"{name} {', '.join(numbers)}" for name, numbers in groups.items())
     return text + (f", and {len(rows) - MAX_LISTED} more" if len(rows) > MAX_LISTED else "")
 
 

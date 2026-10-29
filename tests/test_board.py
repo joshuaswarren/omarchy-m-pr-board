@@ -156,9 +156,9 @@ class PageTest(unittest.TestCase):
         rows = board.rows_from({"o/r": [node(n) for n in range(1, board.MAX_LISTED + 4)],
                                 "o/s": [node(n, reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED") for n in range(1, board.MAX_LISTED + 6)]})
         text = board.render_summary(rows, "u")
-        self.assertIn(f"r {board.MAX_LISTED}, and 3 more.", text)
-        self.assertIn(f"s {board.MAX_LISTED}, and 5 more.", text)
-        self.assertNotIn(f"s {board.MAX_LISTED + 1},", text)
+        self.assertIn(f", {board.MAX_LISTED}, and 3 more.", text)
+        self.assertIn(f"Needs review ({board.MAX_LISTED + 5}): s 1, 2, 3", text)
+        self.assertNotIn(f", {board.MAX_LISTED + 1},", text)
 
     def test_the_author_side_is_counted_by_kind_not_by_the_names_in_the_text(self):
         rows = board.rows_from({"o/r": [node(1, commits=rollup("FAILURE", check("a", "FAILURE"))),
@@ -166,6 +166,10 @@ class PageTest(unittest.TestCase):
                                          node(3, reviewDecision="CHANGES_REQUESTED", reviews={"nodes": [{"state": "CHANGES_REQUESTED", "author": {"login": "x"}}]}),
                                          node(4, reviewDecision="CHANGES_REQUESTED", reviews={"nodes": [{"state": "CHANGES_REQUESTED", "author": {"login": "y"}}]})]})
         self.assertIn("Waiting on the author or a run: Failing check 2, Changes requested 2.", board.render_summary(rows, "u"))
+
+    def test_prs_of_two_repos_are_listed_with_one_repo_name_per_run(self):
+        rows = board.rows_from({"omacom/mesa": [node(5), node(6)], "omacom/omarchy-mac-installer": [node(134)]})
+        self.assertIn("Can merge now: mesa 5, 6; installer 134.", board.render_summary(rows, "u"))
 
     def test_a_clean_board_has_no_waiting_lines(self):
         text = board.render_summary(board.rows_from({"o/r": [node(1)]}), "u")

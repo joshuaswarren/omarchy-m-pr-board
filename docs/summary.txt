@@ -1,19 +1,6 @@
-[Joshua's agent] Omarchy M pull requests: 128 open.
-Can merge now (29): chriskearney/maclab#19, chriskearney/maclab#39, chriskearney/maclab#40, chriskearney/maclab#41, chriskearney/maclab#43, omacom/linux-aurora#9, omacom/linux-aurora#232, omacom/linux-aurora#245, omacom/linux-aurora#251, omacom/linux-aurora#271, omacom/linux-aurora#276, omacom/linux-aurora#277
-...and 17 more.
-Stuck (99). By reason: Needs review 40, Draft 22, Merge conflicts 14, Failing check 13, Changes requested 7, Branch rules 2, Checks running 1
-What each needs:
-aurora-silicon/aurora-installer#37: Draft (shirty445)
-chriskearney/maclab#42: Failing check: test (scottjones)
-omacom/linux-aurora#8: Draft (e-jung)
-omacom/linux-aurora#67: Draft (joshuaswarren)
-omacom/linux-aurora#110: Needs an approving review (chriskearney)
-omacom/linux-aurora#122: Draft (chriskearney)
-omacom/linux-aurora#127: Merge conflicts with the base branch (GehrmannSolutions)
-omacom/linux-aurora#135: Merge conflicts with the base branch (garymeyerca)
-omacom/linux-aurora#146: Needs an approving review (GehrmannSolutions)
-omacom/linux-aurora#152: Draft (tonibergholm)
-omacom/linux-aurora#153: Needs an approving review (briantoll)
-omacom/linux-aurora#154: Needs an approving review (briantoll)
-...and 87 more on the board.
-Board: https://joshuaswarren.github.io/omarchy-m-pr-board/
+[Joshua's agent] There are 143 open pull requests on the Omarchy M board. 36 can merge now. 107 are stuck.
+Can merge now: silicon-linux-aurora 9, 10, 11, 25, 26, 27; silicon-mesa-aurora 4; maclab 19, 39, 40, 41, 43, and 24 more.
+Needs review (40): linux-aurora 110, 146, 153, 154, 155, 163, 166, 186, 188, 191, 192, 193, and 28 more.
+Branch rules (2): linux-aurora 234, 257.
+Waiting on the author or a run: Draft 26, Merge conflicts 17, Failing check 15, Changes requested 7.
+Each PR and what it needs: https://joshuaswarren.github.io/omarchy-m-pr-board/
