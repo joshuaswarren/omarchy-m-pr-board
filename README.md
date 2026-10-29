@@ -6,7 +6,7 @@ The page is at https://joshuaswarren.github.io/omarchy-m-pr-board/. A workflow r
 
 Repos: omacom/linux-aurora, omacom/mesa, omacom/omarchy-mac-installer, omacom/omarchy-mac-pkgs and chriskearney/maclab. Also aurora-silicon/aurora-installer. To change the list, edit `REPOS` in `board.py`. The board only reads public repos: it refuses a repo that is private, or that does not say it is public, and does not name it.
 
-Columns: merge state, checks, approvals, maclab qualification, the blocking item, the owner and the RC blocker flag. The owner is the author. The RC blocker flag is yes when the PR has a label named rc, rc-blocker, release blocker or blocker. Maclab qualification is always "unknown", because maclab's job records are not public.
+Each PR is one row: its title, its repo, number and author, and its blocking item when it has one. Chips show what matters: draft, CI, review, mergeable, and the days since the last update. A PR with no CI, or in a repo that needs no review, shows no chip for it. An RC blocker chip appears when the PR has a label named rc, rc-blocker, release blocker or blocker. A green bar marks a PR that can merge now. The page needs no network beyond itself and fits a phone. Maclab qualification is in `board.json` as "unknown" and not on the page, because maclab's job records are not public.
 
 The page has three sections, in this order: the Omarchy M team, existing contributors, and everyone else. The team is the GitHub logins listed in `team.json`, a plain list. An existing contributor is anyone with an earlier merged PR in the same repo. A team member who is also a contributor shows as team. A test checks the file.
 

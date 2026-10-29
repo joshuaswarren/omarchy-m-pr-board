@@ -217,7 +217,7 @@ def _gate_failing(node: dict) -> bool:
 
 def _unread_row(repo: str, node: dict) -> dict:
     return {"group": "other", "repo": repo, "number": node["number"], "title": "(details unavailable)", "url": f"https://github.com/{repo}/pull/{node['number']}",
-            "owner": "unknown", "merge": "unknown", "checks": "unknown", "approvals": "unknown", "maclab": "unknown", "kind": "Unread",
+            "owner": "unknown", "draft": False, "merge": "unknown", "checks": "unknown", "approvals": "unknown", "maclab": "unknown", "kind": "Unread",
             "blocker": "GitHub would not return this PR's details", "can_merge": False, "rc_blocker": "no", "updated": ""}
 
 
@@ -231,7 +231,7 @@ def classify(repo: str, node: dict, team: set | None = None, merged: dict | None
     login = ((node.get("author") or {}).get("login") or "").lower()
     group = "team" if login and login in (team or ()) else "contributor" if login and login in ((merged or {}).get(repo) or ()) else "other"
     return {
-        "group": group, "repo": repo, "number": node["number"], "title": node.get("title") or "", "url": node.get("url") or f"https://github.com/{repo}/pull/{node['number']}",
+        "group": group, "repo": repo, "number": node["number"], "draft": bool(node.get("isDraft")), "title": node.get("title") or "", "url": node.get("url") or f"https://github.com/{repo}/pull/{node['number']}",
         "owner": (node.get("author") or {}).get("login") or "unknown",
         "merge": {"MERGEABLE": "mergeable", "CONFLICTING": "conflicts"}.get(node.get("mergeable") or "", "unknown"),
         "checks": checks, "approvals": _approvals_text(node.get("reviewDecision"), approved, changes),
@@ -249,41 +249,97 @@ def rows_from(data: dict, team: set | None = None, merged: dict | None = None) -
 
 # -- output ---------------------------------------------------------------------------------
 
-COLUMNS = (("PR", None), ("Title", "title"), ("Owner", "owner"), ("Merge", "merge"), ("Checks", "checks"), ("Approvals", "approvals"),
-           ("Maclab", "maclab"), ("Blocking item", "blocker"), ("RC blocker", "rc_blocker"), ("Updated", "updated"))
+CSS = """
+:root{--night:#1a1b26;--storm:#24283b;--line:rgb(65 72 104 / .8);--soft:rgb(65 72 104 / .35);--blue:#7aa2f7;--cyan:#7dcfff;--white:#c0caf5;--dim:#565f89;--text:#a9b1d6;
+--green:#9ece6a;--yellow:#e0af68;--red:#f7768e;--magenta:#bb9af7;color-scheme:dark}
+*{box-sizing:border-box}
+html{font-size:15px}
+body{background:var(--night);color:var(--text);font:300 1rem/1.5 "JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;margin:0;padding:2.5rem clamp(1rem,4vw,3rem) 4rem}
+main,header,footer{max-width:68rem;margin:0 auto}
+a{color:var(--white);text-decoration:none}
+a:hover{color:var(--cyan)}
+h1{color:var(--white);font-size:1.9rem;font-weight:700;letter-spacing:-.02em;margin:0}
+h1 b{color:var(--green)}
+header p{color:var(--dim);margin:.5rem 0 0}
+header strong{color:var(--white);font-weight:700}
+header .ok{color:var(--green)}
+.card{border:1px solid var(--line);border-radius:4px;margin:3rem 0 0;padding:.9rem 0 .2rem;position:relative}
+.card h2{background:var(--night);color:var(--white);font-size:1rem;font-weight:700;left:1rem;margin:0;padding:0 .6rem;position:absolute;top:-.8rem}
+.card h2 span{color:var(--dim);font-weight:300;margin-left:.6rem}
+.none{color:var(--dim);margin:.4rem 1.2rem .8rem}
+ul{list-style:none;margin:0;padding:0}
+.pr{align-items:center;border-top:1px solid var(--soft);display:flex;gap:1.5rem;justify-content:space-between;padding:.7rem 1.2rem}
+.pr:first-child{border-top:0}
+.pr.ready{box-shadow:inset 3px 0 var(--green)}
+.what{min-width:0}
+.title{font-weight:400;overflow-wrap:anywhere}
+.meta,.why{color:var(--dim);font-size:.82rem}
+.why{color:var(--yellow)}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;justify-content:flex-end;flex:none;max-width:30rem}
+.chip{border:1px solid var(--soft);border-radius:999px;color:var(--dim);font-size:.74rem;padding:.05rem .6rem;white-space:nowrap}
+.chip.ok{border-color:rgb(158 206 106 / .45);color:var(--green)}
+.chip.warn{border-color:rgb(224 175 104 / .45);color:var(--yellow)}
+.chip.bad{border-color:rgb(247 118 142 / .5);color:var(--red)}
+.chip.draft{border-color:rgb(187 154 247 / .45);color:var(--magenta)}
+.note{color:var(--yellow);margin:2rem 0 0}
+footer{color:var(--dim);font-size:.82rem;margin-top:3rem}
+footer p{margin:.3rem 0}
+@media(max-width:760px){.pr{align-items:flex-start;flex-direction:column;gap:.5rem}.chips{justify-content:flex-start;max-width:none}.card{padding-top:.2rem}.card h2{background:none;padding:.9rem 1.2rem .5rem;position:static}.card h2 span{display:block;margin:0}}
+"""
+AGE_SCRIPT = ('<script>for(const t of document.querySelectorAll("time[datetime]")){const d=Math.floor((Date.now()-Date.parse(t.dateTime))/864e5);'
+              't.textContent=d<1?"today":d+"d"}</script>')
 
 
-def _table(rows: list[dict]) -> str:
-    head = "".join(f"<th>{name}</th>" for name, _ in COLUMNS)
-    body = []
-    for r in rows:
-        cells = [f'<td><a href="{html.escape(r["url"], quote=True)}">{html.escape(r["repo"])}#{r["number"]}</a></td>']
-        cells += [f"<td>{html.escape(str(r[key]))}</td>" for _, key in COLUMNS[1:]]
-        body.append("<tr>" + "".join(cells) + "</tr>")
-    return f"<table><thead><tr>{head}</tr></thead><tbody>{''.join(body)}</tbody></table>"
+def _chips(r: dict) -> list[tuple[str, str]]:
+    """(css class, text) of each chip of a row, in reading order: draft, CI, review, merge state, RC."""
+    if r["kind"] == "Unread":
+        return [("", "details unavailable")]
+    ci, review, merge = r["checks"], r["approvals"], r["merge"]
+    chips = [("draft", "draft")] if r["draft"] else []
+    # the defaults say nothing: a PR with no CI, or in a repo that needs no review, shows no chip for it
+    chips += [("ok", "CI passing") if ci.startswith("passing") else ("bad", "CI failing") if ci.startswith("failing") else ("warn", "CI running") if ci == "running"
+              else ("warn", "CI waits for approval") if ci.startswith("needs a maintainer") else ("", "CI unknown")] if ci != "none" else []
+    # GitHub's decision wins over the approvals we counted: a PR can have an approval that does not satisfy the repo's rule
+    chips += [("bad", "changes requested") if "changes requested" in review else ("warn", "needs review") if r["kind"] == "Needs review" or review == "none yet"
+              else ("ok", "approved") if review.startswith("approved") else ("", "review unknown")] if review != "not required" or r["kind"] == "Needs review" else []
+    chips.append(("ok", "mergeable") if merge == "mergeable" else ("bad", "conflicts") if merge == "conflicts" else ("", "merge unknown"))
+    if r["rc_blocker"] == "yes":
+        chips.append(("bad", "RC blocker"))
+    return chips
+
+
+def _row(r: dict) -> str:
+    chips = "".join(f'<span class="chip {css}">{html.escape(text)}</span>' for css, text in _chips(r))
+    if r["updated"]:
+        chips += f'<time class="chip" datetime="{html.escape(r["updated"], quote=True)}" title="last updated">{html.escape(r["updated"])}</time>'
+    why = "" if r["can_merge"] else f'<div class="why">{html.escape(r["blocker"])}</div>'
+    return (f'<li class="pr{" ready" if r["can_merge"] else ""}"><div class="what"><a class="title" href="{html.escape(r["url"], quote=True)}">{html.escape(r["title"])}</a>'
+            f'<div class="meta">{html.escape(short(r["repo"]))} #{r["number"]} by {html.escape(r["owner"])}</div>{why}</div><div class="chips">{chips}</div></li>')
+
+
+def _section(title: str, part: list[dict]) -> str:
+    ready = sum(r["can_merge"] for r in part)
+    head = f'<h2>{html.escape(title)}<span>{len(part)} open, {ready} can merge now</span></h2>'
+    body = f'<ul>{"".join(_row(r) for r in part)}</ul>' if part else '<p class="none">None.</p>'
+    return f'<section class="card">{head}{body}</section>'
 
 
 def render_html(rows: list[dict], generated: str, unreadable: Sequence[str] = ()) -> str:
-    parts = [
-        "<!doctype html><meta charset=utf-8><title>Omarchy M pull requests</title>",
-        "<style>body{font:14px system-ui;margin:2rem}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px;text-align:left;vertical-align:top}th{background:#eee}</style>",
-        "<h1>Omarchy M pull requests</h1>",
-        f"<p>{len(rows)} open. Checked hourly. Last change: {html.escape(generated)}.</p>",
-    ]
+    ready = sum(r["can_merge"] for r in rows)
+    parts = ['<!doctype html>\n<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">',
+             f"<title>Omarchy M pull requests</title><style>{CSS}</style>",
+             f'<header><h1><b>Omarchy M</b> pull requests</h1><p><strong>{len(rows)}</strong> open, <strong class="ok">{ready}</strong> can merge now. '
+             f"Checked hourly. Last change: {html.escape(generated)}.</p></header><main>"]
     if not rows:
-        parts.append("<p>No open pull requests were read.</p>")
+        parts.append('<p class="none">No open pull requests were read.</p>')
     else:
-        for key, title in GROUPS:
-            part = [r for r in rows if r["group"] == key]
-            ready = sum(r["can_merge"] for r in part)
-            parts += [f"<h2>{title} ({len(part)} open, {ready} can merge now)</h2>", _table(part) if part else "<p>None.</p>"]
+        parts += [_section(title, [r for r in rows if r["group"] == key]) for key, title in GROUPS]
     if unreadable:
-        parts.append("<p>Not read this time: " + ", ".join(html.escape(r) for r in unreadable) + ".</p>")
-    parts.append("<p>How to read it. Blocking item: the first thing in the way, in this order: draft, conflicts, requested changes, failing check, "
-                 "workflow run waiting for a maintainer, missing review, running checks, branch behind, branch rules. RC blocker: yes when the PR carries a "
-                 "label named rc, rc-blocker, release blocker or blocker. Can merge now: GitHub reports the PR clean, with no conflicts and every required check "
-                 "and review satisfied; a repo that requires no review shows approvals as not required. Maclab: unknown, because maclab's job records are not public. "
-                 "Sections: the Omarchy M team, then people with an earlier merged PR in the same repo, then everyone else.</p>")
+        parts.append('<p class="note">Not read this time: ' + ", ".join(html.escape(r) for r in unreadable) + ".</p>")
+    parts.append("</main><footer>"
+                 "<p>Blocking item: the first thing in the way. Can merge now: GitHub reports the PR clean. RC blocker: the PR has an rc or blocker label.</p>"
+                 "<p>Team: the Omarchy M team. Existing contributors: an earlier merged PR in the same repo.</p>"
+                 "<p>Maclab qualification is not shown: maclab's job records are not public.</p></footer>" + AGE_SCRIPT)
     return "\n".join(parts) + "\n"
 
 
