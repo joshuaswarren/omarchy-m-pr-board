@@ -30,6 +30,7 @@ RC_LABEL = re.compile(r"^(rc[- ]?blocker|release[- ]?blocker|blocker|rc)$", re.I
 FAILED = {"FAILURE", "TIMED_OUT", "STARTUP_FAILURE"}
 APPROVAL_GATE = "approve"  # a check some repos use to say "no approving review yet"
 MAX_LISTED = 12
+MAX_DAILY_STUCK = 20  # stuck team PRs named one by one in the daily text
 GROUPS = (("team", "Omarchy M team"), ("contributor", "Existing contributors"), ("other", "Everyone else"))
 MAX_MERGED_PAGES = 60  # 100 per page: more than 6000 merged PRs in one repo is not read to the end
 TEAM_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "team.json")
@@ -149,7 +150,7 @@ def _checks(node: dict) -> tuple[str, list[str], bool]:
             failing += [name] if c.get("state") in ("FAILURE", "ERROR") else []
             running = running or c.get("state") == "PENDING"
         elif c.get("conclusion") in FAILED:
-            failing.append(name)
+            failing += [name] if name not in failing else []
         elif c.get("conclusion") == "ACTION_REQUIRED":
             approval = True
         elif c.get("status") != "COMPLETED":
@@ -326,6 +327,23 @@ def render_summary(rows: list[dict], url: str) -> str:
     counts = {key: sum(r["group"] == key for r in rows) for key, _ in GROUPS}
     lines.append(f"Team {counts['team']}, existing contributors {counts['contributor']}, everyone else {counts['other']}.")
     lines.append(f"Each PR and what it needs: {url}")
+    return "\n".join(lines) + "\n"
+
+
+def render_daily(rows: list[dict], url: str) -> str:
+    """The weekday text: what can merge now, and the one thing each stuck team PR needs (GitHub logins only)."""
+    if not rows:
+        return f"[Joshua's agent] No open pull requests were read on the Omarchy M board today. Board: {url}\n"
+    ready = [r for r in rows if r["can_merge"]]
+    stuck = [r for r in rows if r["group"] == "team" and not r["can_merge"]]
+    lines = [f"[Joshua's agent] Omarchy M pull requests today: {len(ready)} can merge now, and {len(stuck)} team PRs are stuck.",
+             "Can merge now: " + (_listed(ready) if ready else "none") + "."]
+    if stuck:
+        lines.append("Stuck team PRs, and the one thing each needs:")
+        lines += [f"PR {ref(r)} by {r['owner']}: {r['blocker']}." for r in stuck[:MAX_DAILY_STUCK]]
+        if len(stuck) > MAX_DAILY_STUCK:
+            lines.append(f"...and {len(stuck) - MAX_DAILY_STUCK} more on the board.")
+    lines.append(f"All PRs and what each needs: {url}")
     return "\n".join(lines) + "\n"
 
 
@@ -549,7 +567,7 @@ def main(argv=None) -> int:
         print("more repos are unreadable than on the saved page: keeping the saved page", file=sys.stderr)
         return 0
     os.makedirs(args.out, exist_ok=True)
-    outputs = {"index.html": render_html(rows, generated, unreadable), "summary.txt": render_summary(rows, args.url),
+    outputs = {"index.html": render_html(rows, generated, unreadable), "summary.txt": render_summary(rows, args.url), "daily.txt": render_daily(rows, args.url),
                "board.json": json.dumps({"generated": generated, "rows": rows, "unreadable": unreadable}, indent=1) + "\n"}
     for name, text in outputs.items():
         with open(os.path.join(args.out, name), "w", encoding="utf-8") as f:

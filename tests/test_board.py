@@ -71,6 +71,10 @@ class BlockingItemTest(unittest.TestCase):
         r = row(commits=rollup("FAILURE", *contexts), mergeStateStatus="UNSTABLE")
         self.assertEqual((r["blocker"], r["checks"]), ("Failing check: lint, test", "failing: lint, test"))
 
+    def test_a_check_that_fails_twice_is_named_once(self):
+        r = row(commits=rollup("FAILURE", check("ci / result", "FAILURE"), check("ci / result", "FAILURE"), check("lint", "FAILURE")))
+        self.assertEqual(r["blocker"], "Failing check: ci / result, lint")
+
     def test_a_failing_check_named_approve_is_the_approval_gate_not_a_broken_build(self):
         r = row(commits=rollup("FAILURE", check("build"), check("approve", "FAILURE")), reviewDecision=None, mergeStateStatus="BLOCKED")
         self.assertEqual((r["kind"], r["blocker"], r["checks"]), ("Needs review", "Needs an approving review", "passing (approval check failing)"))

@@ -77,6 +77,58 @@ class PageSectionsTest(unittest.TestCase):
         self.assertIn("Team 1, existing contributors 1, everyone else 1.", board.render_summary(self.rows(), "u"))
 
 
+class DailyTest(unittest.TestCase):
+    def rows(self):
+        data = {"o/r": [pr(1, "alice"), pr(2, "alice", isDraft=True), pr(3, "bob", mergeable="CONFLICTING", mergeStateStatus="DIRTY"),
+                        pr(4, "dave", isDraft=True), pr(5, "carol", reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED")]}
+        return board.rows_from(data, TEAM, {"o/r": {"carol"}})
+
+    def test_it_says_what_can_merge_and_the_one_thing_each_stuck_team_pr_needs(self):
+        text = board.render_daily(self.rows(), "https://example.invalid/board")
+        self.assertTrue(text.startswith("[Joshua's agent]"))
+        self.assertIn("1 can merge now, and 2 team PRs are stuck.", text)
+        self.assertIn("Can merge now: r 1.", text)
+        self.assertIn("PR r 2 by alice: Draft.", text)
+        self.assertIn("PR r 3 by bob: Merge conflicts with the base branch.", text)
+        self.assertIn("https://example.invalid/board", text)
+
+    def test_other_prs_are_not_named_one_by_one(self):
+        text = board.render_daily(self.rows(), "u")
+        self.assertNotIn("PR r 4 by", text)
+        self.assertNotIn("PR r 5 by", text)
+        self.assertNotIn("dave", text)
+        self.assertNotIn("carol", text)
+
+    def test_only_logins_appear_no_names(self):
+        rows = self.rows()
+        self.assertTrue(all(set(r).isdisjoint({"team_name", "name"}) for r in rows))
+        self.assertNotIn("Alice A", board.render_daily(rows, "u"))
+
+    def test_a_long_stuck_list_is_cut_and_says_how_many_more(self):
+        rows = board.rows_from({"o/r": [pr(n, "alice", isDraft=True) for n in range(1, board.MAX_DAILY_STUCK + 4)]}, TEAM, {})
+        text = board.render_daily(rows, "u")
+        self.assertIn(f"PR r {board.MAX_DAILY_STUCK} by alice: Draft.", text)
+        self.assertNotIn(f"PR r {board.MAX_DAILY_STUCK + 1} by", text)
+        self.assertIn("...and 3 more on the board.", text)
+
+    def test_when_no_team_pr_is_stuck_there_is_no_stuck_section(self):
+        text = board.render_daily(board.rows_from({"o/r": [pr(1, "alice")]}, TEAM, {}), "u")
+        self.assertNotIn("Stuck team PRs", text)
+        self.assertIn("0 team PRs are stuck", text)
+
+    def test_an_empty_board_says_so(self):
+        self.assertIn("No open pull requests were read", board.render_daily([], "u"))
+
+    def test_main_writes_daily_txt(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            fixture = os.path.join(tmp, "d.json")
+            with open(fixture, "w", encoding="utf-8") as f:
+                json.dump({"o/r": [pr(1, "alice")]}, f)
+            board.main(["--fixture", fixture, "--out", tmp, "--url", "u", "--now", "t"])
+            with open(os.path.join(tmp, "daily.txt"), encoding="utf-8") as f:
+                self.assertIn("1 can merge now", f.read())
+
+
 class MergedAuthorsTest(unittest.TestCase):
     @staticmethod
     def answer(logins, more=False, cursor=None, private=False):
