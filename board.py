@@ -85,6 +85,36 @@ query($owner: String!, $name: String!, $after: String, $size: Int!) {
 """
 
 
+NUMBERS_QUERY = """
+query($owner: String!, $name: String!, $after: String) {
+  repository(owner: $owner, name: $name) {
+    isPrivate
+    pullRequests(states: OPEN, first: 100, after: $after, orderBy: {field: CREATED_AT, direction: ASC}) {
+      pageInfo { hasNextPage endCursor }
+      nodes { number }
+    }
+  }
+}
+"""
+
+# One PR with everything: the last resort when a whole page will not come, so that one bad PR costs one row, not the repo.
+SINGLE_QUERY = """
+query($owner: String!, $name: String!, $number: Int!) {
+  repository(owner: $owner, name: $name) {
+    isPrivate
+    pullRequest(number: $number) {
+      number title url isDraft mergeable mergeStateStatus reviewDecision updatedAt baseRefName
+      author { login }
+      labels(first: 10) { nodes { name } }
+      reviews(last: 20) { nodes { state author { login } } }
+      commits(last: 1) { nodes { commit { statusCheckRollup { state contexts(first: 30) { nodes {
+        __typename ... on CheckRun { name conclusion status } ... on StatusContext { context state } } } } } } }
+    }
+  }
+}
+"""
+
+
 def load_team(path: str = TEAM_FILE) -> set[str]:
     """The lower-case GitHub logins of the Omarchy M team: a plain JSON list."""
     with open(path, encoding="utf-8") as f:
@@ -177,7 +207,15 @@ def _gate_failing(node: dict) -> bool:
                for c in _contexts(node))
 
 
+def _unread_row(repo: str, node: dict) -> dict:
+    return {"group": "other", "repo": repo, "number": node["number"], "title": "(details unavailable)", "url": f"https://github.com/{repo}/pull/{node['number']}",
+            "owner": "unknown", "merge": "unknown", "checks": "unknown", "approvals": "unknown", "maclab": "unknown", "kind": "Unread",
+            "blocker": "GitHub would not return this PR's details", "can_merge": False, "rc_blocker": "no", "updated": ""}
+
+
 def classify(repo: str, node: dict, team: set | None = None, merged: dict | None = None) -> dict:
+    if node.get("_unread"):
+        return _unread_row(repo, node)
     checks, failing, needs_run_approval = _checks(node)
     approved, changes = _reviews(node)
     kind, blocker = _blocker(node, checks, failing, needs_run_approval, changes, _gate_failing(node))
@@ -295,13 +333,28 @@ def gh_graphql_checks(owner: str, name: str, after: str | None, size: int) -> di
     return gh_graphql(owner, name, after, size, CHECKS_QUERY)
 
 
-def fetch(repos, run: Callable[[str, str, str | None, int], dict] | None = None, checks_run: Callable[[str, str, str | None, int], dict] | None = None) -> dict:
+def gh_numbers(owner: str, name: str, after: str | None) -> dict:
+    args = ["gh", "api", "graphql", "-f", f"query={NUMBERS_QUERY}", "-F", f"owner={owner}", "-F", f"name={name}"]
+    if after:
+        args += ["-F", f"after={after}"]
+    return json.loads(subprocess.run(args, capture_output=True, text=True, timeout=120, check=True).stdout)
+
+
+def gh_single(owner: str, name: str, number: int) -> dict:
+    args = ["gh", "api", "graphql", "-f", f"query={SINGLE_QUERY}", "-F", f"owner={owner}", "-F", f"name={name}", "-F", f"number={number}"]
+    return json.loads(subprocess.run(args, capture_output=True, text=True, timeout=120, check=True).stdout)
+
+
+def fetch(repos, run: Callable[[str, str, str | None, int], dict] | None = None, checks_run: Callable[[str, str, str | None, int], dict] | None = None,
+          numbers_run: Callable | None = None, single_run: Callable | None = None) -> dict:
     """{repo: [PR nodes]}, or None for a repo that could not be read (so the page can say so)."""
     data: dict = {}
     for repo in repos:
         owner, name = repo.split("/", 1)
+        live = run is None
         try:
-            data[repo] = _read_repo(owner, name, run or gh_graphql, checks_run if run else gh_graphql_checks)
+            data[repo] = _read_repo(owner, name, run or gh_graphql, checks_run if run else gh_graphql_checks,
+                                    numbers_run or (gh_numbers if live else None), single_run or (gh_single if live else None))
         except PrivateRepo:
             print("skipped a repo that is not public", file=sys.stderr)
     return data
@@ -352,7 +405,37 @@ def _with_checks(page_nodes: list, checks: dict) -> None:
         node["commits"] = commits[node["number"]]
 
 
-def _read_repo(owner: str, name: str, run: Callable[[str, str, str | None, int], dict], checks_run: Callable[[str, str, str | None, int], dict] | None = None) -> list | None:
+def _read_one_by_one(owner: str, name: str, numbers_run: Callable, single_run: Callable) -> list | None:
+    """The last resort: list the open PR numbers, then read each PR alone. A PR that will not come becomes an 'Unread' row, and its number is logged."""
+    numbers, after = [], None
+    try:
+        while True:
+            repository = numbers_run(owner, name, after)["data"]["repository"]
+            if repository is None or repository.get("isPrivate") is not False:
+                raise PrivateRepo
+            page = repository["pullRequests"]
+            numbers += [n["number"] for n in page["nodes"]]
+            if not page["pageInfo"]["hasNextPage"]:
+                break
+            after = page["pageInfo"]["endCursor"]
+    except (subprocess.SubprocessError, KeyError, TypeError, ValueError) as error:
+        print(f"{owner}/{name}: listing the open PRs failed: {type(error).__name__}: {_brief(error)}", file=sys.stderr)
+        return None
+    nodes = []
+    for number in numbers:
+        try:
+            repository = single_run(owner, name, number)["data"]["repository"]
+            if repository is None or repository.get("isPrivate") is not False:
+                raise PrivateRepo
+            nodes.append(repository["pullRequest"] or {"number": number, "_unread": True})
+        except (subprocess.SubprocessError, KeyError, TypeError, ValueError) as error:
+            print(f"{owner}/{name}#{number}: could not be read: {type(error).__name__}: {_brief(error)}", file=sys.stderr)
+            nodes.append({"number": number, "_unread": True})
+    return nodes
+
+
+def _read_repo(owner: str, name: str, run: Callable[[str, str, str | None, int], dict], checks_run: Callable[[str, str, str | None, int], dict] | None = None,
+               numbers_run: Callable | None = None, single_run: Callable | None = None) -> list | None:
     for size in (PAGE_SIZE, SMALL_PAGE_SIZE):
         nodes, after = [], None
         try:
@@ -372,6 +455,8 @@ def _read_repo(owner: str, name: str, run: Callable[[str, str, str | None, int],
         except (subprocess.SubprocessError, KeyError, TypeError, ValueError) as error:
             print(f"{owner}/{name}: page size {size} failed: {type(error).__name__}: {_brief(error)}", file=sys.stderr)
             continue
+    if numbers_run and single_run:
+        return _read_one_by_one(owner, name, numbers_run, single_run)
     return None
 
 

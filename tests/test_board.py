@@ -244,6 +244,67 @@ class SplitQueryTest(unittest.TestCase):
         self.assertNotIn("commits", data["o/r"][0])
 
 
+class OneByOneTest(unittest.TestCase):
+    @staticmethod
+    def failing_pages(owner, name, after, size):
+        raise subprocess.CalledProcessError(1, "gh", stderr="Something went wrong")
+
+    @staticmethod
+    def numbers(nums, more=False, cursor=None, private=False):
+        return lambda owner, name, after: {"data": {"repository": {"isPrivate": private, "pullRequests": {
+            "pageInfo": {"hasNextPage": more, "endCursor": cursor}, "nodes": [{"number": n} for n in nums]}}}}
+
+    @staticmethod
+    def single(bad=()):
+        def run(owner, name, number):
+            if number in bad:
+                raise subprocess.CalledProcessError(1, "gh", stderr="Something went wrong")
+            return {"data": {"repository": {"isPrivate": False, "pullRequest": node(number)}}}
+        return run
+
+    def test_when_no_page_will_come_each_pr_is_read_alone_and_one_bad_pr_costs_one_row(self):
+        with contextlib.redirect_stderr(io.StringIO()) as err:
+            data = board.fetch(["o/r"], self.failing_pages, None, self.numbers([4, 5, 6]), self.single(bad={5}))
+        self.assertEqual([n["number"] for n in data["o/r"]], [4, 5, 6])
+        rows = board.rows_from(data)
+        self.assertEqual([(r["number"], r["kind"]) for r in rows], [(4, "None"), (6, "None"), (5, "Unread")])
+        self.assertIn("o/r#5: could not be read", err.getvalue())
+        self.assertNotIn("o/r#4", err.getvalue())
+
+    def test_the_unread_row_claims_nothing(self):
+        r = board.classify("o/r", {"number": 5, "_unread": True}, {"alice"}, {"o/r": {"alice"}})
+        self.assertEqual((r["group"], r["owner"], r["can_merge"], r["merge"], r["checks"], r["approvals"]), ("other", "unknown", False, "unknown", "unknown", "unknown"))
+        self.assertEqual(r["url"], "https://github.com/o/r/pull/5")
+
+    def test_the_listing_follows_its_pages(self):
+        pages = iter([{"data": {"repository": {"isPrivate": False, "pullRequests": {"pageInfo": {"hasNextPage": True, "endCursor": "c"}, "nodes": [{"number": 1}]}}}},
+                      {"data": {"repository": {"isPrivate": False, "pullRequests": {"pageInfo": {"hasNextPage": False, "endCursor": None}, "nodes": [{"number": 2}]}}}}])
+        data = board.fetch(["o/r"], self.failing_pages, None, lambda *a: next(pages), self.single())
+        self.assertEqual([n["number"] for n in data["o/r"]], [1, 2])
+
+    def test_a_failing_listing_makes_the_repo_unreadable(self):
+        def numbers(owner, name, after):
+            raise subprocess.CalledProcessError(1, "gh", stderr="boom")
+
+        with contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(board.fetch(["o/r"], self.failing_pages, None, numbers, self.single()), {"o/r": None})
+
+    def test_a_private_answer_in_the_last_resort_is_refused_too(self):
+        with contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(board.fetch(["o/r"], self.failing_pages, None, self.numbers([1], private=True), self.single()), {})
+
+    def test_a_pr_that_the_single_query_returns_as_null_is_unread_not_a_crash(self):
+        def single(owner, name, number):
+            return {"data": {"repository": {"isPrivate": False, "pullRequest": None}}}
+
+        data = board.fetch(["o/r"], self.failing_pages, None, self.numbers([7]), single)
+        self.assertEqual(data["o/r"], [{"number": 7, "_unread": True}])
+
+    def test_without_the_last_resort_a_failing_page_is_still_just_unreadable(self):
+        with contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(board.fetch(["o/r"], self.failing_pages), {"o/r": None})
+
+
 class PublicOnlyTest(unittest.TestCase):
     page = staticmethod(FetchTest.page) if False else None
 
