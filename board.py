@@ -28,7 +28,8 @@ REPOS = (
 CAN_MERGE = "None: can merge now"
 RC_LABEL = re.compile(r"^(rc[- ]?blocker|release[- ]?blocker|blocker|rc)$", re.IGNORECASE)
 FAILED = {"FAILURE", "TIMED_OUT", "STARTUP_FAILURE"}
-MAX_STUCK_IN_SUMMARY = 12
+MAX_LISTED = 12
+MAINTAINER_KINDS = ("Needs review", "Workflow run needs approval", "Branch rules")  # what a maintainer or reviewer must do
 PAGE_SIZE, SMALL_PAGE_SIZE = 20, 5  # a big repo's check lists can make GitHub answer 502
 
 QUERY = """
@@ -188,26 +189,37 @@ def render_html(rows: list[dict], generated: str, unreadable: Sequence[str] = ()
     return "\n".join(parts) + "\n"
 
 
+def short(repo: str) -> str:
+    """A short repo name for a short message: omacom/omarchy-mac-installer -> installer, aurora-silicon/mesa-aurora -> silicon-mesa-aurora."""
+    owner, name = repo.split("/", 1)
+    return ("silicon-" if owner == "aurora-silicon" else "") + name.replace("omarchy-mac-", "")
+
+
 def ref(r: dict) -> str:
-    return f"{r['repo']}#{r['number']}"
+    return f"{short(r['repo'])} {r['number']}"
+
+
+def _listed(rows: list[dict]) -> str:
+    text = ", ".join(ref(r) for r in rows[:MAX_LISTED])
+    return text + (f", and {len(rows) - MAX_LISTED} more" if len(rows) > MAX_LISTED else "")
 
 
 def render_summary(rows: list[dict], url: str) -> str:
+    """The once-a-day text: what can merge, what waits on a maintainer (by PR), what waits on its author (by count)."""
     if not rows:
-        return f"[Joshua's agent] Omarchy M pull requests: No open pull requests were read. Board: {url}\n"
+        return f"[Joshua's agent] No open pull requests were read on the Omarchy M board. Board: {url}\n"
     ready = [r for r in rows if r["can_merge"]]
     stuck = [r for r in rows if not r["can_merge"]]
-    lines = [f"[Joshua's agent] Omarchy M pull requests: {len(rows)} open.",
-             f"Can merge now ({len(ready)}): " + (", ".join(ref(r) for r in ready[:MAX_STUCK_IN_SUMMARY]) if ready else "none")]
-    if len(ready) > MAX_STUCK_IN_SUMMARY:
-        lines.append(f"...and {len(ready) - MAX_STUCK_IN_SUMMARY} more.")
-    reasons = Counter(r["kind"] for r in stuck).most_common()
-    lines.append(f"Stuck ({len(stuck)}). By reason: " + ", ".join(f"{reason} {count}" for reason, count in reasons))
-    lines.append("What each needs:")
-    lines += [f"{ref(r)}: {r['blocker']} ({r['owner']})" for r in stuck[:MAX_STUCK_IN_SUMMARY]]
-    if len(stuck) > MAX_STUCK_IN_SUMMARY:
-        lines.append(f"...and {len(stuck) - MAX_STUCK_IN_SUMMARY} more on the board.")
-    lines.append(f"Board: {url}")
+    lines = [f"[Joshua's agent] There are {len(rows)} open pull requests on the Omarchy M board. {len(ready)} can merge now. {len(stuck)} are stuck.",
+             "Can merge now: " + (_listed(ready) if ready else "none") + "."]
+    for kind in MAINTAINER_KINDS:
+        waiting = [r for r in stuck if r["kind"] == kind]
+        if waiting:
+            lines.append(f"{kind} ({len(waiting)}): {_listed(waiting)}.")
+    others = Counter(r["kind"] for r in stuck if r["kind"] not in MAINTAINER_KINDS).most_common()
+    if others:
+        lines.append("Waiting on the author or a run: " + ", ".join(f"{kind} {count}" for kind, count in others) + ".")
+    lines.append(f"Each PR and what it needs: {url}")
     return "\n".join(lines) + "\n"
 
 

@@ -136,40 +136,44 @@ class PageTest(unittest.TestCase):
         self.assertIn("2026-10-29 12:00 UTC", html)
         self.assertIn("unknown", html)
 
-    def test_the_summary_says_what_can_merge_and_what_each_stuck_pr_needs(self):
+    def test_the_summary_says_what_can_merge_and_what_waits_on_whom(self):
         text = board.render_summary(self.rows(), "https://example.invalid/board")
-        self.assertIn("Can merge now (1): o/r#1", text)
-        self.assertIn("o/r#2: Merge conflicts with the base branch (alice)", text)
-        self.assertIn("o/r#3: Needs an approving review (alice)", text)
-        self.assertIn("https://example.invalid/board", text)
         self.assertTrue(text.startswith("[Joshua's agent]"))
+        self.assertIn("There are 3 open pull requests", text)
+        self.assertIn("1 can merge now. 2 are stuck.", text)
+        self.assertIn("Can merge now: r 1.", text)
+        self.assertIn("Needs review (1): r 3.", text)
+        self.assertIn("Waiting on the author or a run: Merge conflicts 1.", text)
+        self.assertIn("https://example.invalid/board", text)
 
-    def test_the_summary_counts_the_stuck_prs_by_kind_not_by_the_names_in_the_text(self):
+    def test_repo_names_are_shortened_in_the_summary(self):
+        self.assertEqual(board.short("omacom/omarchy-mac-installer"), "installer")
+        self.assertEqual(board.short("omacom/mesa"), "mesa")
+        self.assertEqual(board.short("aurora-silicon/mesa-aurora"), "silicon-mesa-aurora")
+        self.assertEqual(board.short("chriskearney/maclab"), "maclab")
+
+    def test_a_long_list_is_cut_and_says_how_many_more(self):
+        rows = board.rows_from({"o/r": [node(n) for n in range(1, board.MAX_LISTED + 4)],
+                                "o/s": [node(n, reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED") for n in range(1, board.MAX_LISTED + 6)]})
+        text = board.render_summary(rows, "u")
+        self.assertIn(f"r {board.MAX_LISTED}, and 3 more.", text)
+        self.assertIn(f"s {board.MAX_LISTED}, and 5 more.", text)
+        self.assertNotIn(f"s {board.MAX_LISTED + 1},", text)
+
+    def test_the_author_side_is_counted_by_kind_not_by_the_names_in_the_text(self):
         rows = board.rows_from({"o/r": [node(1, commits=rollup("FAILURE", check("a", "FAILURE"))),
                                          node(2, commits=rollup("FAILURE", check("b", "FAILURE"))),
                                          node(3, reviewDecision="CHANGES_REQUESTED", reviews={"nodes": [{"state": "CHANGES_REQUESTED", "author": {"login": "x"}}]}),
                                          node(4, reviewDecision="CHANGES_REQUESTED", reviews={"nodes": [{"state": "CHANGES_REQUESTED", "author": {"login": "y"}}]})]})
-        self.assertIn("By reason: Failing check 2, Changes requested 2", board.render_summary(rows, "u"))
+        self.assertIn("Waiting on the author or a run: Failing check 2, Changes requested 2.", board.render_summary(rows, "u"))
 
-    def test_a_long_merge_ready_list_is_cut_too(self):
-        rows = board.rows_from({"o/r": [node(n) for n in range(1, board.MAX_STUCK_IN_SUMMARY + 4)]})
-        text = board.render_summary(rows, "u")
-        self.assertIn(f"Can merge now ({board.MAX_STUCK_IN_SUMMARY + 3}):", text)
-        self.assertIn("...and 3 more", text)
-
-    def test_the_summary_counts_the_stuck_prs_by_reason(self):
-        rows = board.rows_from({"o/r": [node(1, isDraft=True), node(2, isDraft=True), node(3, mergeable="CONFLICTING", mergeStateStatus="DIRTY")]})
-        text = board.render_summary(rows, "u")
-        self.assertIn("By reason: Draft 2, Merge conflicts 1", text)
-
-    def test_a_long_stuck_list_is_cut_and_says_how_many_more(self):
-        rows = board.rows_from({"o/r": [node(n, isDraft=True) for n in range(1, board.MAX_STUCK_IN_SUMMARY + 4)]})
-        text = board.render_summary(rows, "u")
-        self.assertIn("...and 3 more on the board.", text)
-        self.assertNotIn(f"o/r#{board.MAX_STUCK_IN_SUMMARY + 1}:", text)
+    def test_a_clean_board_has_no_waiting_lines(self):
+        text = board.render_summary(board.rows_from({"o/r": [node(1)]}), "u")
+        self.assertNotIn("Waiting on", text)
+        self.assertNotIn("Needs review", text)
 
     def test_an_empty_board_says_so(self):
-        self.assertIn("No open pull requests", board.render_summary([], "u"))
+        self.assertIn("No open pull requests were read", board.render_summary([], "u"))
         self.assertIn("No open pull requests", board.render_html([], "t"))
 
 
@@ -233,7 +237,7 @@ class FixtureRunTest(unittest.TestCase):
             with open(os.path.join(tmp, "index.html"), encoding="utf-8") as f:
                 self.assertIn("o/r#1", f.read())
             with open(os.path.join(tmp, "summary.txt"), encoding="utf-8") as f:
-                self.assertIn("Can merge now (1)", f.read())
+                self.assertIn("1 can merge now", f.read())
 
     def test_a_repo_that_cannot_be_read_is_listed_not_hidden(self):
         data = {"o/r": [node(1)], "o/gone": None}
