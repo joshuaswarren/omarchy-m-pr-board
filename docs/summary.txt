@@ -1,19 +1,19 @@
-[Joshua's agent] Omarchy M pull requests: 143 open.
-Can merge now (36): aurora-silicon/linux-aurora#9, aurora-silicon/linux-aurora#10, aurora-silicon/linux-aurora#11, aurora-silicon/linux-aurora#25, aurora-silicon/linux-aurora#26, aurora-silicon/linux-aurora#27, aurora-silicon/mesa-aurora#4, chriskearney/maclab#19, chriskearney/maclab#39, chriskearney/maclab#40, chriskearney/maclab#41, chriskearney/maclab#43
-...and 24 more.
-Stuck (107). By reason: Needs review 40, Draft 26, Merge conflicts 17, Failing check 15, Changes requested 7, Branch rules 2
+[Joshua's agent] Omarchy M pull requests: 128 open.
+Can merge now (29): chriskearney/maclab#19, chriskearney/maclab#39, chriskearney/maclab#40, chriskearney/maclab#41, chriskearney/maclab#43, omacom/linux-aurora#9, omacom/linux-aurora#232, omacom/linux-aurora#245, omacom/linux-aurora#251, omacom/linux-aurora#271, omacom/linux-aurora#276, omacom/linux-aurora#277
+...and 17 more.
+Stuck (99). By reason: Needs review 40, Draft 22, Merge conflicts 14, Failing check 13, Changes requested 7, Branch rules 2, Checks running 1
 What each needs:
 aurora-silicon/aurora-installer#37: Draft (shirty445)
-aurora-silicon/linux-aurora#7: Merge conflicts with the base branch (DjDeveloperr)
-aurora-silicon/linux-aurora#8: Merge conflicts with the base branch (DjDeveloperr)
-aurora-silicon/linux-aurora#12: Draft (DjDeveloperr)
-aurora-silicon/m1n1-aurora#8: Draft (ademczuk)
-aurora-silicon/m1n1-aurora#9: Failing check: build, Pytest (ubuntu-latest + llvm) (ademczuk)
-aurora-silicon/m1n1-aurora#10: Failing check: build, Pytest (ubuntu-latest + llvm) (ademczuk)
-aurora-silicon/mesa-aurora#1: Draft (DjDeveloperr)
-aurora-silicon/mesa-aurora#2: Draft (DjDeveloperr)
-aurora-silicon/mesa-aurora#5: Merge conflicts with the base branch (satchlj)
 chriskearney/maclab#42: Failing check: test (scottjones)
 omacom/linux-aurora#8: Draft (e-jung)
-...and 95 more on the board.
+omacom/linux-aurora#67: Draft (joshuaswarren)
+omacom/linux-aurora#110: Needs an approving review (chriskearney)
+omacom/linux-aurora#122: Draft (chriskearney)
+omacom/linux-aurora#127: Merge conflicts with the base branch (GehrmannSolutions)
+omacom/linux-aurora#135: Merge conflicts with the base branch (garymeyerca)
+omacom/linux-aurora#146: Needs an approving review (GehrmannSolutions)
+omacom/linux-aurora#152: Draft (tonibergholm)
+omacom/linux-aurora#153: Needs an approving review (briantoll)
+omacom/linux-aurora#154: Needs an approving review (briantoll)
+...and 87 more on the board.
 Board: https://joshuaswarren.github.io/omarchy-m-pr-board/
