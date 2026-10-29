@@ -342,9 +342,25 @@ def _read_repo(owner: str, name: str, run: Callable[[str, str, str | None, int],
                 if not page["pageInfo"]["hasNextPage"]:
                     return nodes
                 after = page["pageInfo"]["endCursor"]
-        except (subprocess.SubprocessError, KeyError, TypeError, ValueError):
+        except (subprocess.SubprocessError, KeyError, TypeError, ValueError) as error:
+            print(f"{owner}/{name}: page size {size} failed: {type(error).__name__}: {_brief(error)}", file=sys.stderr)
             continue
     return None
+
+
+def _brief(error: Exception) -> str:
+    """One short line about an error, from gh's stderr when there is one."""
+    text = getattr(error, "stderr", None) or str(error)
+    return " ".join(str(text).split())[:120]
+
+
+def _worse_than_saved(out: str, unreadable: list[str]) -> bool:
+    try:
+        with open(os.path.join(out, "board.json"), encoding="utf-8") as f:
+            saved = json.load(f)
+    except (OSError, ValueError):
+        return False
+    return len(unreadable) > len(saved.get("unreadable", []))
 
 
 def _same_as_saved(out: str, rows: list[dict], unreadable: list[str]) -> bool:
@@ -380,6 +396,7 @@ def main(argv=None) -> int:
     ap.add_argument("--url", default="")
     ap.add_argument("--now", default=None)
     ap.add_argument("--only-if-changed", action="store_true", help="write nothing when the rows and the unreadable repos match the board.json already in --out")
+    ap.add_argument("--keep-last-good", action="store_true", help="write nothing when more repos are unreadable than in the board.json already in --out")
     ap.add_argument("--repos", default=",".join(REPOS))
     args = ap.parse_args(argv)
     data, merged = _load_data(args)
@@ -387,6 +404,9 @@ def main(argv=None) -> int:
     unreadable = sorted(repo for repo, nodes in data.items() if nodes is None)
     generated = args.now or time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime())
     if args.only_if_changed and _same_as_saved(args.out, rows, unreadable):
+        return 0
+    if args.keep_last_good and _worse_than_saved(args.out, unreadable):
+        print("more repos are unreadable than on the saved page: keeping the saved page", file=sys.stderr)
         return 0
     os.makedirs(args.out, exist_ok=True)
     outputs = {"index.html": render_html(rows, generated, unreadable), "summary.txt": render_summary(rows, args.url),

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import contextlib
+import io
 import json
 import os
 import subprocess
@@ -321,6 +323,34 @@ class FixtureRunTest(unittest.TestCase):
             with open(os.path.join(tmp, "board.json"), encoding="utf-8") as f:
                 saved = json.load(f)
             self.assertEqual((saved["generated"], saved["unreadable"]), ("second", ["o/s"]))
+
+    def test_keep_last_good_leaves_the_page_alone_when_more_repos_are_unreadable(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            fixture = os.path.join(tmp, "data.json")
+            args = ["--fixture", fixture, "--out", tmp, "--url", "u", "--keep-last-good"]
+            with open(fixture, "w", encoding="utf-8") as f:
+                json.dump({"o/r": [node(1)], "o/s": [node(2)]}, f)
+            board.main([*args, "--now", "good"])
+            with open(fixture, "w", encoding="utf-8") as f:
+                json.dump({"o/r": [node(1)], "o/s": None}, f)
+            board.main([*args, "--now", "worse"])
+            with open(os.path.join(tmp, "board.json"), encoding="utf-8") as f:
+                saved = json.load(f)
+            self.assertEqual((saved["generated"], saved["unreadable"], len(saved["rows"])), ("good", [], 2))
+            with open(fixture, "w", encoding="utf-8") as f:
+                json.dump({"o/r": [node(1, isDraft=True)], "o/s": [node(2)]}, f)
+            board.main([*args, "--now", "better"])
+            with open(os.path.join(tmp, "board.json"), encoding="utf-8") as f:
+                self.assertEqual(json.load(f)["generated"], "better")
+
+    def test_a_failed_read_says_which_repo_and_why_on_stderr(self):
+        def run(owner, name, after, size):
+            raise subprocess.CalledProcessError(1, "gh", stderr="HTTP 502  Bad Gateway")
+
+        with contextlib.redirect_stderr(io.StringIO()) as err:
+            board.fetch(["o/r"], run)
+        self.assertIn("o/r: page size", err.getvalue())
+        self.assertIn("HTTP 502 Bad Gateway", err.getvalue())
 
     def test_a_repo_that_cannot_be_read_is_listed_not_hidden(self):
         data = {"o/r": [node(1)], "o/gone": None}
