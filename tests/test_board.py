@@ -71,7 +71,7 @@ class BlockingItemTest(unittest.TestCase):
 
     def test_a_failing_check_named_approve_is_the_approval_gate_not_a_broken_build(self):
         r = row(commits=rollup("FAILURE", check("build"), check("approve", "FAILURE")), reviewDecision=None, mergeStateStatus="BLOCKED")
-        self.assertEqual((r["kind"], r["blocker"], r["checks"]), ("Needs review", "Needs an approving review", "passing"))
+        self.assertEqual((r["kind"], r["blocker"], r["checks"]), ("Needs review", "Needs an approving review", "passing (approval check failing)"))
 
     def test_a_real_failure_next_to_the_gate_still_shows_as_a_failure(self):
         r = row(commits=rollup("FAILURE", check("lint", "FAILURE"), check("approve", "FAILURE")), mergeStateStatus="BLOCKED")
@@ -280,6 +280,17 @@ class FixtureRunTest(unittest.TestCase):
                 self.assertIn("o/r#1", f.read())
             with open(os.path.join(tmp, "summary.txt"), encoding="utf-8") as f:
                 self.assertIn("1 can merge now", f.read())
+
+    def test_a_reply_with_no_repository_makes_the_repo_unreadable_not_a_crash(self):
+        def run(owner, name, after, size):
+            return {"data": {"repository": None}}
+
+        self.assertEqual(board.fetch(["o/r"], run), {"o/r": None})
+
+    def test_the_page_says_when_it_last_changed_not_when_it_was_last_refreshed(self):
+        html = board.render_html([], "2026-10-29 12:00 UTC")
+        self.assertIn("Last change: 2026-10-29 12:00 UTC", html)
+        self.assertNotIn("Last refresh", html)
 
     def test_only_if_changed_leaves_the_files_alone_when_no_row_changed(self):
         with tempfile.TemporaryDirectory() as tmp:

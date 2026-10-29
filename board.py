@@ -66,10 +66,11 @@ def _checks(node: dict) -> tuple[str, list[str], bool]:
     contexts = _contexts(node)
     if not contexts:
         return "none", [], False
-    failing, approval, running = [], False, False
+    failing, approval, running, gate_failed = [], False, False, False
     for c in contexts:
         name = c.get("name") or c.get("context") or "unnamed"
         if name == APPROVAL_GATE:
+            gate_failed = gate_failed or c.get("conclusion") in FAILED or c.get("state") in ("FAILURE", "ERROR")
             continue
         if c.get("__typename") == "StatusContext":
             failing += [name] if c.get("state") in ("FAILURE", "ERROR") else []
@@ -84,7 +85,9 @@ def _checks(node: dict) -> tuple[str, list[str], bool]:
         return "failing: " + ", ".join(failing), failing, approval
     if approval:
         return "needs a maintainer to approve the run", [], True
-    return ("running", [], False) if running else ("passing", [], False)
+    if running:
+        return "running", [], False
+    return ("passing (approval check failing)" if gate_failed else "passing"), [], False
 
 
 def _reviews(node: dict) -> tuple[list[str], list[str]]:
@@ -182,7 +185,7 @@ def render_html(rows: list[dict], generated: str, unreadable: Sequence[str] = ()
         "<!doctype html><meta charset=utf-8><title>Omarchy M pull requests</title>",
         "<style>body{font:14px system-ui;margin:2rem}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px;text-align:left;vertical-align:top}th{background:#eee}</style>",
         "<h1>Omarchy M pull requests</h1>",
-        f"<p>{len(rows)} open. Refreshed hourly. Last refresh: {html.escape(generated)}.</p>",
+        f"<p>{len(rows)} open. Checked hourly. Last change: {html.escape(generated)}.</p>",
     ]
     if not rows:
         parts.append("<p>No open pull requests were read.</p>")
@@ -268,6 +271,8 @@ def _read_repo(owner: str, name: str, run: Callable[[str, str, str | None, int],
         try:
             while True:
                 repository = run(owner, name, after, size)["data"]["repository"]
+                if repository is None:
+                    raise KeyError("repository")
                 if repository.get("isPrivate") is not False:  # private, or not stated: refuse
                     raise PrivateRepo
                 page = repository["pullRequests"]
