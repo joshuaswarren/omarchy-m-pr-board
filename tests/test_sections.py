@@ -79,18 +79,28 @@ class PageSectionsTest(unittest.TestCase):
 
 class DailyTest(unittest.TestCase):
     def rows(self):
-        data = {"o/r": [pr(1, "alice"), pr(2, "alice", isDraft=True), pr(3, "bob", mergeable="CONFLICTING", mergeStateStatus="DIRTY"),
-                        pr(4, "dave", isDraft=True), pr(5, "carol", reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED")]}
+        data = {"o/r": [pr(1, "alice"), pr(2, "alice", mergeable="CONFLICTING", mergeStateStatus="DIRTY"), pr(3, "bob", reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED"),
+                        pr(4, "dave", mergeable="CONFLICTING", mergeStateStatus="DIRTY"), pr(5, "carol", reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED"),
+                        pr(6, "alice", isDraft=True)]}
         return board.rows_from(data, TEAM, {"o/r": {"carol"}})
 
     def test_it_says_what_can_merge_and_the_one_thing_each_stuck_team_pr_needs(self):
         text = board.render_daily(self.rows(), "https://example.invalid/board")
         self.assertTrue(text.startswith("[Joshua's agent]"))
-        self.assertIn("1 can merge now, and 2 team PRs are stuck.", text)
+        self.assertIn("1 can merge now, and 3 team PRs are stuck.", text)
         self.assertIn("Can merge now: r 1.", text)
-        self.assertIn("PR r 2 by alice: Draft.", text)
-        self.assertIn("PR r 3 by bob: Merge conflicts with the base branch.", text)
+        self.assertIn("PR r 2 by alice: Merge conflicts with the base branch.", text)
+        self.assertIn("PR r 3 by bob: Needs an approving review.", text)
         self.assertIn("https://example.invalid/board", text)
+
+    def test_prs_waiting_on_a_reviewer_come_before_the_others(self):
+        text = board.render_daily(self.rows(), "u")
+        self.assertLess(text.index("PR r 3 by bob"), text.index("PR r 2 by alice"))
+
+    def test_drafts_are_counted_in_one_line_not_named(self):
+        text = board.render_daily(self.rows(), "u")
+        self.assertNotIn("PR r 6", text)
+        self.assertIn("1 team drafts are not listed.", text)
 
     def test_other_prs_are_not_named_one_by_one(self):
         text = board.render_daily(self.rows(), "u")
@@ -105,15 +115,16 @@ class DailyTest(unittest.TestCase):
         self.assertNotIn("Alice A", board.render_daily(rows, "u"))
 
     def test_a_long_stuck_list_is_cut_and_says_how_many_more(self):
-        rows = board.rows_from({"o/r": [pr(n, "alice", isDraft=True) for n in range(1, board.MAX_DAILY_STUCK + 4)]}, TEAM, {})
+        rows = board.rows_from({"o/r": [pr(n, "alice", mergeable="CONFLICTING", mergeStateStatus="DIRTY") for n in range(1, board.MAX_DAILY_STUCK + 4)]}, TEAM, {})
         text = board.render_daily(rows, "u")
-        self.assertIn(f"PR r {board.MAX_DAILY_STUCK} by alice: Draft.", text)
+        self.assertIn(f"PR r {board.MAX_DAILY_STUCK} by alice:", text)
         self.assertNotIn(f"PR r {board.MAX_DAILY_STUCK + 1} by", text)
         self.assertIn("...and 3 more on the board.", text)
 
     def test_when_no_team_pr_is_stuck_there_is_no_stuck_section(self):
         text = board.render_daily(board.rows_from({"o/r": [pr(1, "alice")]}, TEAM, {}), "u")
         self.assertNotIn("Stuck team PRs", text)
+        self.assertNotIn("drafts", text)
         self.assertIn("0 team PRs are stuck", text)
 
     def test_an_empty_board_says_so(self):

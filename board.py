@@ -335,14 +335,18 @@ def render_daily(rows: list[dict], url: str) -> str:
     if not rows:
         return f"[Joshua's agent] No open pull requests were read on the Omarchy M board today. Board: {url}\n"
     ready = [r for r in rows if r["can_merge"]]
-    stuck = [r for r in rows if r["group"] == "team" and not r["can_merge"]]
-    lines = [f"[Joshua's agent] Omarchy M pull requests today: {len(ready)} can merge now, and {len(stuck)} team PRs are stuck.",
+    team_stuck = [r for r in rows if r["group"] == "team" and not r["can_merge"]]
+    drafts = [r for r in team_stuck if r["kind"] == "Draft"]
+    stuck = sorted((r for r in team_stuck if r["kind"] != "Draft"), key=lambda r: (r["kind"] not in MAINTAINER_KINDS, r["repo"], r["number"]))
+    lines = [f"[Joshua's agent] Omarchy M pull requests today: {len(ready)} can merge now, and {len(team_stuck)} team PRs are stuck.",
              "Can merge now: " + (_listed(ready) if ready else "none") + "."]
     if stuck:
-        lines.append("Stuck team PRs, and the one thing each needs:")
+        lines.append("Stuck team PRs, and the one thing each needs. Those waiting on a review or a maintainer come first:")
         lines += [f"PR {ref(r)} by {r['owner']}: {r['blocker']}." for r in stuck[:MAX_DAILY_STUCK]]
         if len(stuck) > MAX_DAILY_STUCK:
             lines.append(f"...and {len(stuck) - MAX_DAILY_STUCK} more on the board.")
+    if drafts:
+        lines.append(f"{len(drafts)} team drafts are not listed.")
     lines.append(f"All PRs and what each needs: {url}")
     return "\n".join(lines) + "\n"
 
