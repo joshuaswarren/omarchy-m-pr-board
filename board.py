@@ -31,6 +31,15 @@ FAILED = {"FAILURE", "TIMED_OUT", "STARTUP_FAILURE"}
 APPROVAL_GATE = "approve"  # a check some repos use to say "no approving review yet"
 MAX_LISTED = 12
 MAX_DAILY_STUCK = 20  # stuck team PRs named one by one in the daily text
+STATES = ("ready to merge", "needs review", "needs fixes", "waiting", "held")  # the only states a PR can be in, in the order the page lists them
+KIND_STATE = {
+    "None": "ready to merge",
+    "Needs review": "needs review", "Workflow run needs approval": "needs review", "Branch rules": "needs review",
+    "Merge conflicts": "needs fixes", "Changes requested": "needs fixes", "Failing check": "needs fixes", "Branch behind": "needs fixes",
+    "Checks running": "waiting", "Mergeability unknown": "waiting", "Unread": "waiting",
+    "Draft": "held",
+}
+STATE_CLASS = {"ready to merge": "ok", "needs review": "warn", "needs fixes": "bad", "waiting": "", "held": "draft"}
 GROUPS = (("team", "Omarchy M team"), ("contributor", "Existing contributors"), ("other", "Everyone else"))
 MAX_MERGED_PAGES = 60  # 100 per page: more than 6000 merged PRs in one repo is not read to the end
 TEAM_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "team.json")
@@ -217,7 +226,7 @@ def _gate_failing(node: dict) -> bool:
 
 def _unread_row(repo: str, node: dict) -> dict:
     return {"group": "other", "repo": repo, "number": node["number"], "title": "(details unavailable)", "url": f"https://github.com/{repo}/pull/{node['number']}",
-            "owner": "unknown", "draft": False, "merge": "unknown", "checks": "unknown", "approvals": "unknown", "maclab": "unknown", "kind": "Unread",
+            "owner": "unknown", "draft": False, "state": "waiting", "merge": "unknown", "checks": "unknown", "approvals": "unknown", "maclab": "unknown", "kind": "Unread",
             "blocker": "GitHub would not return this PR's details", "can_merge": False, "rc_blocker": "no", "updated": ""}
 
 
@@ -231,7 +240,7 @@ def classify(repo: str, node: dict, team: set | None = None, merged: dict | None
     login = ((node.get("author") or {}).get("login") or "").lower()
     group = "team" if login and login in (team or ()) else "contributor" if login and login in ((merged or {}).get(repo) or ()) else "other"
     return {
-        "group": group, "repo": repo, "number": node["number"], "draft": bool(node.get("isDraft")), "title": node.get("title") or "", "url": node.get("url") or f"https://github.com/{repo}/pull/{node['number']}",
+        "group": group, "repo": repo, "number": node["number"], "draft": bool(node.get("isDraft")), "state": KIND_STATE[kind], "title": node.get("title") or "", "url": node.get("url") or f"https://github.com/{repo}/pull/{node['number']}",
         "owner": (node.get("author") or {}).get("login") or "unknown",
         "merge": {"MERGEABLE": "mergeable", "CONFLICTING": "conflicts"}.get(node.get("mergeable") or "", "unknown"),
         "checks": checks, "approvals": _approvals_text(node.get("reviewDecision"), approved, changes),
@@ -244,7 +253,7 @@ def classify(repo: str, node: dict, team: set | None = None, merged: dict | None
 def rows_from(data: dict, team: set | None = None, merged: dict | None = None) -> list[dict]:
     rows = [classify(repo, node, team, merged) for repo, nodes in data.items() for node in nodes or []]
     order = [key for key, _ in GROUPS]
-    return sorted(rows, key=lambda r: (order.index(r["group"]), not r["can_merge"], r["repo"], r["number"]))
+    return sorted(rows, key=lambda r: (order.index(r["group"]), STATES.index(r["state"]), r["repo"], r["number"]))
 
 
 # -- output ---------------------------------------------------------------------------------
@@ -282,6 +291,9 @@ ul{list-style:none;margin:0;padding:0}
 .chip.bad{border-color:rgb(247 118 142 / .5);color:var(--red)}
 .chip.draft{border-color:rgb(187 154 247 / .45);color:var(--magenta)}
 .note{color:var(--yellow);margin:2rem 0 0}
+.held{border-top:1px solid var(--soft)}
+.held summary{color:var(--dim);cursor:pointer;padding:.7rem 1.2rem}
+.held summary:hover{color:var(--white)}
 footer{color:var(--dim);font-size:.82rem;margin-top:3rem}
 footer p{margin:.3rem 0}
 @media(max-width:760px){.pr{align-items:flex-start;flex-direction:column;gap:.5rem}.chips{justify-content:flex-start;max-width:none}.card{padding-top:.2rem}.card h2{background:none;padding:.9rem 1.2rem .5rem;position:static}.card h2 span{display:block;margin:0}}
@@ -291,18 +303,8 @@ AGE_SCRIPT = ('<script>for(const t of document.querySelectorAll("time[datetime]"
 
 
 def _chips(r: dict) -> list[tuple[str, str]]:
-    """(css class, text) of each chip of a row, in reading order: draft, CI, review, merge state, RC."""
-    if r["kind"] == "Unread":
-        return [("", "details unavailable")]
-    ci, review, merge = r["checks"], r["approvals"], r["merge"]
-    chips = [("draft", "draft")] if r["draft"] else []
-    # the defaults say nothing: a PR with no CI, or in a repo that needs no review, shows no chip for it
-    chips += [("ok", "CI passing") if ci.startswith("passing") else ("bad", "CI failing") if ci.startswith("failing") else ("warn", "CI running") if ci == "running"
-              else ("warn", "CI waits for approval") if ci.startswith("needs a maintainer") else ("", "CI unknown")] if ci != "none" else []
-    # GitHub's decision wins over the approvals we counted: a PR can have an approval that does not satisfy the repo's rule
-    chips += [("bad", "changes requested") if "changes requested" in review else ("warn", "needs review") if r["kind"] == "Needs review" or review == "none yet"
-              else ("ok", "approved") if review.startswith("approved") else ("", "review unknown")] if review != "not required" or r["kind"] == "Needs review" else []
-    chips.append(("ok", "mergeable") if merge == "mergeable" else ("bad", "conflicts") if merge == "conflicts" else ("", "merge unknown"))
+    """(css class, text) of the chips of a row: its one state, and the RC flag when it has one."""
+    chips = [(STATE_CLASS[r["state"]], r["state"])]
     if r["rc_blocker"] == "yes":
         chips.append(("bad", "RC blocker"))
     return chips
@@ -312,7 +314,8 @@ def _row(r: dict) -> str:
     chips = "".join(f'<span class="chip {css}">{html.escape(text)}</span>' for css, text in _chips(r))
     if r["updated"]:
         chips += f'<time class="chip" datetime="{html.escape(r["updated"], quote=True)}" title="last updated">{html.escape(r["updated"])}</time>'
-    why = "" if r["can_merge"] else f'<div class="why">{html.escape(r["blocker"])}</div>'
+    # the state chip already says ready, held and "needs review": a line that repeats it is cut
+    why = "" if r["kind"] in ("None", "Draft", "Needs review") else f'<div class="why">{html.escape(r["blocker"])}</div>'
     return (f'<li class="pr{" ready" if r["can_merge"] else ""}"><div class="what"><a class="title" href="{html.escape(r["url"], quote=True)}">{html.escape(r["title"])}</a>'
             f'<div class="meta">{html.escape(short(r["repo"]))} #{r["number"]} by {html.escape(r["owner"])}</div>{why}</div><div class="chips">{chips}</div></li>')
 
@@ -320,7 +323,10 @@ def _row(r: dict) -> str:
 def _section(title: str, part: list[dict]) -> str:
     ready = sum(r["can_merge"] for r in part)
     head = f'<h2>{html.escape(title)}<span>{len(part)} open, {ready} can merge now</span></h2>'
-    body = f'<ul>{"".join(_row(r) for r in part)}</ul>' if part else '<p class="none">None.</p>'
+    active, held = [r for r in part if r["state"] != "held"], [r for r in part if r["state"] == "held"]
+    body = f'<ul>{"".join(_row(r) for r in active)}</ul>' if active else ('<p class="none">None.</p>' if not held else "")
+    if held:
+        body += f'<details class="held"><summary>{len(held)} held</summary><ul>{"".join(_row(r) for r in held)}</ul></details>'
     return f'<section class="card">{head}{body}</section>'
 
 
@@ -337,7 +343,7 @@ def render_html(rows: list[dict], generated: str, unreadable: Sequence[str] = ()
     if unreadable:
         parts.append('<p class="note">Not read this time: ' + ", ".join(html.escape(r) for r in unreadable) + ".</p>")
     parts.append("</main><footer>"
-                 "<p>Blocking item: the first thing in the way. Can merge now: GitHub reports the PR clean. RC blocker: the PR has an rc or blocker label.</p>"
+                 "<p>Ready to merge: GitHub reports the PR clean. Needs review: waiting for a reviewer or a maintainer. Needs fixes: conflicts, failing checks or requested changes. Waiting: checks are running. Held: a draft. RC blocker: the PR has an rc or blocker label.</p>"
                  "<p>Team: the Omarchy M team. Existing contributors: an earlier merged PR in the same repo.</p>"
                  "<p>Maclab qualification is not shown: maclab's job records are not public.</p></footer>" + AGE_SCRIPT)
     return "\n".join(parts) + "\n"

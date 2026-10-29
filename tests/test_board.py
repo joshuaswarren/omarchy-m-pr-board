@@ -135,8 +135,8 @@ class PageTest(unittest.TestCase):
         return board.rows_from({"o/r": [node(1), node(2, mergeable="CONFLICTING", mergeStateStatus="DIRTY", title="<script>alert(1)</script>"),
                                          node(3, reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED", reviews={"nodes": []})]})
 
-    def test_rows_sort_merge_ready_first_then_by_repo_and_number(self):
-        self.assertEqual([r["number"] for r in self.rows()], [1, 2, 3])
+    def test_rows_sort_by_state_then_repo_and_number(self):
+        self.assertEqual([(r["number"], r["state"]) for r in self.rows()], [(1, "ready to merge"), (3, "needs review"), (2, "needs fixes")])
 
     def test_a_merge_ready_pr_sorts_ahead_of_a_lower_numbered_stuck_one(self):
         rows = board.rows_from({"o/r": [node(1, isDraft=True), node(2)]})
