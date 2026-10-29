@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29 20:22 UTC",
+ "generated": "2026-10-29 21:21 UTC",
  "rows": [
   {
    "group": "team",
@@ -411,17 +411,34 @@
   },
   {
    "group": "team",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 78,
+   "title": "Turn Touch ID on without the consent prompt",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/78",
+   "owner": "DjDeveloperr",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "unknown",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "rc_blocker": "no",
+   "updated": "2026-10-29"
+  },
+  {
+   "group": "team",
    "repo": "aurora-silicon/aurora-installer",
    "number": 39,
    "title": "Let Erase Linux remove installations the native installer made",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/39",
    "owner": "DjDeveloperr",
    "merge": "mergeable",
-   "checks": "failing: macOS checks",
+   "checks": "running",
    "approvals": "not required",
    "maclab": "unknown",
-   "kind": "Failing check",
-   "blocker": "Failing check: macOS checks",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
    "can_merge": false,
    "rc_blocker": "no",
    "updated": "2026-10-29"
@@ -944,7 +961,7 @@
    "url": "https://github.com/omacom/linux-aurora/pull/281",
    "owner": "joshuaswarren",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "unknown",
    "kind": "Needs review",
@@ -1258,6 +1275,23 @@
    "can_merge": false,
    "rc_blocker": "no",
    "updated": "2026-10-28"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-installer",
+   "number": 153,
+   "title": "Simplify the installer and Recovery screens",
+   "url": "https://github.com/omacom/omarchy-mac-installer/pull/153",
+   "owner": "DjDeveloperr",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "unknown",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "rc_blocker": "no",
+   "updated": "2026-10-29"
   },
   {
    "group": "team",
@@ -1964,14 +1998,14 @@
    "url": "https://github.com/omacom/linux-aurora/pull/242",
    "owner": "JeppeBylov",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "running",
    "approvals": "none yet",
    "maclab": "unknown",
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
    "rc_blocker": "no",
-   "updated": "2026-10-26"
+   "updated": "2026-10-29"
   },
   {
    "group": "other",
@@ -2090,7 +2124,7 @@
    "blocker": "Needs an approving review",
    "can_merge": false,
    "rc_blocker": "no",
-   "updated": "2026-10-28"
+   "updated": "2026-10-29"
   },
   {
    "group": "other",
