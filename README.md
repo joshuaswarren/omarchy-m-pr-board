@@ -12,7 +12,7 @@ The page has three sections, in this order: the Omarchy M team, existing contrib
 
 The blocking item is the first match in this list: draft, conflicts, changes requested, failing check, a workflow run that waits for a maintainer, a missing review, checks running, branch behind, branch rules. A failing check named `approve` counts as a missing review. "Can merge now" means GitHub reports the PR clean; a repo that requires no review can show a PR that nobody has read.
 
-Limits: the case of a workflow run that waits for a maintainer is tested on made-up data only, because no open PR had one when this was written. A PR with more than 40 checks or 30 reviews shows only the last ones.
+Limits: the case of a workflow run that waits for a maintainer is tested on made-up data only, because no open PR had one when this was written. A PR with more than 30 checks or 20 reviews shows only some of them.
 
 Run it:
 

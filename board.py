@@ -34,7 +34,7 @@ GROUPS = (("team", "Omarchy M team"), ("contributor", "Existing contributors"), 
 MAX_MERGED_PAGES = 60  # 100 per page: more than 6000 merged PRs in one repo is not read to the end
 TEAM_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "team.json")
 MAINTAINER_KINDS = ("Needs review", "Workflow run needs approval", "Branch rules")  # what a maintainer or reviewer must do
-PAGE_SIZE, SMALL_PAGE_SIZE = 20, 5  # a big repo's check lists can make GitHub answer 502
+PAGE_SIZE, SMALL_PAGE_SIZE = 10, 3  # a big repo's check lists can make GitHub answer 502 or 'something went wrong'
 
 QUERY = """
 query($owner: String!, $name: String!, $after: String, $size: Int!) {
@@ -46,8 +46,8 @@ query($owner: String!, $name: String!, $after: String, $size: Int!) {
         number title url isDraft mergeable mergeStateStatus reviewDecision updatedAt baseRefName
         author { login }
         labels(first: 10) { nodes { name } }
-        reviews(last: 30) { nodes { state author { login } } }
-        commits(last: 1) { nodes { commit { statusCheckRollup { state contexts(first: 40) { nodes {
+        reviews(last: 20) { nodes { state author { login } } }
+        commits(last: 1) { nodes { commit { statusCheckRollup { state contexts(first: 30) { nodes {
           __typename ... on CheckRun { name conclusion status } ... on StatusContext { context state } } } } } } }
       }
     }
