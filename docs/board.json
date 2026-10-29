@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29 19:21 UTC",
+ "generated": "2026-10-29 20:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -102,6 +102,23 @@
    "can_merge": true,
    "rc_blocker": "no",
    "updated": "2026-10-26"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 245,
+   "title": "soc: apple: clpc: hand the T8140 GPU floor back 100 ms after the PMP stops limiting",
+   "url": "https://github.com/omacom/linux-aurora/pull/245",
+   "owner": "DjDeveloperr",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "approved by 1",
+   "maclab": "unknown",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "rc_blocker": "no",
+   "updated": "2026-10-29"
   },
   {
    "group": "team",
@@ -220,7 +237,7 @@
    "blocker": "None: can merge now",
    "can_merge": true,
    "rc_blocker": "no",
-   "updated": "2026-10-27"
+   "updated": "2026-10-29"
   },
   {
    "group": "team",
@@ -394,6 +411,23 @@
   },
   {
    "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 39,
+   "title": "Let Erase Linux remove installations the native installer made",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/39",
+   "owner": "DjDeveloperr",
+   "merge": "mergeable",
+   "checks": "failing: macOS checks",
+   "approvals": "not required",
+   "maclab": "unknown",
+   "kind": "Failing check",
+   "blocker": "Failing check: macOS checks",
+   "can_merge": false,
+   "rc_blocker": "no",
+   "updated": "2026-10-29"
+  },
+  {
+   "group": "team",
    "repo": "chriskearney/maclab",
    "number": 42,
    "title": "Lab-only disk auto-unlock for encrypted lab Macs",
@@ -501,7 +535,7 @@
    "title": "soc: apple: add gated J314s CPU context-loss diagnostic",
    "url": "https://github.com/omacom/linux-aurora/pull/170",
    "owner": "maralcbr",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "none yet",
    "maclab": "unknown",
@@ -526,7 +560,7 @@
    "blocker": "Needs an approving review",
    "can_merge": false,
    "rc_blocker": "no",
-   "updated": "2026-10-24"
+   "updated": "2026-10-29"
   },
   {
    "group": "team",
@@ -569,7 +603,7 @@
    "title": "Apple M6 (T8152) Mac mini boot NOR (QSPI): binding and device tree (on top of #191)",
    "url": "https://github.com/omacom/linux-aurora/pull/193",
    "owner": "joshuaswarren",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "none yet",
    "maclab": "unknown",
@@ -671,7 +705,7 @@
    "title": "mesa-m3: catch Bash append overrides during system handoff",
    "url": "https://github.com/omacom/linux-aurora/pull/213",
    "owner": "chriskearney",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "failing: ci / result",
    "approvals": "approved by 1",
    "maclab": "unknown",
@@ -688,32 +722,15 @@
    "title": "soc: apple: sep: preserve unreadable and partial identity state",
    "url": "https://github.com/omacom/linux-aurora/pull/234",
    "owner": "satchlj",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "approved by 1",
    "maclab": "unknown",
-   "kind": "Mergeability unknown",
-   "blocker": "GitHub has not computed mergeability yet",
+   "kind": "Branch rules",
+   "blocker": "Blocked by branch rules (a required check or review is missing)",
    "can_merge": false,
    "rc_blocker": "no",
    "updated": "2026-10-27"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/linux-aurora",
-   "number": 245,
-   "title": "soc: apple: clpc: hand the T8140 GPU floor back 100 ms after the PMP stops limiting",
-   "url": "https://github.com/omacom/linux-aurora/pull/245",
-   "owner": "DjDeveloperr",
-   "merge": "unknown",
-   "checks": "passing",
-   "approvals": "approved by 1",
-   "maclab": "unknown",
-   "kind": "Mergeability unknown",
-   "blocker": "GitHub has not computed mergeability yet",
-   "can_merge": false,
-   "rc_blocker": "no",
-   "updated": "2026-10-29"
   },
   {
    "group": "team",
@@ -790,7 +807,7 @@
    "title": "soc: apple: clpc: take GPU activity reports from the G17 driver (stacked on #244)",
    "url": "https://github.com/omacom/linux-aurora/pull/270",
    "owner": "DjDeveloperr",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "none yet",
    "maclab": "unknown",
@@ -927,11 +944,11 @@
    "url": "https://github.com/omacom/linux-aurora/pull/281",
    "owner": "joshuaswarren",
    "merge": "mergeable",
-   "checks": "failing: ci / KUnit",
+   "checks": "running",
    "approvals": "none yet",
    "maclab": "unknown",
-   "kind": "Failing check",
-   "blocker": "Failing check: ci / KUnit",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
    "can_merge": false,
    "rc_blocker": "no",
    "updated": "2026-10-29"
@@ -1674,7 +1691,7 @@
    "title": "thunderbolt: share an Apple host link between DP tunnels that come up together",
    "url": "https://github.com/omacom/linux-aurora/pull/154",
    "owner": "briantoll",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "none",
    "approvals": "none yet",
    "maclab": "unknown",
@@ -2108,6 +2125,23 @@
    "can_merge": false,
    "rc_blocker": "no",
    "updated": "2026-10-28"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 282,
+   "title": "J514s: SEP and Touch ID (T6030)",
+   "url": "https://github.com/omacom/linux-aurora/pull/282",
+   "owner": "adammharris",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "unknown",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "rc_blocker": "no",
+   "updated": "2026-10-29"
   },
   {
    "group": "other",
