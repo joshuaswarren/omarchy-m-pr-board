@@ -256,11 +256,55 @@ class OneByOneTest(unittest.TestCase):
 
     @staticmethod
     def single(bad=()):
-        def run(owner, name, number):
+        def run(owner, name, number, light=False):
             if number in bad:
                 raise subprocess.CalledProcessError(1, "gh", stderr="Something went wrong")
             return {"data": {"repository": {"isPrivate": False, "pullRequest": node(number)}}}
         return run
+
+    def test_a_pr_that_fails_in_full_is_read_again_without_its_merge_state(self):
+        calls = []
+
+        def single(owner, name, number, light=False):
+            calls.append((number, light))
+            if not light:
+                raise subprocess.CalledProcessError(1, "gh", stderr="Something went wrong")
+            pr = {k: v for k, v in node(number).items() if k not in ("mergeable", "mergeStateStatus")}
+            return {"data": {"repository": {"isPrivate": False, "pullRequest": pr}}}
+
+        with contextlib.redirect_stderr(io.StringIO()):
+            data = board.fetch(["o/r"], self.failing_pages, None, self.numbers([4]), single)
+        r = board.classify("o/r", data["o/r"][0])
+        self.assertEqual(calls, [(4, False), (4, True)])
+        self.assertEqual((r["merge"], r["kind"], r["owner"]), ("unknown", "Mergeability unknown", "alice"))
+
+    def test_a_pr_that_vanished_between_the_list_and_the_read_is_skipped(self):
+        def single(owner, name, number, light=False):
+            return {"data": {"repository": {"isPrivate": False, "pullRequest": None if number == 5 else node(number)}}}
+
+        data = board.fetch(["o/r"], self.failing_pages, None, self.numbers([4, 5, 6]), single)
+        self.assertEqual([n["number"] for n in data["o/r"]], [4, 6])
+
+    def test_after_the_deadline_the_rest_come_back_unread_without_another_call(self):
+        calls = []
+
+        def single(owner, name, number, light=False):
+            calls.append(number)
+            return {"data": {"repository": {"isPrivate": False, "pullRequest": node(number)}}}
+
+        original = board.LAST_RESORT_SECONDS
+        board.LAST_RESORT_SECONDS = -1
+        try:
+            data = board.fetch(["o/r"], self.failing_pages, None, self.numbers([1, 2]), single)
+        finally:
+            board.LAST_RESORT_SECONDS = original
+        self.assertEqual((calls, data["o/r"]), ([], [{"number": 1, "_unread": True}, {"number": 2, "_unread": True}]))
+
+    def test_the_summary_gives_unread_its_own_line(self):
+        rows = board.rows_from({"o/r": [node(1), {"number": 2, "_unread": True}, node(3, isDraft=True)]})
+        text = board.render_summary(rows, "u")
+        self.assertIn("GitHub would not return the details of 1: r 2.", text)
+        self.assertIn("Waiting on the author or a run: Draft 1.", text)
 
     def test_when_no_page_will_come_each_pr_is_read_alone_and_one_bad_pr_costs_one_row(self):
         with contextlib.redirect_stderr(io.StringIO()) as err:
@@ -268,7 +312,7 @@ class OneByOneTest(unittest.TestCase):
         self.assertEqual([n["number"] for n in data["o/r"]], [4, 5, 6])
         rows = board.rows_from(data)
         self.assertEqual([(r["number"], r["kind"]) for r in rows], [(4, "None"), (6, "None"), (5, "Unread")])
-        self.assertIn("o/r#5: could not be read", err.getvalue())
+        self.assertIn("o/r#5: light read failed", err.getvalue())
         self.assertNotIn("o/r#4", err.getvalue())
 
     def test_the_unread_row_claims_nothing(self):
@@ -293,12 +337,12 @@ class OneByOneTest(unittest.TestCase):
         with contextlib.redirect_stderr(io.StringIO()):
             self.assertEqual(board.fetch(["o/r"], self.failing_pages, None, self.numbers([1], private=True), self.single()), {})
 
-    def test_a_pr_that_the_single_query_returns_as_null_is_unread_not_a_crash(self):
-        def single(owner, name, number):
+    def test_a_pr_that_the_single_query_returns_as_null_is_skipped_not_a_crash(self):
+        def single(owner, name, number, light=False):
             return {"data": {"repository": {"isPrivate": False, "pullRequest": None}}}
 
         data = board.fetch(["o/r"], self.failing_pages, None, self.numbers([7]), single)
-        self.assertEqual(data["o/r"], [{"number": 7, "_unread": True}])
+        self.assertEqual(data["o/r"], [])
 
     def test_without_the_last_resort_a_failing_page_is_still_just_unreadable(self):
         with contextlib.redirect_stderr(io.StringIO()):

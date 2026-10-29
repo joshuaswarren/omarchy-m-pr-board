@@ -115,6 +115,13 @@ query($owner: String!, $name: String!, $number: Int!) {
 """
 
 
+# The same without mergeable and mergeStateStatus, which GitHub works out on demand: the four PRs the full query could not return in the
+# workflow were all freshly updated, and a PR whose merge state is being recomputed is the likely cause.
+SINGLE_LIGHT_QUERY = SINGLE_QUERY.replace(" mergeable mergeStateStatus", "")
+
+LAST_RESORT_SECONDS = 600  # the whole one-by-one read of one repo; the PRs not reached by then come back as Unread
+
+
 def load_team(path: str = TEAM_FILE) -> set[str]:
     """The lower-case GitHub logins of the Omarchy M team: a plain JSON list."""
     with open(path, encoding="utf-8") as f:
@@ -310,9 +317,12 @@ def render_summary(rows: list[dict], url: str) -> str:
         waiting = [r for r in stuck if r["kind"] == kind]
         if waiting:
             lines.append(f"{kind} ({len(waiting)}): {_listed(waiting)}.")
-    others = Counter(r["kind"] for r in stuck if r["kind"] not in MAINTAINER_KINDS).most_common()
+    others = Counter(r["kind"] for r in stuck if r["kind"] not in MAINTAINER_KINDS and r["kind"] != "Unread").most_common()
     if others:
         lines.append("Waiting on the author or a run: " + ", ".join(f"{kind} {count}" for kind, count in others) + ".")
+    unread = [r for r in stuck if r["kind"] == "Unread"]
+    if unread:
+        lines.append(f"GitHub would not return the details of {len(unread)}: {_listed(unread)}.")
     counts = {key: sum(r["group"] == key for r in rows) for key, _ in GROUPS}
     lines.append(f"Team {counts['team']}, existing contributors {counts['contributor']}, everyone else {counts['other']}.")
     lines.append(f"Each PR and what it needs: {url}")
@@ -340,8 +350,9 @@ def gh_numbers(owner: str, name: str, after: str | None) -> dict:
     return json.loads(subprocess.run(args, capture_output=True, text=True, timeout=120, check=True).stdout)
 
 
-def gh_single(owner: str, name: str, number: int) -> dict:
-    args = ["gh", "api", "graphql", "-f", f"query={SINGLE_QUERY}", "-F", f"owner={owner}", "-F", f"name={name}", "-F", f"number={number}"]
+def gh_single(owner: str, name: str, number: int, light: bool = False) -> dict:
+    query = SINGLE_LIGHT_QUERY if light else SINGLE_QUERY
+    args = ["gh", "api", "graphql", "-f", f"query={query}", "-F", f"owner={owner}", "-F", f"name={name}", "-F", f"number={number}"]
     return json.loads(subprocess.run(args, capture_output=True, text=True, timeout=120, check=True).stdout)
 
 
@@ -422,16 +433,33 @@ def _read_one_by_one(owner: str, name: str, numbers_run: Callable, single_run: C
         print(f"{owner}/{name}: listing the open PRs failed: {type(error).__name__}: {_brief(error)}", file=sys.stderr)
         return None
     nodes = []
+    deadline = time.monotonic() + LAST_RESORT_SECONDS
     for number in numbers:
+        if time.monotonic() > deadline:
+            nodes.append({"number": number, "_unread": True})
+            continue
+        node = _read_one(owner, name, number, single_run)
+        if node != {}:
+            nodes.append(node)
+    return nodes
+
+
+def _read_one(owner: str, name: str, number: int, single_run: Callable) -> dict:
+    """One PR: in full, else without the merge state GitHub computes on demand (shown as unknown), else an Unread stub. {} when it is gone."""
+    for light in (False, True):
         try:
-            repository = single_run(owner, name, number)["data"]["repository"]
+            repository = single_run(owner, name, number, light)["data"]["repository"]
             if repository is None or repository.get("isPrivate") is not False:
                 raise PrivateRepo
-            nodes.append(repository["pullRequest"] or {"number": number, "_unread": True})
+            pr = repository["pullRequest"]
+            if pr is None:
+                return {}  # closed or deleted between the list and the read
+            if light:
+                pr = {**pr, "mergeable": "UNKNOWN", "mergeStateStatus": "UNKNOWN"}
+            return pr
         except (subprocess.SubprocessError, KeyError, TypeError, ValueError) as error:
-            print(f"{owner}/{name}#{number}: could not be read: {type(error).__name__}: {_brief(error)}", file=sys.stderr)
-            nodes.append({"number": number, "_unread": True})
-    return nodes
+            print(f"{owner}/{name}#{number}: {'light ' if light else ''}read failed: {type(error).__name__}: {_brief(error)}", file=sys.stderr)
+    return {"number": number, "_unread": True}
 
 
 def _read_repo(owner: str, name: str, run: Callable[[str, str, str | None, int], dict], checks_run: Callable[[str, str, str | None, int], dict] | None = None,
