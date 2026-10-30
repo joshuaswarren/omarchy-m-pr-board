@@ -116,11 +116,11 @@ class EvidenceTest(unittest.TestCase):
         for bad in ("http://github.com/o/r/x", "javascript:alert(1)", "https://user:pw@github.com/x", "ftp://github.com/x"):
             self.assertEqual(self.evidence(f"Evidence: {bad}"), "", bad)
 
-    def test_only_githubs_own_hosts_are_linked(self):
-        for good in ("https://github.com/o/r/pull/1", "https://someone.github.io/report", "https://GitHub.com/o/r"):
+    def test_only_github_com_is_linked(self):
+        for good in ("https://github.com/o/r/pull/1", "https://GitHub.com/o/r"):
             self.assertEqual(self.evidence(f"Evidence: {good}"), good, good)
         for bad in ("https://example.org/x", "https://github.com.evil.org/x", "https://evilgithub.com/x", "https://evil.org/github.com", "https://x.github.io.evil.org/",
-                    "https://github.com\\@evil.org/x", "https://raw.githubusercontent.com/o/r/x"):
+                    "https://github.com\\@evil.org/x", "https://raw.githubusercontent.com/o/r/x", "https://evil.github.io/phish", "https://github.io/x"):
             self.assertEqual(self.evidence(f"Evidence: {bad}"), "", bad)
 
     def test_a_link_over_300_characters_is_refused(self):

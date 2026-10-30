@@ -277,8 +277,8 @@ def _evidence(node: dict) -> str:
         url = match.group(1).rstrip(".,;")
         link = urlsplit(url)
         host = (link.hostname or "").lower()
-        # only GitHub's own hosts: the default view is the PRs awaiting review, and an author must not choose where its chip leads
-        if link.scheme == "https" and (host == "github.com" or host.endswith(".github.io")) and "@" not in link.netloc and len(url) <= 300:
+        # only github.com (anyone can register a name.github.io): the default view is the PRs awaiting review, and an author must not choose where its chip leads
+        if link.scheme == "https" and host == "github.com" and "@" not in link.netloc and len(url) <= 300:
             return url
     return ""
 
