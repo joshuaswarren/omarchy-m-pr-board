@@ -122,9 +122,9 @@ class RowFieldsTest(unittest.TestCase):
         self.assertEqual(row(title="Fix the blocker in the RC")["rc_blocker"], "no")
         self.assertEqual(row(labels={"nodes": [{"name": "bug"}]})["rc_blocker"], "no")
 
-    def test_owner_is_the_author_and_the_maclab_state_is_unknown(self):
+    def test_owner_is_the_author_and_a_non_kernel_repo_has_no_maclab_chip(self):
         r = row()
-        self.assertEqual((r["owner"], r["maclab"], r["repo"], r["number"]), ("alice", "unknown", "o/r", 1))
+        self.assertEqual((r["owner"], r["maclab"], r["repo"], r["number"]), ("alice", "", "o/r", 1))
 
     def test_a_deleted_author_does_not_break_the_row(self):
         self.assertEqual(row(author=None)["owner"], "unknown")
@@ -148,7 +148,7 @@ class PageTest(unittest.TestCase):
         self.assertIn("&lt;script&gt;alert(1)&lt;/script&gt;", html)
         self.assertLess(html.index("Omarchy M team"), html.index("Everyone else"))
         self.assertIn("Last change: 2026-10-29 12:00 UTC", html)
-        self.assertIn("Maclab qualification is not shown", html)
+        self.assertIn("Maclab: the lab's Macs booted", html)
 
     def test_the_summary_says_what_can_merge_and_what_waits_on_whom(self):
         text = board.render_summary(self.rows(), "https://example.invalid/board")
@@ -441,7 +441,7 @@ class FixtureRunTest(unittest.TestCase):
             self.assertEqual([(r["number"], r["can_merge"]) for r in saved["rows"]], [(1, True), (2, False)])
             self.assertEqual(saved["generated"], "2026-10-29 12:00 UTC")
             with open(os.path.join(tmp, "index.html"), encoding="utf-8") as f:
-                self.assertIn("r #1 by alice", f.read())
+                self.assertIn("#1 by alice", f.read())
             with open(os.path.join(tmp, "summary.txt"), encoding="utf-8") as f:
                 self.assertIn("1 can merge now", f.read())
 

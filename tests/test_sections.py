@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -62,17 +63,17 @@ class PageSectionsTest(unittest.TestCase):
         html = board.render_html(self.rows(), "t")
         order = [html.index(h) for h in ("Omarchy M team", "Existing contributors", "Everyone else")]
         self.assertEqual(order, sorted(order))
-        self.assertEqual(html.count("<span>1 open, 1 can merge now</span>"), 3)
+        self.assertEqual(html.count("<span>1 shown, 1 can merge now</span>"), 3)
 
     def test_an_empty_section_says_none(self):
         html = board.render_html(board.rows_from({"o/r": [pr(1, "alice")]}, TEAM, {}), "t")
-        self.assertIn("Existing contributors<span>0 open, 0 can merge now</span>", html)
+        self.assertIn("Existing contributors<span>0 shown, 0 can merge now</span>", html)
         self.assertIn('<p class="none">None.</p>', html)
 
     def test_the_page_shows_the_login_only_never_a_name(self):
         rows = self.rows()
         self.assertTrue(all(set(r).isdisjoint({"team_name", "name"}) for r in rows))
-        self.assertIn("r #3 by alice", board.render_html(rows, "t"))
+        self.assertIn("#3 by alice", board.render_html(rows, "t"))
 
 
 class StateTest(unittest.TestCase):
@@ -134,41 +135,35 @@ class RowHtmlTest(unittest.TestCase):
     def html(self, *nodes, **kw):
         return board.render_html(board.rows_from({"o/r": list(nodes)}, TEAM, {}), "t", **kw)
 
-    def test_a_ready_row_is_marked_and_has_no_blocking_line(self):
+    def test_a_ready_row_is_marked_and_says_who_it_waits_on(self):
         html = self.html(pr(1, "alice"))
         self.assertIn('class="pr ready"', html)
-        self.assertNotIn('class="why"', html)
+        self.assertIn('<div class="why">Waiting on a maintainer to merge</div>', html)
 
-    def test_a_row_that_needs_something_says_what_under_the_title(self):
+    def test_a_row_that_needs_something_says_who_and_what_under_the_title(self):
         html = self.html(pr(1, "alice", mergeable="CONFLICTING", mergeStateStatus="DIRTY"))
         self.assertNotIn('class="pr ready"', html)
-        self.assertIn('<div class="why">Merge conflicts with the base branch</div>', html)
+        self.assertIn('<div class="why">Waiting on alice to fix the conflicts</div>', html)
 
-    def test_a_line_that_repeats_the_state_is_cut_and_a_more_specific_one_stays(self):
-        plain = self.html(pr(1, "alice", reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED"))
-        self.assertIn(">needs review<", plain)
-        self.assertNotIn('class="why"', plain)
-        specific = self.html(pr(1, "alice", mergeStateStatus="BLOCKED"))
-        self.assertIn('<div class="why">Blocked by branch rules', specific)
-        waiting = self.html(pr(1, "alice", commits=rollup("PENDING", check("build", None, "IN_PROGRESS")), mergeStateStatus="BLOCKED"))
-        self.assertIn('<div class="why">Checks still running</div>', waiting)
+    def test_every_row_has_exactly_one_waiting_line(self):
+        html = self.html(pr(1, "alice"), pr(2, "alice", mergeStateStatus="BLOCKED"), pr(3, "alice", isDraft=True))
+        self.assertEqual(html.count('class="why"'), 3)
 
-    def test_held_prs_fold_into_one_closed_group_and_say_nothing_more(self):
+    def test_drafts_are_rows_like_the_others_but_hidden_until_asked_for(self):
         html = self.html(pr(1, "alice"), pr(2, "alice", isDraft=True), pr(3, "alice", isDraft=True))
-        self.assertIn('<details class="held"><summary>2 held</summary>', html)
-        self.assertNotIn("<details open", html)
-        self.assertLess(html.index("r #1 by alice"), html.index('<details class="held">'))
-        self.assertLess(html.index('<details class="held">'), html.index("r #2 by alice"))
-        self.assertNotIn('<div class="why">Draft</div>', html)
+        self.assertEqual(len(re.findall(r'data-draft="1"[^>]* hidden>', html)), 2)
+        self.assertEqual(len(re.findall(r'data-draft="0"[^>]*>', html)), 1)
+        self.assertNotIn("<details", html.split("<footer>")[0].replace('<details class="menu">', ""))
+        self.assertIn("<span>1 shown, 1 can merge now</span>", html)
 
-    def test_a_section_with_only_held_prs_shows_the_group_and_not_none(self):
+    def test_a_section_with_only_drafts_says_none_until_they_are_shown(self):
         html = self.html(pr(1, "alice", isDraft=True))
-        self.assertIn("1 held", html)
-        self.assertNotIn('<p class="none">None.</p>', html.split("Existing contributors")[0])
+        self.assertIn("0 shown, 0 can merge now", html)
+        self.assertIn('<p class="none">None.</p>', html.split("Existing contributors")[0])
 
-    def test_the_active_prs_come_in_state_order(self):
+    def test_the_prs_come_in_state_order(self):
         html = self.html(pr(1, "alice", mergeable="CONFLICTING", mergeStateStatus="DIRTY"), pr(2, "alice", reviewDecision="REVIEW_REQUIRED", mergeStateStatus="BLOCKED"), pr(3, "alice"))
-        order = [html.index(f"r #{n} by alice") for n in (3, 2, 1)]
+        order = [html.index(f"#{n} by alice") for n in (3, 2, 1)]
         self.assertEqual(order, sorted(order))
 
     def test_the_age_is_a_time_element_with_the_date_as_its_plain_text(self):
