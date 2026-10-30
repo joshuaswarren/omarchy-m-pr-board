@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-30 13:23 UTC",
+ "generated": "2026-10-30 14:23 UTC",
  "rows": [
   {
    "group": "team",
@@ -1776,30 +1776,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-10-20"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 66,
-   "draft": false,
-   "state": "waiting",
-   "title": "Retry a transient CDN refusal in the conformance matrix",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/66",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Checks running",
-   "blocker": "Checks still running",
-   "can_merge": false,
-   "sha": "ef52974112a5915e32a6e9ef2af48ed6072cb16c",
-   "evidence": "",
-   "waiting": "Waiting on CI to finish",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-10-30"
   },
   {
    "group": "team",
