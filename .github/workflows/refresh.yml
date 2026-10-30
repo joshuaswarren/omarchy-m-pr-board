@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["board.py", ".github/workflows/refresh.yml"]
+    paths: ["board.py", "maclab.json", ".github/workflows/refresh.yml"]
 permissions:
   contents: write
 concurrency:

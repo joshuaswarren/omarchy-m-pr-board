@@ -4,8 +4,8 @@
     board.py --out docs --url https://.../           live, needs the gh CLI (GITHUB_TOKEN or a login)
     board.py --fixture data.json --out /tmp/board    from saved data, no network
 
-Writes index.html (the page), board.json (the rows) and summary.txt (the once-a-day text).
-The maclab qualification state is "unknown": maclab's job records are not public.
+Writes index.html (the page), board.json (the rows), summary.txt and daily.txt (the texts).
+The maclab chip comes from maclab.json (commits and counts, written by maclab_export.py where maclab can be reached).
 """
 
 from __future__ import annotations
@@ -18,6 +18,7 @@ import re
 import subprocess
 import sys
 import time
+from urllib.parse import urlsplit
 from collections import Counter
 from collections.abc import Callable, Sequence
 
@@ -43,6 +44,26 @@ STATE_CLASS = {"ready to merge": "ok", "needs review": "warn", "needs fixes": "b
 GROUPS = (("team", "Omarchy M team"), ("contributor", "Existing contributors"), ("other", "Everyone else"))
 MAX_MERGED_PAGES = 60  # 100 per page: more than 6000 merged PRs in one repo is not read to the end
 TEAM_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "team.json")
+MACLAB_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "maclab.json")
+MAX_MACS = 99  # a count above this in maclab.json is not read
+ACT_STATES = ("ready to merge", "needs review")  # waiting on a reviewer or a maintainer: what the page opens on
+KERNEL_REPOS = ("omacom/linux-aurora",)  # the repos whose PRs maclab can boot: a PR there with no job says "not run"
+WAITING = {  # kind -> (who, what): "Waiting on <who> <what>"
+    "None": ("reviewers", "to merge"),
+    "Needs review": ("reviewers", "for an approving review"),
+    "Workflow run needs approval": ("reviewers", "to approve the workflow run"),
+    "Branch rules": ("reviewers", "for a required check or review"),
+    "Merge conflicts": ("author", "to fix the conflicts"),
+    "Changes requested": ("author", "to address the changes {changes} asked for"),
+    "Failing check": ("author", "to fix the failing check: {failing}"),
+    "Branch behind": ("author", "to update the branch"),
+    "Draft": ("author", "to mark it ready"),
+    "Checks running": ("CI", "to finish"),
+    "Mergeability unknown": ("GitHub", "to compute the merge state"),
+    "Unread": ("GitHub", "to return this PR"),
+}
+EVIDENCE = re.compile(r"^[ \t>*_-]*(?:\*\*|__)?(?:evidence|proof|receipt|test report|results?)(?:\*\*|__)?\s*:\s*(?:\*\*|__)?\s*(?:\[[^\]]*\]\()?<?(https?://[^\s)>\]]+)",
+                      re.IGNORECASE | re.MULTILINE)
 MAINTAINER_KINDS = ("Needs review", "Workflow run needs approval", "Branch rules")  # what a maintainer or reviewer must do
 PAGE_SIZE, SMALL_PAGE_SIZE = 10, 3  # a big repo's check lists can make GitHub answer 502 or 'something went wrong'
 
@@ -53,9 +74,10 @@ query($owner: String!, $name: String!, $after: String, $size: Int!) {
     pullRequests(states: OPEN, first: $size, after: $after, orderBy: {field: CREATED_AT, direction: ASC}) {
       pageInfo { hasNextPage endCursor }
       nodes {
-        number title url isDraft mergeable mergeStateStatus reviewDecision updatedAt baseRefName
+        number title url isDraft mergeable mergeStateStatus reviewDecision updatedAt baseRefName headRefOid body
         author { login }
         labels(first: 10) { nodes { name } }
+        reviewRequests(first: 5) { nodes { requestedReviewer { __typename ... on User { login } ... on Team { slug } } } }
         reviews(last: 20) { nodes { state author { login } } }
       }
     }
@@ -113,9 +135,10 @@ query($owner: String!, $name: String!, $number: Int!) {
   repository(owner: $owner, name: $name) {
     isPrivate
     pullRequest(number: $number) {
-      number title url isDraft mergeable mergeStateStatus reviewDecision updatedAt baseRefName
+      number title url isDraft mergeable mergeStateStatus reviewDecision updatedAt baseRefName headRefOid body
       author { login }
       labels(first: 10) { nodes { name } }
+      reviewRequests(first: 5) { nodes { requestedReviewer { __typename ... on User { login } ... on Team { slug } } } }
       reviews(last: 20) { nodes { state author { login } } }
       commits(last: 1) { nodes { commit { statusCheckRollup { state contexts(first: 30) { nodes {
         __typename ... on CheckRun { name conclusion status } ... on StatusContext { context state } } } } } } }
@@ -224,13 +247,71 @@ def _gate_failing(node: dict) -> bool:
                for c in _contexts(node))
 
 
+def _names(items: list[str]) -> str:
+    """alice; alice and bob; alice, bob and carol; alice, bob, carol and 2 more."""
+    if len(items) > 3:
+        return f"{', '.join(items[:3])} and {len(items) - 3} more"
+    return " and ".join([", ".join(items[:-1]), items[-1]] if len(items) > 2 else items)
+
+
+def _reviewers(node: dict) -> list[str]:
+    """The reviewers GitHub asked (code owners included): user logins and team slugs."""
+    found: list[str] = []
+    for request in (node.get("reviewRequests") or {}).get("nodes") or []:
+        who = request.get("requestedReviewer") or {}
+        name = who.get("login") or who.get("slug")
+        if name and name not in found:
+            found.append(name)
+    return found
+
+
+def _waiting(kind: str, node: dict, failing: list[str], changes: list[str]) -> str:
+    who, what = WAITING[kind]
+    names = {"reviewers": lambda: _names(_reviewers(node)) or "a maintainer", "author": lambda: (node.get("author") or {}).get("login") or "the author"}
+    return f"Waiting on {names.get(who, lambda: who)()} " + what.format(changes=", ".join(changes) or "a reviewer", failing=", ".join(failing))
+
+
+def _evidence(node: dict) -> str:
+    """The first https link on a body line that starts with Evidence, Proof, Receipt, Test report or Results; '' when there is none."""
+    for match in EVIDENCE.finditer(node.get("body") or ""):
+        url = match.group(1).rstrip(".,;")
+        link = urlsplit(url)
+        host = (link.hostname or "").lower()
+        # only github.com (anyone can register a name.github.io): the default view is the PRs awaiting review, and an author must not choose where its chip leads
+        if link.scheme == "https" and host == "github.com" and "@" not in link.netloc and len(url) <= 300:
+            return url
+    return ""
+
+
+def _maclab(repo: str, sha: str, maclab: dict | None) -> tuple[str, str]:
+    """(chip, tooltip): passed or failed from the Macs that booted this head; 'not run' for a kernel PR nothing booted; no chip for other repos."""
+    counts = (maclab or {}).get(sha) if sha else None
+    if not counts:
+        return ("not run" if repo in KERNEL_REPOS else ""), ""
+    passed, failed = counts["passed"], counts["failed"]
+    parts = ([f"{passed} Mac{'s' * (passed != 1)} passed"] if passed else []) + ([f"{failed} failed" if passed else f"{failed} Mac{'s' * (failed != 1)} failed"] if failed else [])
+    return ("failed" if failed else "passed"), ", ".join(parts)
+
+
+def load_maclab(path: str = MACLAB_FILE) -> dict:
+    """{head commit: {"passed": n, "failed": n}} from maclab.json; nothing for a missing or broken file, and only well-formed entries."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            saved = json.load(f)
+        return {sha: {"passed": c["passed"], "failed": c["failed"]} for sha, c in saved.items()
+                if re.fullmatch(r"[0-9a-f]{40}", sha) and all(type(c.get(k)) is int and 0 <= c[k] <= MAX_MACS for k in ("passed", "failed"))}
+    except (OSError, ValueError, AttributeError, KeyError, TypeError):
+        return {}
+
+
 def _unread_row(repo: str, node: dict) -> dict:
     return {"group": "other", "repo": repo, "number": node["number"], "title": "(details unavailable)", "url": f"https://github.com/{repo}/pull/{node['number']}",
-            "owner": "unknown", "draft": False, "state": "waiting", "merge": "unknown", "checks": "unknown", "approvals": "unknown", "maclab": "unknown", "kind": "Unread",
-            "blocker": "GitHub would not return this PR's details", "can_merge": False, "rc_blocker": "no", "updated": ""}
+            "owner": "unknown", "draft": False, "state": "waiting", "merge": "unknown", "checks": "unknown", "approvals": "unknown", "maclab": "", "maclab_title": "", "kind": "Unread",
+            "blocker": "GitHub would not return this PR's details", "can_merge": False, "rc_blocker": "no", "updated": "", "sha": "", "evidence": "",
+            "waiting": _waiting("Unread", node, [], []), "act": False}
 
 
-def classify(repo: str, node: dict, team: set | None = None, merged: dict | None = None) -> dict:
+def classify(repo: str, node: dict, team: set | None = None, merged: dict | None = None, maclab: dict | None = None) -> dict:
     if node.get("_unread"):
         return _unread_row(repo, node)
     checks, failing, needs_run_approval = _checks(node)
@@ -238,20 +319,24 @@ def classify(repo: str, node: dict, team: set | None = None, merged: dict | None
     kind, blocker = _blocker(node, checks, failing, needs_run_approval, changes, _gate_failing(node))
     labels = [(label or {}).get("name", "") for label in (node.get("labels") or {}).get("nodes") or []]
     login = ((node.get("author") or {}).get("login") or "").lower()
+    sha = node.get("headRefOid") or ""
+    chip, chip_title = _maclab(repo, sha, maclab)
+    state = KIND_STATE[kind]
     group = "team" if login and login in (team or ()) else "contributor" if login and login in ((merged or {}).get(repo) or ()) else "other"
     return {
-        "group": group, "repo": repo, "number": node["number"], "draft": bool(node.get("isDraft")), "state": KIND_STATE[kind], "title": node.get("title") or "", "url": node.get("url") or f"https://github.com/{repo}/pull/{node['number']}",
+        "group": group, "repo": repo, "number": node["number"], "draft": bool(node.get("isDraft")), "state": state, "title": node.get("title") or "", "url": node.get("url") or f"https://github.com/{repo}/pull/{node['number']}",
         "owner": (node.get("author") or {}).get("login") or "unknown",
         "merge": {"MERGEABLE": "mergeable", "CONFLICTING": "conflicts"}.get(node.get("mergeable") or "", "unknown"),
         "checks": checks, "approvals": _approvals_text(node.get("reviewDecision"), approved, changes),
-        "maclab": "unknown", "kind": kind, "blocker": blocker, "can_merge": blocker == CAN_MERGE,
+        "maclab": chip, "maclab_title": chip_title, "kind": kind, "blocker": blocker, "can_merge": blocker == CAN_MERGE,
+        "sha": sha, "evidence": _evidence(node), "waiting": _waiting(kind, node, failing, changes), "act": state in ACT_STATES,
         "rc_blocker": "yes" if any(RC_LABEL.match(name) for name in labels) else "no",
         "updated": (node.get("updatedAt") or "")[:10],
     }
 
 
-def rows_from(data: dict, team: set | None = None, merged: dict | None = None) -> list[dict]:
-    rows = [classify(repo, node, team, merged) for repo, nodes in data.items() for node in nodes or []]
+def rows_from(data: dict, team: set | None = None, merged: dict | None = None, maclab: dict | None = None) -> list[dict]:
+    rows = [classify(repo, node, team, merged, maclab) for repo, nodes in data.items() for node in nodes or []]
     order = [key for key, _ in GROUPS]
     return sorted(rows, key=lambda r: (order.index(r["group"]), STATES.index(r["state"]), r["repo"], r["number"]))
 
@@ -277,8 +362,9 @@ header .ok{color:var(--green)}
 .card h2 span{color:var(--dim);font-weight:300;margin-left:.6rem}
 .none{color:var(--dim);margin:.4rem 1.2rem .8rem}
 ul{list-style:none;margin:0;padding:0}
-.pr{align-items:center;border-top:1px solid var(--soft);display:flex;gap:1.5rem;justify-content:space-between;padding:.7rem 1.2rem}
-.pr:first-child{border-top:0}
+.pr{align-items:center;display:flex;gap:1.5rem;justify-content:space-between;padding:.7rem 1.2rem}
+.pr:not([hidden]) ~ .pr:not([hidden]){border-top:1px solid var(--soft)}
+[hidden]{display:none!important}
 .pr.ready{box-shadow:inset 3px 0 var(--green)}
 .what{min-width:0}
 .title{font-weight:400;overflow-wrap:anywhere}
@@ -291,9 +377,14 @@ ul{list-style:none;margin:0;padding:0}
 .chip.bad{border-color:rgb(247 118 142 / .5);color:var(--red)}
 .chip.draft{border-color:rgb(187 154 247 / .45);color:var(--magenta)}
 .note{color:var(--yellow);margin:2rem 0 0}
-.held{border-top:1px solid var(--soft)}
-.held summary{color:var(--dim);cursor:pointer;padding:.7rem 1.2rem}
-.held summary:hover{color:var(--white)}
+.repo{color:var(--cyan);font-size:.74rem;margin-right:.6rem}
+a.chip:hover{border-color:var(--cyan);color:var(--cyan)}
+.menu{margin:1.4rem 0 0}
+.menu summary{border:1px solid var(--soft);border-radius:999px;color:var(--dim);cursor:pointer;display:inline-block;font-size:.82rem;padding:.1rem .8rem}
+.menu summary:hover,.menu[open] summary{color:var(--white)}
+.menu div{color:var(--dim);display:flex;flex-wrap:wrap;font-size:.82rem;gap:1.2rem;margin:.8rem 0 0}
+select{background:var(--storm);border:1px solid var(--line);border-radius:4px;color:var(--text);font:inherit;margin-left:.4rem;padding:.15rem .4rem}
+input[type=checkbox]{accent-color:var(--blue);margin-right:.4rem}
 footer{color:var(--dim);font-size:.82rem;margin-top:3rem}
 footer p{margin:.3rem 0}
 @media(max-width:760px){.pr{align-items:flex-start;flex-direction:column;gap:.5rem}.chips{justify-content:flex-start;max-width:none}.card{padding-top:.2rem}.card h2{background:none;padding:.9rem 1.2rem .5rem;position:static}.card h2 span{display:block;margin:0}}
@@ -310,32 +401,59 @@ def _chips(r: dict) -> list[tuple[str, str]]:
     return chips
 
 
+def _maclab_chip(r: dict) -> str:
+    if not r["maclab"]:
+        return ""
+    css = {"passed": " ok", "failed": " bad"}.get(r["maclab"], "")
+    title = f' title="{html.escape(r["maclab_title"], quote=True)}"' if r["maclab_title"] else ""
+    return f'<span class="chip{css}"{title}>maclab {html.escape(r["maclab"])}</span>'
+
+
 def _row(r: dict) -> str:
-    chips = "".join(f'<span class="chip {css}">{html.escape(text)}</span>' for css, text in _chips(r))
+    chips = [f'<span class="chip {css}">{html.escape(text)}</span>' for css, text in _chips(r)]
+    if r["evidence"]:
+        chips.insert(1, f'<a class="chip" href="{html.escape(r["evidence"], quote=True)}" rel="noopener">evidence</a>')
+    chips.insert(1 + bool(r["evidence"]), _maclab_chip(r))
     if r["updated"]:
-        chips += f'<time class="chip" datetime="{html.escape(r["updated"], quote=True)}" title="last updated">{html.escape(r["updated"])}</time>'
-    # the state chip already says ready, held and "needs review": a line that repeats it is cut
-    why = "" if r["kind"] in ("None", "Draft", "Needs review") else f'<div class="why">{html.escape(r["blocker"])}</div>'
-    return (f'<li class="pr{" ready" if r["can_merge"] else ""}"><div class="what"><a class="title" href="{html.escape(r["url"], quote=True)}">{html.escape(r["title"])}</a>'
-            f'<div class="meta">{html.escape(short(r["repo"]))} #{r["number"]} by {html.escape(r["owner"])}</div>{why}</div><div class="chips">{chips}</div></li>')
+        chips.append(f'<time class="chip" datetime="{html.escape(r["updated"], quote=True)}" title="last updated">{html.escape(r["updated"])}</time>')
+    attrs = f'data-repo="{html.escape(r["repo"], quote=True)}" data-act="{int(r["act"])}" data-draft="{int(r["draft"])}"{"" if r["act"] else " hidden"}'
+    return (f'<li class="pr{" ready" if r["can_merge"] else ""}" {attrs}><div class="what"><div><span class="repo">{html.escape(short(r["repo"]))}</span>'
+            f'<a class="title" href="{html.escape(r["url"], quote=True)}">{html.escape(r["title"])}</a></div>'
+            f'<div class="meta">#{r["number"]} by {html.escape(r["owner"])}</div><div class="why">{html.escape(r["waiting"])}</div></div>'
+            f'<div class="chips">{"".join(chips)}</div></li>')
 
 
 def _section(title: str, part: list[dict]) -> str:
-    ready = sum(r["can_merge"] for r in part)
-    head = f'<h2>{html.escape(title)}<span>{len(part)} open, {ready} can merge now</span></h2>'
-    active, held = [r for r in part if r["state"] != "held"], [r for r in part if r["state"] == "held"]
-    body = f'<ul>{"".join(_row(r) for r in active)}</ul>' if active else ('<p class="none">None.</p>' if not held else "")
-    if held:
-        body += f'<details class="held"><summary>{len(held)} held</summary><ul>{"".join(_row(r) for r in held)}</ul></details>'
-    return f'<section class="card">{head}{body}</section>'
+    shown = [r for r in part if r["act"]]
+    head = f'<h2>{html.escape(title)}<span>{len(shown)} shown, {sum(r["can_merge"] for r in shown)} can merge now</span></h2>'
+    return f'<section class="card">{head}<ul>{"".join(_row(r) for r in part)}</ul><p class="none"{"" if not shown else " hidden"}>None.</p></section>'
+
+
+def _menu(rows: list[dict]) -> str:
+    repos = sorted({r["repo"] for r in rows}, key=short)
+    options = '<option value="">All repos</option>' + "".join(f'<option value="{html.escape(repo, quote=True)}">{html.escape(short(repo))}</option>' for repo in repos)
+    return (f'<details class="menu"><summary>Needs action now: {sum(r["act"] for r in rows)} of {len(rows)}</summary><div>'
+            '<label>Show<select id="view"><option value="focus" selected>Needs action now</option><option value="all">Everything</option></select></label>'
+            f'<label>Repo<select id="repo">{options}</select></label>'
+            '<label><input type="checkbox" id="drafts">Drafts</label></div></details>')
+
+
+FILTER_SCRIPT = ("<script>{const $=s=>document.querySelector(s),all=s=>[...document.querySelectorAll(s)];const apply=()=>{const v=$('#view').value,r=$('#repo').value,d=$('#drafts').checked;"
+                 "for(const li of all('li.pr')){li.hidden=!((!r||li.dataset.repo===r)&&(li.dataset.draft==='1'?d:v==='all'||li.dataset.act==='1'))}"
+                 "let n=0;for(const s of all('section.card')){const rows=[...s.querySelectorAll('li.pr:not([hidden])')];n+=rows.length;"
+                 "s.querySelector('h2 span').textContent=rows.length+' shown, '+rows.filter(li=>li.classList.contains('ready')).length+' can merge now';s.querySelector('p.none').hidden=rows.length>0}"
+                 "$('.menu summary').textContent=$('#view').selectedOptions[0].text+(r?', '+$('#repo').selectedOptions[0].text:'')+(d?', drafts':'')+': '+n+' of '+all('li.pr').length};"
+                 "for(const e of all('#view,#repo,#drafts'))e.addEventListener('change',apply);apply()}</script>")
 
 
 def render_html(rows: list[dict], generated: str, unreadable: Sequence[str] = ()) -> str:
     ready = sum(r["can_merge"] for r in rows)
     parts = ['<!doctype html>\n<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">',
              f"<title>Omarchy M pull requests</title><style>{CSS}</style>",
+             # without script the menu cannot work: show every row rather than hide some for good
+             "<noscript><style>li.pr[hidden]{display:flex!important}p.none[hidden]{display:none!important}.menu{display:none}</style></noscript>",
              f'<header><h1><b>Omarchy M</b> pull requests</h1><p><strong>{len(rows)}</strong> open, <strong class="ok">{ready}</strong> can merge now. '
-             f"Checked hourly. Last change: {html.escape(generated)}.</p></header><main>"]
+             f"Checked hourly. Last change: {html.escape(generated)}.</p>{_menu(rows) if rows else ''}</header><main>"]
     if not rows:
         parts.append('<p class="none">No open pull requests were read.</p>')
     else:
@@ -343,9 +461,10 @@ def render_html(rows: list[dict], generated: str, unreadable: Sequence[str] = ()
     if unreadable:
         parts.append('<p class="note">Not read this time: ' + ", ".join(html.escape(r) for r in unreadable) + ".</p>")
     parts.append("</main><footer>"
-                 "<p>Ready to merge: GitHub reports the PR clean. Needs review: waiting for a reviewer or a maintainer. Needs fixes: conflicts, failing checks or requested changes. Waiting: checks are running. Held: a draft. RC blocker: the PR has an rc or blocker label.</p>"
-                 "<p>Team: the Omarchy M team. Existing contributors: an earlier merged PR in the same repo.</p>"
-                 "<p>Maclab qualification is not shown: maclab's job records are not public.</p></footer>" + AGE_SCRIPT)
+                 "<p>Ready to merge: GitHub reports the PR clean. Needs review: waiting for a reviewer or a maintainer. Needs fixes: conflicts, failing checks or requested changes. Waiting: checks are running, or GitHub has not answered. Held: a draft. RC blocker: the PR has an rc or blocker label.</p>"
+                 "<p>Needs action now: the PR waits on a reviewer or a maintainer. Drafts stay hidden until asked for.</p>"
+                 "<p>Maclab: the lab's Macs booted the PR's head commit and ran the hardware checks, passed or failed. Not run: no lab job on that commit. Evidence: the link the PR body gives after Evidence, Proof, Receipt, Test report or Results.</p>"
+                 "<p>Team: the Omarchy M team. Existing contributors: an earlier merged PR in the same repo.</p></footer>" + AGE_SCRIPT + (FILTER_SCRIPT if rows else ""))
     return "\n".join(parts) + "\n"
 
 
@@ -626,6 +745,7 @@ def main(argv=None) -> int:
     ap.add_argument("--fixture", help="read this saved data ({prs, merged}, or just repo -> PR nodes) instead of GitHub")
     ap.add_argument("--save", help="also save the data read from GitHub to this file")
     ap.add_argument("--team", default=TEAM_FILE, help="the team file (default: team.json beside board.py)")
+    ap.add_argument("--maclab", default=MACLAB_FILE, help="the maclab results (default: maclab.json beside board.py)")
     ap.add_argument("--out", required=True)
     ap.add_argument("--url", default="")
     ap.add_argument("--now", default=None)
@@ -634,7 +754,7 @@ def main(argv=None) -> int:
     ap.add_argument("--repos", default=",".join(REPOS))
     args = ap.parse_args(argv)
     data, merged = _load_data(args)
-    rows = rows_from(data, load_team(args.team), merged)
+    rows = rows_from(data, load_team(args.team), merged, load_maclab(args.maclab))
     unreadable = sorted(repo for repo, nodes in data.items() if nodes is None)
     generated = args.now or time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime())
     if args.only_if_changed and _same_as_saved(args.out, rows, unreadable, args.url):
