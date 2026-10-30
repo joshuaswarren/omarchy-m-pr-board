@@ -76,6 +76,16 @@ class WaitingOnTest(unittest.TestCase):
         from board import KIND_STATE, WAITING
         self.assertEqual(set(WAITING), set(KIND_STATE))
 
+    def test_a_check_name_from_a_fork_is_escaped_in_the_waiting_line(self):
+        html = board.render_html([classify(commits=rollup("FAILURE", check("<script>alert(1)</script>", "FAILURE")))], "t")
+        self.assertNotIn("<script>alert(1)", html)
+        self.assertIn("&lt;script&gt;alert(1)", html)
+
+    def test_a_repo_name_is_escaped_in_the_row_and_the_menu(self):
+        html = board.render_html([board.classify('o/"><img src=x>', node(1))], "t")
+        self.assertNotIn("<img src=x>", html)
+        self.assertNotIn('data-repo="o/"', html)
+
     def test_the_row_shows_the_one_line_and_no_second_blocking_line(self):
         html = board.render_html([classify(mergeable="CONFLICTING", mergeStateStatus="DIRTY")], "t")
         self.assertIn("Waiting on alice to fix the conflicts", html)
@@ -87,38 +97,49 @@ class EvidenceTest(unittest.TestCase):
         return classify(body=body)["evidence"]
 
     def test_a_line_that_starts_with_evidence_gives_its_link(self):
-        self.assertEqual(self.evidence("Fixes the thing.\n\nEvidence: https://example.org/run/1\n"), "https://example.org/run/1")
+        self.assertEqual(self.evidence("Fixes the thing.\n\nEvidence: https://github.com/o/r/run/1\n"), "https://github.com/o/r/run/1")
 
     def test_the_other_labels_work_and_case_does_not_matter(self):
         for label in ("proof", "Receipt", "Test report", "RESULTS", "result"):
-            self.assertEqual(self.evidence(f"{label}: https://example.org/x"), "https://example.org/x", label)
+            self.assertEqual(self.evidence(f"{label}: https://github.com/o/r/x"), "https://github.com/o/r/x", label)
 
     def test_a_markdown_link_and_a_list_marker_and_bold_are_read(self):
-        self.assertEqual(self.evidence("- **Evidence:** [the run](https://example.org/r/9)."), "https://example.org/r/9")
+        self.assertEqual(self.evidence("- **Evidence:** [the run](https://github.com/o/r/r/9)."), "https://github.com/o/r/r/9")
 
     def test_trailing_punctuation_is_not_part_of_the_link(self):
-        self.assertEqual(self.evidence("Evidence: https://example.org/a."), "https://example.org/a")
+        self.assertEqual(self.evidence("Evidence: https://github.com/o/r/a."), "https://github.com/o/r/a")
 
     def test_the_first_evidence_line_wins(self):
-        self.assertEqual(self.evidence("Proof: https://example.org/1\nEvidence: https://example.org/2"), "https://example.org/1")
+        self.assertEqual(self.evidence("Proof: https://github.com/o/r/1\nEvidence: https://github.com/o/r/2"), "https://github.com/o/r/1")
 
     def test_a_link_that_is_not_https_or_carries_a_login_is_refused(self):
-        for bad in ("http://example.org/x", "javascript:alert(1)", "https://user:pw@example.org/x", "ftp://example.org/x"):
+        for bad in ("http://github.com/o/r/x", "javascript:alert(1)", "https://user:pw@github.com/x", "ftp://github.com/x"):
             self.assertEqual(self.evidence(f"Evidence: {bad}"), "", bad)
 
+    def test_only_githubs_own_hosts_are_linked(self):
+        for good in ("https://github.com/o/r/pull/1", "https://someone.github.io/report", "https://GitHub.com/o/r"):
+            self.assertEqual(self.evidence(f"Evidence: {good}"), good, good)
+        for bad in ("https://example.org/x", "https://github.com.evil.org/x", "https://evilgithub.com/x", "https://evil.org/github.com", "https://x.github.io.evil.org/",
+                    "https://github.com\\@evil.org/x", "https://raw.githubusercontent.com/o/r/x"):
+            self.assertEqual(self.evidence(f"Evidence: {bad}"), "", bad)
+
+    def test_a_link_over_300_characters_is_refused(self):
+        self.assertEqual(self.evidence("Evidence: https://github.com/" + "a" * 290), "")
+        self.assertEqual(len(self.evidence("Evidence: https://github.com/" + "a" * 250)), 19 + 250)
+
     def test_a_link_in_running_text_is_not_evidence(self):
-        self.assertEqual(self.evidence("See https://example.org/x for the evidence."), "")
+        self.assertEqual(self.evidence("See https://github.com/o/r/x for the evidence."), "")
 
     def test_no_body_no_evidence(self):
         self.assertEqual(classify()["evidence"], "")
         self.assertEqual(self.evidence(None), "")
 
     def test_the_page_puts_the_link_next_to_the_state(self):
-        html = board.render_html([classify(body="Evidence: https://example.org/x")], "t")
-        self.assertRegex(html, r'class="chip ok">ready to merge</span><a class="chip" href="https://example.org/x"[^>]*>evidence</a>')
+        html = board.render_html([classify(body="Evidence: https://github.com/o/r/x")], "t")
+        self.assertRegex(html, r'class="chip ok">ready to merge</span><a class="chip" href="https://github.com/o/r/x"[^>]*>evidence</a>')
 
     def test_a_link_with_quotes_is_escaped_on_the_page(self):
-        html = board.render_html([classify(body='Evidence: https://example.org/x?a="b"')], "t")
+        html = board.render_html([classify(body='Evidence: https://github.com/o/r/x?a="b"')], "t")
         self.assertNotIn('"b"', html)
 
 
@@ -150,6 +171,13 @@ class MaclabChipTest(unittest.TestCase):
         self.assertEqual(classify(headRefOid=SHA)["sha"], SHA)
         self.assertEqual(classify()["sha"], "")
 
+    def test_a_count_below_zero_or_above_the_cap_is_not_read(self):
+        with tempfile.TemporaryDirectory() as d:
+            path = os.path.join(d, "maclab.json")
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump({SHA: {"passed": -1, "failed": 0}, OTHER: {"passed": 1, "failed": board.MAX_MACS + 1}, "c" * 40: {"passed": board.MAX_MACS, "failed": 0}, "d" * 40: {"passed": True, "failed": 0}}, f)
+            self.assertEqual(board.load_maclab(path), {"c" * 40: {"passed": board.MAX_MACS, "failed": 0}})
+
     def test_the_maclab_file_is_read_and_a_bad_or_missing_one_is_empty(self):
         with tempfile.TemporaryDirectory() as d:
             path = os.path.join(d, "maclab.json")
@@ -175,8 +203,20 @@ class ExportTest(unittest.TestCase):
         jobs = [job("m3air", SHA, outcome="tests_failed"), job("neo", SHA, state="testing", outcome=None), job("m3pro", SHA, outcome="stage_failed"), job("m1", SHA, state="canceled", outcome=None)]
         self.assertEqual(maclab_export.summarize(jobs), {SHA: {"passed": 0, "failed": 1}})
 
+    def test_only_a_commit_of_the_boards_repos_counts(self):
+        for repo in ("omacom/private-thing", "someone/linux-aurora", "omacom/linux-aurora-extra"):
+            self.assertEqual(maclab_export.summarize([job("m1", SHA, repo=repo)]), {}, repo)
+        for repo in board.REPOS:
+            self.assertEqual(maclab_export.summarize([job("m1", SHA, repo=repo)]), {SHA: {"passed": 1, "failed": 0}}, repo)
+
+    def test_the_file_is_capped_and_a_commit_maclab_still_lists_is_kept(self):
+        saved = {f"{n:040x}": {"passed": 1, "failed": 0} for n in range(maclab_export.MAX_COMMITS + 20)}
+        merged = maclab_export.merge(saved, {SHA: {"passed": 2, "failed": 0}})
+        self.assertEqual(len(merged), maclab_export.MAX_COMMITS)
+        self.assertEqual(merged[SHA], {"passed": 2, "failed": 0})
+
     def test_only_a_commit_source_counts(self):
-        jobs = [{"state": "done", "outcome": "pass", "created": "x", "spec": {"device": "m1", "source": "https://example.org/a.tar"}}, {"state": "done", "outcome": "pass", "created": "x", "spec": {"device": "m1"}},
+        jobs = [{"state": "done", "outcome": "pass", "created": "x", "spec": {"device": "m1", "source": "https://github.com/o/r/a.tar"}}, {"state": "done", "outcome": "pass", "created": "x", "spec": {"device": "m1"}},
                 {"state": "done", "outcome": "pass", "created": "x", "spec": {"device": "m1", "source": "https://github.com/o/r/commit/abc"}}]
         self.assertEqual(maclab_export.summarize(jobs), {})
 
@@ -189,6 +229,13 @@ class ExportTest(unittest.TestCase):
         self.assertEqual(json.loads(text), {SHA: {"passed": 1, "failed": 1}})
         self.assertNotIn("m3air", text)
         self.assertNotIn("neo", text)
+
+
+class NoScriptTest(unittest.TestCase):
+    def test_without_script_every_row_is_shown_and_the_menu_is_not(self):
+        html = board.render_html([classify(mergeable="CONFLICTING", mergeStateStatus="DIRTY")], "t")
+        self.assertIn("<noscript><style>li.pr[hidden]{display:flex!important}", html)
+        self.assertIn(".menu{display:none}", html)
 
 
 class DefaultViewTest(unittest.TestCase):

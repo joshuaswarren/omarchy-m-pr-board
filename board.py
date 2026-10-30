@@ -45,6 +45,7 @@ GROUPS = (("team", "Omarchy M team"), ("contributor", "Existing contributors"), 
 MAX_MERGED_PAGES = 60  # 100 per page: more than 6000 merged PRs in one repo is not read to the end
 TEAM_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "team.json")
 MACLAB_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "maclab.json")
+MAX_MACS = 99  # a count above this in maclab.json is not read
 ACT_STATES = ("ready to merge", "needs review")  # waiting on a reviewer or a maintainer: what the page opens on
 KERNEL_REPOS = ("omacom/linux-aurora",)  # the repos whose PRs maclab can boot: a PR there with no job says "not run"
 WAITING = {  # kind -> (who, what): "Waiting on <who> <what>"
@@ -275,7 +276,9 @@ def _evidence(node: dict) -> str:
     for match in EVIDENCE.finditer(node.get("body") or ""):
         url = match.group(1).rstrip(".,;")
         link = urlsplit(url)
-        if link.scheme == "https" and link.netloc and "@" not in link.netloc and len(url) <= 300:
+        host = (link.hostname or "").lower()
+        # only GitHub's own hosts: the default view is the PRs awaiting review, and an author must not choose where its chip leads
+        if link.scheme == "https" and (host == "github.com" or host.endswith(".github.io")) and "@" not in link.netloc and len(url) <= 300:
             return url
     return ""
 
@@ -296,7 +299,7 @@ def load_maclab(path: str = MACLAB_FILE) -> dict:
         with open(path, encoding="utf-8") as f:
             saved = json.load(f)
         return {sha: {"passed": c["passed"], "failed": c["failed"]} for sha, c in saved.items()
-                if re.fullmatch(r"[0-9a-f]{40}", sha) and all(type(c.get(k)) is int and c[k] >= 0 for k in ("passed", "failed"))}
+                if re.fullmatch(r"[0-9a-f]{40}", sha) and all(type(c.get(k)) is int and 0 <= c[k] <= MAX_MACS for k in ("passed", "failed"))}
     except (OSError, ValueError, AttributeError, KeyError, TypeError):
         return {}
 
@@ -447,6 +450,8 @@ def render_html(rows: list[dict], generated: str, unreadable: Sequence[str] = ()
     ready = sum(r["can_merge"] for r in rows)
     parts = ['<!doctype html>\n<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">',
              f"<title>Omarchy M pull requests</title><style>{CSS}</style>",
+             # without script the menu cannot work: show every row rather than hide some for good
+             "<noscript><style>li.pr[hidden]{display:flex!important}p.none[hidden]{display:none!important}.menu{display:none}</style></noscript>",
              f'<header><h1><b>Omarchy M</b> pull requests</h1><p><strong>{len(rows)}</strong> open, <strong class="ok">{ready}</strong> can merge now. '
              f"Checked hourly. Last change: {html.escape(generated)}.</p>{_menu(rows) if rows else ''}</header><main>"]
     if not rows:

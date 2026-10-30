@@ -15,7 +15,10 @@ import re
 import sys
 import urllib.request
 
-COMMIT = re.compile(r"^https://github\.com/[\w.-]+/[\w.-]+/commit/([0-9a-f]{40})$")
+from board import REPOS
+
+MAX_COMMITS = 300  # the public file stays small; a commit maclab still lists is never dropped
+COMMIT = re.compile(r"^https://github\.com/(" + "|".join(re.escape(repo) for repo in REPOS) + r")/commit/([0-9a-f]{40})$")  # only the board's repos
 VERDICTS = {"pass": "passed", "tests_failed": "failed"}  # any other outcome (a stage failure, a cancel) says nothing about the commit
 
 
@@ -31,7 +34,7 @@ def summarize(jobs: list[dict]) -> dict[str, dict[str, int]]:
         match = COMMIT.match(spec.get("source") or "")
         verdict = VERDICTS.get(job.get("outcome") or "") if job.get("state") == "done" else None
         if match and verdict and spec.get("device"):
-            key = (match.group(1), spec["device"])
+            key = (match.group(2), spec["device"])
             if key not in latest or _when(job) >= latest[key][0]:
                 latest[key] = (_when(job), verdict)
     out: dict[str, dict[str, int]] = {}
@@ -42,7 +45,11 @@ def summarize(jobs: list[dict]) -> dict[str, dict[str, int]]:
 
 def merge(saved: dict, new: dict) -> dict:
     """maclab forgets old jobs: a commit it no longer lists keeps its saved answer; one it lists takes the new one."""
-    return {**saved, **new}
+    kept = {**saved, **new}
+    for sha in sorted(saved):  # shortcut: sorted, not oldest-first, because the file keeps no dates; upgrade when 300 commits are not enough
+        if len(kept) > MAX_COMMITS and sha not in new:
+            del kept[sha]
+    return kept
 
 
 def dump(data: dict) -> str:
