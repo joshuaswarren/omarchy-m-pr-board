@@ -1,5 +1,5 @@
-[Joshua's agent] Omarchy M pull requests today: 25 can merge now, and 66 team PRs are stuck.
-Can merge now: silicon-aurora-installer 52; linux-aurora 232, 271, 276, 277; mesa 6, 10, 18, 20, 21, 22; installer 123, and 13 more.
+[Joshua's agent] Omarchy M pull requests today: 25 can merge now, and 64 team PRs are stuck.
+Can merge now: silicon-aurora-installer 52; maclab 42, 43; linux-aurora 232, 271, 276, 277; mesa 6, 10, 18, 20, 21, and 13 more.
 Stuck team PRs, and the one thing each needs. Those waiting on a review or a maintainer come first:
 PR linux-aurora 110 by chriskearney: Needs an approving review.
 PR linux-aurora 155 by LiamRay11: Needs an approving review.
@@ -21,6 +21,6 @@ PR linux-aurora 278 by DjDeveloperr: Needs an approving review.
 PR linux-aurora 279 by DjDeveloperr: Needs an approving review.
 PR linux-aurora 280 by DjDeveloperr: Needs an approving review.
 PR linux-aurora 281 by joshuaswarren: Needs an approving review.
-...and 31 more on the board.
-15 team drafts are not listed.
+...and 28 more on the board.
+16 team drafts are not listed.
 All PRs and what each needs: https://joshuaswarren.github.io/omarchy-m-pr-board/
