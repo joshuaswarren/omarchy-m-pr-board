@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31 07:19 UTC",
+ "generated": "2026-10-31 07:40 UTC",
  "rows": [
   {
    "group": "team",
@@ -2413,8 +2413,8 @@
    "merge": "mergeable",
    "checks": "passing",
    "approvals": "none yet",
-   "maclab": "not run",
-   "maclab_title": "",
+   "maclab": "passed",
+   "maclab_title": "1 Mac passed",
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
