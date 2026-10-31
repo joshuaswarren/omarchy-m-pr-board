@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31 02:24 UTC",
+ "generated": "2026-10-31 02:40 UTC",
  "rows": [
   {
    "group": "team",
@@ -1023,12 +1023,12 @@
    "approvals": "approved by 1",
    "maclab": "not run",
    "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
+   "kind": "Branch rules",
+   "blocker": "Blocked by branch rules (a required check or review is missing)",
    "can_merge": false,
    "sha": "d17068fc1f78fcde813d4169c05c1db37aa61fcf",
    "evidence": "",
-   "waiting": "Waiting on maralcbr and scottjones for an approving review",
+   "waiting": "Waiting on maralcbr and scottjones for a required check or review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-10-31"

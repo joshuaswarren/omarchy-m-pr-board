@@ -15,7 +15,7 @@ PR linux-aurora 275 by DjDeveloperr: Needs an approving review.
 PR linux-aurora 278 by DjDeveloperr: Needs an approving review.
 PR linux-aurora 283 by erykwieliczko: Needs an approving review.
 PR linux-aurora 296 by chriskearney: Needs an approving review.
-PR linux-aurora 301 by satchlj: Needs an approving review.
+PR linux-aurora 301 by satchlj: Blocked by branch rules (a required check or review is missing).
 PR linux-aurora 302 by satchlj: Blocked by branch rules (a required check or review is missing).
 PR installer 43 by joshuaswarren: Needs an approving review.
 PR installer 107 by maralcbr: Needs an approving review.
