@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-01 06:26 UTC",
+ "generated": "2026-11-01 07:18 UTC",
  "rows": [
   {
    "group": "team",
@@ -851,7 +851,7 @@
    "url": "https://github.com/omacom/linux-aurora/pull/321",
    "owner": "malik-na",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "not run",
    "maclab_title": "",
@@ -984,30 +984,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-10-28"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/omarchy-mac-installer",
-   "number": 156,
-   "draft": false,
-   "state": "needs review",
-   "title": "Fix \u201cThe encryption choice wasn\u2019t saved\u201d on busy EFI volumes",
-   "url": "https://github.com/omacom/omarchy-mac-installer/pull/156",
-   "owner": "erykwieliczko",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "none yet",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "eea78aeed9ea7a109ea65e2805708662779c3d52",
-   "evidence": "",
-   "waiting": "Waiting on a maintainer for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-01"
   },
   {
    "group": "team",
@@ -1175,7 +1151,7 @@
    "waiting": "Waiting on joshuaswarren to address the changes chriskearney, maralcbr asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-10-31"
+   "updated": "2026-11-01"
   },
   {
    "group": "team",
@@ -1368,6 +1344,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-10-27"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-installer",
+   "number": 156,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "Fix \u201cThe encryption choice wasn\u2019t saved\u201d on busy EFI volumes",
+   "url": "https://github.com/omacom/omarchy-mac-installer/pull/156",
+   "owner": "erykwieliczko",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "changes requested",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Changes requested",
+   "blocker": "Changes requested by maralcbr",
+   "can_merge": false,
+   "sha": "eea78aeed9ea7a109ea65e2805708662779c3d52",
+   "evidence": "",
+   "waiting": "Waiting on erykwieliczko to address the changes maralcbr asked for",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-01"
   },
   {
    "group": "team",
@@ -1570,7 +1570,7 @@
    "title": "firmware: extract H17 camera tuning from current daemon locations",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/71",
    "owner": "RyanTheTide",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "not required",
    "maclab": "",
@@ -1594,7 +1594,7 @@
    "title": "Plumb optional per-SoC Apple AVD firmware collection",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/73",
    "owner": "RyanTheTide",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "not required",
    "maclab": "",
@@ -3058,7 +3058,7 @@
    "title": "Add authenticated J604 Fedora terminal installer launcher",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/37",
    "owner": "shirty445",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "none",
    "approvals": "not required",
    "maclab": "",
