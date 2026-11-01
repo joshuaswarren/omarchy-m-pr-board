@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-01 19:20 UTC",
+ "generated": "2026-11-01 20:20 UTC",
  "rows": [
   {
    "group": "team",
@@ -120,30 +120,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-10-31"
-  },
-  {
-   "group": "team",
-   "repo": "chriskearney/maclab",
-   "number": 51,
-   "draft": false,
-   "state": "ready to merge",
-   "title": "labd: scope every request to the Macs its caller may see",
-   "url": "https://github.com/chriskearney/maclab/pull/51",
-   "owner": "malik-na",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "None",
-   "blocker": "None: can merge now",
-   "can_merge": true,
-   "sha": "6c26229eb1bf5b947b28610bc52d6e7eefc7f852",
-   "evidence": "",
-   "waiting": "Waiting on a maintainer to merge",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-01"
   },
   {
    "group": "team",
@@ -1512,6 +1488,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-10-20"
+  },
+  {
+   "group": "team",
+   "repo": "chriskearney/maclab",
+   "number": 51,
+   "draft": false,
+   "state": "waiting",
+   "title": "labd: scope every request to the Macs its caller may see",
+   "url": "https://github.com/chriskearney/maclab/pull/51",
+   "owner": "malik-na",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "d20b626a2833ade020a0da0055f3a9f7b1d61abf",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-01"
   },
   {
    "group": "team",
