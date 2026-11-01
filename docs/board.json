@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-01 12:23 UTC",
+ "generated": "2026-11-01 13:20 UTC",
  "rows": [
   {
    "group": "team",
@@ -851,7 +851,7 @@
    "url": "https://github.com/omacom/linux-aurora/pull/321",
    "owner": "malik-na",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "not run",
    "maclab_title": "",
@@ -971,14 +971,14 @@
    "url": "https://github.com/omacom/omarchy-mac-installer/pull/157",
    "owner": "DjDeveloperr",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "none",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "f22b94573400188da75f5f4c1cf2fd7b9b8639f9",
+   "sha": "a4e7570846b3c5a10669790c0562026ec38b8b23",
    "evidence": "",
    "waiting": "Waiting on a maintainer for an approving review",
    "act": true,
