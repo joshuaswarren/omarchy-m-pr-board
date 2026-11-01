@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-01 22:20 UTC",
+ "generated": "2026-11-01 23:19 UTC",
  "rows": [
   {
    "group": "team",
@@ -1512,6 +1512,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-10-20"
+  },
+  {
+   "group": "team",
+   "repo": "chriskearney/maclab",
+   "number": 61,
+   "draft": false,
+   "state": "waiting",
+   "title": "Add --omt-publish to the cloud manifest",
+   "url": "https://github.com/chriskearney/maclab/pull/61",
+   "owner": "chriskearney",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "8ecf370a33d3db7f06e3dc481af0445f8edb2053",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-01"
   },
   {
    "group": "team",
