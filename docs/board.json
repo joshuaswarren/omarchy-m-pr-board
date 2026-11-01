@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-01 18:21 UTC",
+ "generated": "2026-11-01 19:20 UTC",
  "rows": [
   {
    "group": "team",
@@ -383,7 +383,7 @@
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-10-29"
+   "updated": "2026-11-01"
   },
   {
    "group": "team",
@@ -1152,30 +1152,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-01"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/mesa",
-   "number": 9,
-   "draft": false,
-   "state": "needs fixes",
-   "title": "honeykrisp: give capture and replay buffers their own address range",
-   "url": "https://github.com/omacom/mesa/pull/9",
-   "owner": "joshuaswarren",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "changes requested",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Changes requested",
-   "blocker": "Changes requested by chriskearney, maralcbr",
-   "can_merge": false,
-   "sha": "a8960b752b385a7872285993ed657cfa1df41ee6",
-   "evidence": "",
-   "waiting": "Waiting on joshuaswarren to address the changes chriskearney, maralcbr asked for",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-10-31"
   },
   {
    "group": "team",
@@ -2039,7 +2015,7 @@
    "waiting": "Waiting on joshuaswarren to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-10-29"
+   "updated": "2026-11-01"
   },
   {
    "group": "team",
