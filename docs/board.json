@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-01 10:20 UTC",
+ "generated": "2026-11-01 11:19 UTC",
  "rows": [
   {
    "group": "team",
@@ -1018,7 +1018,7 @@
    "title": "Let the engine inspect and plan the M3 Ultra Mac Studio",
    "url": "https://github.com/omacom/omarchy-mac-installer/pull/134",
    "owner": "joshuaswarren",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "none yet",
    "maclab": "",
