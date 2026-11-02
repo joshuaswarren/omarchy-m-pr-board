@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02 04:21 UTC",
+ "generated": "2026-11-02 05:20 UTC",
  "rows": [
   {
    "group": "team",
@@ -960,30 +960,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-10-28"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/omarchy-mac-installer",
-   "number": 159,
-   "draft": false,
-   "state": "needs review",
-   "title": "Open the installer on the rc channel by default",
-   "url": "https://github.com/omacom/omarchy-mac-installer/pull/159",
-   "owner": "maralcbr",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "none yet",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "820fcebe057d74e2d230d8fd38f6cfc4d672d071",
-   "evidence": "",
-   "waiting": "Waiting on a maintainer for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-02"
   },
   {
    "group": "team",
