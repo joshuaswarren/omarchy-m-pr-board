@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02 21:22 UTC",
+ "generated": "2026-11-02 22:19 UTC",
  "rows": [
   {
    "group": "team",
@@ -923,7 +923,7 @@
    "url": "https://github.com/omacom/linux-aurora/pull/328",
    "owner": "satchlj",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "not run",
    "maclab_title": "",
