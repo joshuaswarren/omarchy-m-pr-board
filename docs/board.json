@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02 22:19 UTC",
+ "generated": "2026-11-02 23:19 UTC",
  "rows": [
   {
    "group": "team",
@@ -1248,6 +1248,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-10-31"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 329,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "arm64: dts: apple: t600x: always provide the pmp alias",
+   "url": "https://github.com/omacom/linux-aurora/pull/329",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "failing: ci / commits",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Failing check",
+   "blocker": "Failing check: ci / commits",
+   "can_merge": false,
+   "sha": "e19555bc9d43b45960707a6d07303968af5fc548",
+   "evidence": "",
+   "waiting": "Waiting on joshuaswarren to fix the failing check: ci / commits",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-02"
   },
   {
    "group": "team",
