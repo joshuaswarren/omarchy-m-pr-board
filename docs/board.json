@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02 07:22 UTC",
+ "generated": "2026-11-02 08:25 UTC",
  "rows": [
   {
    "group": "team",
@@ -844,6 +844,30 @@
   {
    "group": "team",
    "repo": "omacom/linux-aurora",
+   "number": 316,
+   "draft": false,
+   "state": "needs review",
+   "title": "iommu/apple-dart: preserve the T8122 common scanout aperture",
+   "url": "https://github.com/omacom/linux-aurora/pull/316",
+   "owner": "DjDeveloperr",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "56e6f927515df12d689b6736ce0942361f714203",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-02"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
    "number": 321,
    "draft": false,
    "state": "needs review",
@@ -1594,7 +1618,7 @@
    "title": "firmware: extract H17 camera tuning from current daemon locations",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/71",
    "owner": "RyanTheTide",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "not required",
    "maclab": "",
@@ -1618,7 +1642,7 @@
    "title": "Plumb optional per-SoC Apple AVD firmware collection",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/73",
    "owner": "RyanTheTide",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "not required",
    "maclab": "",
@@ -1869,30 +1893,6 @@
    "sha": "47a34336f4bd1e1e53a6858950cbcbd7bec4713c",
    "evidence": "",
    "waiting": "Waiting on satchlj to mark it ready",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-10-31"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/linux-aurora",
-   "number": 316,
-   "draft": true,
-   "state": "held",
-   "title": "iommu/apple-dart: preserve the T8122 common scanout aperture",
-   "url": "https://github.com/omacom/linux-aurora/pull/316",
-   "owner": "DjDeveloperr",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "none yet",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Draft",
-   "blocker": "Draft",
-   "can_merge": false,
-   "sha": "56e6f927515df12d689b6736ce0942361f714203",
-   "evidence": "",
-   "waiting": "Waiting on DjDeveloperr to mark it ready",
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-10-31"
@@ -2322,12 +2322,12 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "11603a97656624114e53c6be4f04ea5a4c083e1d",
+   "sha": "1e571364b9e8d11451c43d258b94d65170e3313b",
    "evidence": "",
    "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-10-31"
+   "updated": "2026-11-02"
   },
   {
    "group": "contributor",
@@ -2351,7 +2351,7 @@
    "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-01"
+   "updated": "2026-11-02"
   },
   {
    "group": "contributor",
@@ -2562,12 +2562,12 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "7f2881f28237c984e8f2284fd2b6c20c5c0a31d6",
+   "sha": "3afa706acc1727c923893e0a08e4ba1f8cc0d6b3",
    "evidence": "",
    "waiting": "Waiting on ludagoo to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-01"
+   "updated": "2026-11-02"
   },
   {
    "group": "contributor",
@@ -2586,12 +2586,12 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "cc951ec972ca6b1b7d1edda09cca5236783ddf89",
+   "sha": "394abee9b85e379b1f276fe6e2b969b9dc750d90",
    "evidence": "",
    "waiting": "Waiting on ludagoo to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-10-31"
+   "updated": "2026-11-02"
   },
   {
    "group": "other",
@@ -3178,7 +3178,7 @@
    "title": "Add authenticated J604 Fedora terminal installer launcher",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/37",
    "owner": "shirty445",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "none",
    "approvals": "not required",
    "maclab": "",

@@ -12,6 +12,7 @@ PR linux-aurora 262 by RyanTheTide: Needs an approving review.
 PR linux-aurora 270 by DjDeveloperr: Needs an approving review.
 PR linux-aurora 283 by erykwieliczko: Needs an approving review.
 PR linux-aurora 296 by chriskearney: Needs an approving review.
+PR linux-aurora 316 by DjDeveloperr: Needs an approving review.
 PR linux-aurora 321 by malik-na: Needs an approving review.
 PR installer 43 by joshuaswarren: Needs an approving review.
 PR installer 107 by maralcbr: Needs an approving review.
@@ -20,7 +21,6 @@ PR installer 137 by joshuaswarren: Needs an approving review.
 PR installer 161 by maralcbr: Needs an approving review.
 PR silicon-aurora-installer 76 by DjDeveloperr: Merge conflicts with the base branch.
 PR maclab 53 by malik-na: Merge conflicts with the base branch.
-PR maclab 56 by joshuaswarren: Merge conflicts with the base branch.
-...and 20 more on the board.
-30 team drafts are not listed.
+...and 21 more on the board.
+29 team drafts are not listed.
 All PRs and what each needs: https://joshuaswarren.github.io/omarchy-m-pr-board/
