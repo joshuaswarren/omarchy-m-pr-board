@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02 19:21 UTC",
+ "generated": "2026-11-02 20:21 UTC",
  "rows": [
   {
    "group": "team",
@@ -348,7 +348,7 @@
    "owner": "DjDeveloperr",
    "merge": "mergeable",
    "checks": "passing",
-   "approvals": "approved by 1",
+   "approvals": "approved by 2",
    "maclab": "not run",
    "maclab_title": "",
    "kind": "None",
@@ -356,7 +356,31 @@
    "can_merge": true,
    "sha": "56e6f927515df12d689b6736ce0942361f714203",
    "evidence": "",
-   "waiting": "Waiting on maralcbr and chriskearney to merge",
+   "waiting": "Waiting on maralcbr to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-02"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 327,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "drm/apple: use the 14.7 swap_start layout in the classic template",
+   "url": "https://github.com/omacom/linux-aurora/pull/327",
+   "owner": "scottjones",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "approved by 1",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "caaef210e85f91314de646708c8c798b70c2fb26",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr to merge",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-02"
@@ -888,30 +912,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-01"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/linux-aurora",
-   "number": 327,
-   "draft": false,
-   "state": "needs review",
-   "title": "drm/apple: use the 14.7 swap_start layout in the classic template",
-   "url": "https://github.com/omacom/linux-aurora/pull/327",
-   "owner": "scottjones",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "none yet",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "caaef210e85f91314de646708c8c798b70c2fb26",
-   "evidence": "",
-   "waiting": "Waiting on maralcbr and chriskearney for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-02"
   },
   {
    "group": "team",
@@ -3143,7 +3143,7 @@
    "waiting": "Waiting on garymeyerca to fix the conflicts",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-10-16"
+   "updated": "2026-11-02"
   },
   {
    "group": "other",
