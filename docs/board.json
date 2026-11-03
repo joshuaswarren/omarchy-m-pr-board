@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03 17:22 UTC",
+ "generated": "2026-11-03 18:23 UTC",
  "rows": [
   {
    "group": "team",
@@ -1235,7 +1235,7 @@
    "url": "https://github.com/omacom/linux-aurora/pull/329",
    "owner": "joshuaswarren",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "changes requested",
    "maclab": "not run",
    "maclab_title": "",
@@ -1259,7 +1259,7 @@
    "url": "https://github.com/omacom/linux-aurora/pull/334",
    "owner": "joshuaswarren",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "changes requested",
    "maclab": "not run",
    "maclab_title": "",
@@ -3432,6 +3432,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-10-23"
+  },
+  {
+   "group": "other",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 97,
+   "draft": true,
+   "state": "held",
+   "title": "Admit the J616C M4 Max MacBook Pro as experimental",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/97",
+   "owner": "AxxzyWasTaken",
+   "merge": "mergeable",
+   "checks": "none",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "84bf5d97cd451f30833885bb12627cba8c1e563a",
+   "evidence": "",
+   "waiting": "Waiting on AxxzyWasTaken to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-03"
   },
   {
    "group": "other",
