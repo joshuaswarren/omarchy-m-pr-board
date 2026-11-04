@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-04 07:23 UTC",
+ "generated": "2026-11-04 09:25 UTC",
  "rows": [
   {
    "group": "team",
@@ -2136,6 +2136,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-10-27"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 98,
+   "draft": false,
+   "state": "waiting",
+   "title": "Collect each Mac's own speaker tuning with the vendor firmware",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/98",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "92f3e0fa70b649a1f341c8b623bd3ce6734f5da1",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-04"
   },
   {
    "group": "team",
