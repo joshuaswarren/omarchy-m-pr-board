@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-04 04:24 UTC",
+ "generated": "2026-11-04 05:24 UTC",
  "rows": [
   {
    "group": "team",
@@ -2928,30 +2928,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-10-30"
-  },
-  {
-   "group": "contributor",
-   "repo": "omacom/omarchy-mac-installer",
-   "number": 170,
-   "draft": false,
-   "state": "needs review",
-   "title": "Pin app 2.3.14 in the release pipeline",
-   "url": "https://github.com/omacom/omarchy-mac-installer/pull/170",
-   "owner": "github-actions",
-   "merge": "mergeable",
-   "checks": "none",
-   "approvals": "none yet",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "62f16a5b772a5e9eb6a4a0a366d9eccff6bc949f",
-   "evidence": "",
-   "waiting": "Waiting on a maintainer for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-04"
   },
   {
    "group": "contributor",
