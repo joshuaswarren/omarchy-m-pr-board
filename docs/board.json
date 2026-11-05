@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05 21:21 UTC",
+ "generated": "2026-11-05 23:20 UTC",
  "rows": [
   {
    "group": "team",
@@ -1275,6 +1275,30 @@
   },
   {
    "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 383,
+   "draft": false,
+   "state": "needs review",
+   "title": "accel/ane: fail a DART fault that clears before it is handled",
+   "url": "https://github.com/omacom/linux-aurora/pull/383",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "46962700dfff846d46f805479fe552551cce2829",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-05"
+  },
+  {
+   "group": "team",
    "repo": "omacom/omarchy-mac-installer",
    "number": 43,
    "draft": false,
@@ -1583,7 +1607,7 @@
    "waiting": "Waiting on joshuaswarren to address the changes scottjones asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-04"
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
@@ -1703,7 +1727,7 @@
    "waiting": "Waiting on joshuaswarren to address the changes chriskearney, maralcbr asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-04"
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
@@ -2178,7 +2202,7 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "1472297368eb53bcd3a2731f91d5f7628b34e232",
+   "sha": "d13ef10bc18b13c297bae5ddb3e45cfa82452848",
    "evidence": "",
    "waiting": "Waiting on DjDeveloperr to mark it ready",
    "act": false,
@@ -2424,30 +2448,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-04"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/linux-aurora",
-   "number": 364,
-   "draft": true,
-   "state": "held",
-   "title": "accel/ane: fail a DART fault that clears before it is handled",
-   "url": "https://github.com/omacom/linux-aurora/pull/364",
-   "owner": "joshuaswarren",
-   "merge": "mergeable",
-   "checks": "failing: ci / commits, ci / result",
-   "approvals": "none yet",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Draft",
-   "blocker": "Draft",
-   "can_merge": false,
-   "sha": "c8c15e3193b8c539cba960785b732b50e1fcad69",
-   "evidence": "",
-   "waiting": "Waiting on joshuaswarren to mark it ready",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-05"
   },
   {
    "group": "team",
