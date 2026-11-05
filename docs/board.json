@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05 00:39 UTC",
+ "generated": "2026-11-05 02:25 UTC",
  "rows": [
   {
    "group": "team",
@@ -647,7 +647,7 @@
    "waiting": "Waiting on maralcbr, scottjones and chriskearney for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-10-24"
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
@@ -671,7 +671,7 @@
    "waiting": "Waiting on maralcbr, scottjones and chriskearney for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-10-24"
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
@@ -695,7 +695,7 @@
    "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-10-24"
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
@@ -719,7 +719,7 @@
    "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-10-24"
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
@@ -1199,7 +1199,7 @@
    "waiting": "Waiting on a maintainer for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-04"
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
@@ -3378,12 +3378,36 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "b8488dd1bf922717c6ccab9a54a1bd6f8f8f651a",
+   "sha": "7359621dca7ff8b62f064f9b516a7284c8b3a59d",
    "evidence": "",
    "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-04"
+   "updated": "2026-11-05"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 361,
+   "draft": false,
+   "state": "needs review",
+   "title": "aurora-sep: accept clean m1n1 stage 1 v1.6.1 for --m3-handoff on J514S",
+   "url": "https://github.com/omacom/linux-aurora/pull/361",
+   "owner": "cachebag",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "af5dad1f60274b5b78748c397088b94faa74754a",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-05"
   },
   {
    "group": "other",
