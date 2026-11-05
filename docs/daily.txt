@@ -21,6 +21,6 @@ PR linux-aurora 328 by satchlj: Needs an approving review.
 PR linux-aurora 342 by satchlj: Needs an approving review.
 PR linux-aurora 343 by satchlj: Needs an approving review.
 PR linux-aurora 344 by satchlj: Needs an approving review.
-...and 38 more on the board.
-25 team drafts are not listed.
+...and 39 more on the board.
+24 team drafts are not listed.
 All PRs and what each needs: https://joshuaswarren.github.io/omarchy-m-pr-board/
