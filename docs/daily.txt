@@ -1,4 +1,4 @@
-[Joshua's agent] Omarchy M pull requests today: 33 can merge now, and 88 team PRs are stuck.
+[Joshua's agent] Omarchy M pull requests today: 33 can merge now, and 87 team PRs are stuck.
 Can merge now: linux-aurora 232, 234, 245, 271, 277, 296, 301, 302, 337, 340; mesa 6, 18, and 21 more.
 Stuck team PRs, and the one thing each needs. Those waiting on a review or a maintainer come first:
 PR linux-aurora 110 by chriskearney: Needs an approving review.
@@ -21,6 +21,6 @@ PR linux-aurora 328 by satchlj: Needs an approving review.
 PR linux-aurora 342 by satchlj: Needs an approving review.
 PR linux-aurora 343 by satchlj: Needs an approving review.
 PR linux-aurora 344 by satchlj: Needs an approving review.
-...and 42 more on the board.
+...and 41 more on the board.
 26 team drafts are not listed.
 All PRs and what each needs: https://joshuaswarren.github.io/omarchy-m-pr-board/
