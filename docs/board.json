@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05 13:22 UTC",
+ "generated": "2026-11-05 14:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -1187,7 +1187,7 @@
    "url": "https://github.com/omacom/linux-aurora/pull/365",
    "owner": "malik-na",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "not run",
    "maclab_title": "",
@@ -3960,6 +3960,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-04"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/omarchy-mac-installer",
+   "number": 181,
+   "draft": true,
+   "state": "held",
+   "title": "Resume interrupted native Recovery staging from the app",
+   "url": "https://github.com/omacom/omarchy-mac-installer/pull/181",
+   "owner": "bhandras",
+   "merge": "mergeable",
+   "checks": "none",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "37269c539153a4910a8218bbc130a2a30ebe8030",
+   "evidence": "",
+   "waiting": "Waiting on bhandras to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-05"
   },
   {
    "group": "other",
