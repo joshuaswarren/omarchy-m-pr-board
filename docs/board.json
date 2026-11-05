@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05 04:23 UTC",
+ "generated": "2026-11-05 05:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -1515,6 +1515,30 @@
   },
   {
    "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 362,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "Merge Linux v7.2.15 into integration/aurora (with perf mmap accounting test)",
+   "url": "https://github.com/omacom/linux-aurora/pull/362",
+   "owner": "malik-na",
+   "merge": "mergeable",
+   "checks": "failing: ci / CI self-test",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Failing check",
+   "blocker": "Failing check: ci / CI self-test",
+   "can_merge": false,
+   "sha": "e8208db10fe9f8ff7c78c68472c40959ea3916ea",
+   "evidence": "",
+   "waiting": "Waiting on malik-na to fix the failing check: ci / CI self-test",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-05"
+  },
+  {
+   "group": "team",
    "repo": "omacom/mesa",
    "number": 8,
    "draft": false,
@@ -2280,6 +2304,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-04"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 363,
+   "draft": true,
+   "state": "held",
+   "title": "drm/asahi: add explicit J514C bring-up admission",
+   "url": "https://github.com/omacom/linux-aurora/pull/363",
+   "owner": "chriskearney",
+   "merge": "mergeable",
+   "checks": "failing: ci / commits",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "95b35df689b7fb07f7604f38505c9f06cf0b1c74",
+   "evidence": "",
+   "waiting": "Waiting on chriskearney to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
