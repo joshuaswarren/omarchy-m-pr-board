@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05 08:26 UTC",
+ "generated": "2026-11-05 09:25 UTC",
  "rows": [
   {
    "group": "team",
@@ -287,7 +287,7 @@
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-04"
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
@@ -1179,6 +1179,30 @@
   },
   {
    "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 365,
+   "draft": false,
+   "state": "needs review",
+   "title": "usb: dwc3: apple: set driver data before the first cable connects",
+   "url": "https://github.com/omacom/linux-aurora/pull/365",
+   "owner": "malik-na",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "7d7e76a8785a1f5fa4208bb461342f7441c57491",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-05"
+  },
+  {
+   "group": "team",
    "repo": "omacom/omarchy-mac-installer",
    "number": 43,
    "draft": false,
@@ -1416,6 +1440,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-10-31"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 102,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "Pin aura v1.0.0b5",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/102",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "failing: Conformance matrix",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Failing check",
+   "blocker": "Failing check: Conformance matrix",
+   "can_merge": false,
+   "sha": "7706de3dba95d520a54fcc228b3200de9eba6ca7",
+   "evidence": "",
+   "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
@@ -2307,6 +2355,30 @@
   },
   {
    "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 364,
+   "draft": true,
+   "state": "held",
+   "title": "accel/ane: fail a DART fault that clears before it is handled",
+   "url": "https://github.com/omacom/linux-aurora/pull/364",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "failing: ci / commits, ci / result",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "c8c15e3193b8c539cba960785b732b50e1fcad69",
+   "evidence": "",
+   "waiting": "Waiting on joshuaswarren to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-05"
+  },
+  {
+   "group": "team",
    "repo": "omacom/mesa",
    "number": 7,
    "draft": true,
@@ -2327,7 +2399,7 @@
    "waiting": "Waiting on chriskearney to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-10-13"
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
@@ -2351,7 +2423,7 @@
    "waiting": "Waiting on joshuaswarren to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-03"
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
@@ -2375,7 +2447,7 @@
    "waiting": "Waiting on joshuaswarren to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-03"
+   "updated": "2026-11-05"
   },
   {
    "group": "team",
@@ -3816,6 +3888,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-04"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 366,
+   "draft": true,
+   "state": "held",
+   "title": "drm/asahi: g15: pin J514S cd05 firmware TEXT",
+   "url": "https://github.com/omacom/linux-aurora/pull/366",
+   "owner": "javanoo6",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "c5478850f557c49693be3c9d2ce0cdf783a727ed",
+   "evidence": "",
+   "waiting": "Waiting on javanoo6 to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-05"
   },
   {
    "group": "other",
