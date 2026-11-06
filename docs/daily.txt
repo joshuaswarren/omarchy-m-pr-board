@@ -1,5 +1,5 @@
-[Joshua's agent] Omarchy M pull requests today: 35 can merge now, and 93 team PRs are stuck.
-Can merge now: linux-aurora 232, 234, 245, 271, 277, 296, 301, 302, 337, 340; mesa 6, 18, and 23 more.
+[Joshua's agent] Omarchy M pull requests today: 33 can merge now, and 95 team PRs are stuck.
+Can merge now: linux-aurora 232, 234, 245, 271, 277, 296, 337, 340; mesa 6, 18, 21, 22, and 21 more.
 Stuck team PRs, and the one thing each needs. Those waiting on a review or a maintainer come first:
 PR linux-aurora 110 by chriskearney: Needs an approving review.
 PR linux-aurora 155 by LiamRay11: Needs an approving review.
@@ -12,6 +12,8 @@ PR linux-aurora 207 by joshuaswarren: Needs an approving review.
 PR linux-aurora 262 by RyanTheTide: Needs an approving review.
 PR linux-aurora 270 by DjDeveloperr: Needs an approving review.
 PR linux-aurora 283 by erykwieliczko: Needs an approving review.
+PR linux-aurora 301 by satchlj: Needs an approving review.
+PR linux-aurora 302 by satchlj: Needs an approving review.
 PR linux-aurora 303 by satchlj: Needs an approving review.
 PR linux-aurora 304 by satchlj: Needs an approving review.
 PR linux-aurora 305 by satchlj: Needs an approving review.
@@ -19,8 +21,6 @@ PR linux-aurora 306 by satchlj: Needs an approving review.
 PR linux-aurora 307 by satchlj: Needs an approving review.
 PR linux-aurora 328 by satchlj: Needs an approving review.
 PR linux-aurora 342 by satchlj: Needs an approving review.
-PR linux-aurora 343 by satchlj: Needs an approving review.
-PR linux-aurora 344 by satchlj: Needs an approving review.
-...and 46 more on the board.
+...and 48 more on the board.
 27 team drafts are not listed.
 All PRs and what each needs: https://joshuaswarren.github.io/omarchy-m-pr-board/
