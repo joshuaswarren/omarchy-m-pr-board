@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06 12:28 UTC",
+ "generated": "2026-11-06 13:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -3994,20 +3994,20 @@
    "title": "M3 Max (J516C): external displays over USB-C and HDMI",
    "url": "https://github.com/omacom/linux-aurora/pull/292",
    "owner": "digital-brew",
-   "merge": "mergeable",
+   "merge": "conflicts",
    "checks": "passing",
    "approvals": "changes requested",
    "maclab": "not run",
    "maclab_title": "",
-   "kind": "Changes requested",
-   "blocker": "Changes requested by chriskearney",
+   "kind": "Merge conflicts",
+   "blocker": "Merge conflicts with the base branch",
    "can_merge": false,
-   "sha": "26ea9ca83c9cf6050ee9990b08cb662f6b753471",
+   "sha": "f40169053c62a9cad811d11d90e6b01b60f22221",
    "evidence": "",
-   "waiting": "Waiting on digital-brew to address the changes chriskearney asked for",
+   "waiting": "Waiting on digital-brew to fix the conflicts",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-10-31"
+   "updated": "2026-11-06"
   },
   {
    "group": "other",
