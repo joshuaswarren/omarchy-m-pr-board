@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06 08:24 UTC",
+ "generated": "2026-11-06 10:21 UTC",
  "rows": [
   {
    "group": "team",
@@ -2116,6 +2116,30 @@
   {
    "group": "team",
    "repo": "aurora-silicon/aurora-installer",
+   "number": 107,
+   "draft": false,
+   "state": "waiting",
+   "title": "Admit the PROLED MacBook Pros (K114/K116, M5 Pro/Max) as experimental",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/107",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "2ab8dcdc065d477617a9a78d27cef6f50a31562f",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-06"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
    "number": 49,
    "draft": true,
    "state": "held",
@@ -2850,12 +2874,12 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "1e571364b9e8d11451c43d258b94d65170e3313b",
+   "sha": "f9adaa588ad1e320c5fc27dffcc2c2db61074208",
    "evidence": "",
    "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-02"
+   "updated": "2026-11-06"
   },
   {
    "group": "contributor",
@@ -3090,12 +3114,12 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "3afa706acc1727c923893e0a08e4ba1f8cc0d6b3",
+   "sha": "7c1ed0a3378f55d5a5db7efca6357018334b32bd",
    "evidence": "",
    "waiting": "Waiting on ludagoo to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-04"
+   "updated": "2026-11-06"
   },
   {
    "group": "contributor",
@@ -3114,12 +3138,12 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "394abee9b85e379b1f276fe6e2b969b9dc750d90",
+   "sha": "3ad2c290c7464774be1afd567f6f7ac3b2137be3",
    "evidence": "",
    "waiting": "Waiting on ludagoo to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-02"
+   "updated": "2026-11-06"
   },
   {
    "group": "other",
