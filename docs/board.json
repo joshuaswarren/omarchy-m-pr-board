@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06 20:22 UTC",
+ "generated": "2026-11-06 21:21 UTC",
  "rows": [
   {
    "group": "team",
@@ -2764,30 +2764,6 @@
   {
    "group": "team",
    "repo": "omacom/omarchy-mac-pkgs",
-   "number": 84,
-   "draft": true,
-   "state": "held",
-   "title": "Leave Wi-Fi roaming to the firmware on Apple Silicon",
-   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/84",
-   "owner": "dhh",
-   "merge": "conflicts",
-   "checks": "passing",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Draft",
-   "blocker": "Draft",
-   "can_merge": false,
-   "sha": "70d65b610508e61367ca80510f35cbd12f269d30",
-   "evidence": "",
-   "waiting": "Waiting on dhh to mark it ready",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-01"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/omarchy-mac-pkgs",
    "number": 92,
    "draft": true,
    "state": "held",
@@ -4248,6 +4224,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-04"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/omarchy-mac-installer",
+   "number": 195,
+   "draft": true,
+   "state": "held",
+   "title": "Offer optional ProMotion setup before installation",
+   "url": "https://github.com/omacom/omarchy-mac-installer/pull/195",
+   "owner": "JamesRoche",
+   "merge": "mergeable",
+   "checks": "none",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "4e61b48760af030a5a6b67bc0629e26b522fd529",
+   "evidence": "",
+   "waiting": "Waiting on JamesRoche to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-06"
   },
   {
    "group": "other",
