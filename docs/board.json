@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06 17:20 UTC",
+ "generated": "2026-11-06 20:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -18,7 +18,7 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "b991db6fc8b7d54c8cd18eb32a1a0f6c0f9b1f7a",
+   "sha": "179aef2d2b8b684eb726b5868335498f175c63f2",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to merge",
    "act": true,
