@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06 07:23 UTC",
+ "generated": "2026-11-06 08:24 UTC",
  "rows": [
   {
    "group": "team",
@@ -1482,7 +1482,7 @@
    "kind": "Failing check",
    "blocker": "Failing check: Conformance matrix",
    "can_merge": false,
-   "sha": "254f21a6b0462abe03f84ef0747a3db5d12ee42b",
+   "sha": "ee184d5664d8bc72d4627a8d9672942a5435d883",
    "evidence": "",
    "waiting": "Waiting on DjDeveloperr to fix the failing check: Conformance matrix",
    "act": false,
@@ -3743,7 +3743,7 @@
    "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-05"
+   "updated": "2026-11-06"
   },
   {
    "group": "other",
