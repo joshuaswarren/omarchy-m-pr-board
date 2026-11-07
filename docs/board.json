@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06 23:21 UTC",
+ "generated": "2026-11-07 00:40 UTC",
  "rows": [
   {
    "group": "team",
@@ -18,7 +18,7 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "f46bb760fbd81872db3d705465907578413125b5",
+   "sha": "a70c10478e1afc6e7e9b869c80acd3e715064439",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to merge",
    "act": true,
@@ -1536,6 +1536,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-06"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 108,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "Pin U-Boot 279c4afa, the U-Boot the distributions ship",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/108",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "failing: Conformance matrix",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Failing check",
+   "blocker": "Failing check: Conformance matrix",
+   "can_merge": false,
+   "sha": "9771973e861b1c9a618af30e143d5aef2b52ba22",
+   "evidence": "",
+   "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-07"
   },
   {
    "group": "team",
@@ -3864,6 +3888,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-06"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 400,
+   "draft": false,
+   "state": "needs review",
+   "title": "wifi: mt7932: join WPA2-PSK APs with a TKIP group key",
+   "url": "https://github.com/omacom/linux-aurora/pull/400",
+   "owner": "zoan37",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "eb6549c0c2aec4759d55151834fc95c7a1dfef6e",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-07"
   },
   {
    "group": "other",
