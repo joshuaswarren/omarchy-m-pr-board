@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07 14:21 UTC",
+ "generated": "2026-11-07 17:19 UTC",
  "rows": [
   {
    "group": "team",
@@ -3936,6 +3936,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-06"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 404,
+   "draft": false,
+   "state": "needs review",
+   "title": "Add the T6050 (M5 Max) and the 14-inch MacBook Pro (J714c)",
+   "url": "https://github.com/omacom/linux-aurora/pull/404",
+   "owner": "edimoldovan",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "66da9d75380100af827ac023927cff64eabef1d7",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-07"
   },
   {
    "group": "other",
