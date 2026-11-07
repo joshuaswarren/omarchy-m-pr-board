@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07 05:20 UTC",
+ "generated": "2026-11-07 06:26 UTC",
  "rows": [
   {
    "group": "team",
@@ -1522,20 +1522,20 @@
    "title": "Recovery: enroll a padded Stage 1 by default on M4 and later",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/104",
    "owner": "DjDeveloperr",
-   "merge": "conflicts",
-   "checks": "passing",
+   "merge": "mergeable",
+   "checks": "failing: Conformance matrix",
    "approvals": "not required",
    "maclab": "",
    "maclab_title": "",
-   "kind": "Merge conflicts",
-   "blocker": "Merge conflicts with the base branch",
+   "kind": "Failing check",
+   "blocker": "Failing check: Conformance matrix",
    "can_merge": false,
-   "sha": "a70c10478e1afc6e7e9b869c80acd3e715064439",
+   "sha": "f0adb6eaddd4ef2d4e451bc02b530d58b656fdc0",
    "evidence": "",
-   "waiting": "Waiting on DjDeveloperr to fix the conflicts",
+   "waiting": "Waiting on DjDeveloperr to fix the failing check: Conformance matrix",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-06"
+   "updated": "2026-11-07"
   },
   {
    "group": "team",
