@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07 04:22 UTC",
+ "generated": "2026-11-07 05:20 UTC",
  "rows": [
   {
    "group": "team",
@@ -2999,7 +2999,7 @@
    "waiting": "Waiting on a maintainer for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-06"
+   "updated": "2026-11-07"
   },
   {
    "group": "contributor",
