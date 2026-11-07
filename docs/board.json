@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07 07:20 UTC",
+ "generated": "2026-11-07 08:21 UTC",
  "rows": [
   {
    "group": "team",
@@ -263,7 +263,7 @@
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-04"
+   "updated": "2026-11-07"
   },
   {
    "group": "team",
