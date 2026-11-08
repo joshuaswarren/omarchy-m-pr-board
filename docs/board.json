@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-08 19:20 UTC",
+ "generated": "2026-11-08 20:20 UTC",
  "rows": [
   {
    "group": "team",
@@ -3828,15 +3828,15 @@
    "owner": "joelvj",
    "merge": "mergeable",
    "checks": "passing",
-   "approvals": "none yet",
+   "approvals": "approved by 1",
    "maclab": "not run",
    "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
+   "kind": "Branch rules",
+   "blocker": "Blocked by branch rules (a required check or review is missing)",
    "can_merge": false,
    "sha": "f800dce9b293b8d50a58723a26e943289c5d3a65",
    "evidence": "",
-   "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
+   "waiting": "Waiting on maralcbr and chriskearney for a required check or review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-08"
