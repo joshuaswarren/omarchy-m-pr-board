@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-08 12:23 UTC",
+ "generated": "2026-11-08 14:20 UTC",
  "rows": [
   {
    "group": "team",
@@ -4026,7 +4026,7 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "e8233e1bbe91965e52b404e1e799e9d84c226c54",
+   "sha": "8916070002f4dc60e1bca6995b9c52fa0131683f",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones for an approving review",
    "act": true,
@@ -4519,7 +4519,7 @@
    "number": 407,
    "draft": true,
    "state": "held",
-   "title": "soc: apple: sep: support biometric application keys",
+   "title": "soc: apple: sep: add blocking biometric application keys",
    "url": "https://github.com/omacom/linux-aurora/pull/407",
    "owner": "cameroncooper",
    "merge": "mergeable",
@@ -4530,12 +4530,12 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "875788fc6e1cad68564aeef14450fdc3ddaa8d7a",
+   "sha": "56800a8bf4e09126f007f493ad213f14965805a7",
    "evidence": "",
    "waiting": "Waiting on cameroncooper to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-07"
+   "updated": "2026-11-08"
   },
   {
    "group": "other",
