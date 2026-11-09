@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-09 20:22 UTC",
+ "generated": "2026-11-09 21:21 UTC",
  "rows": [
   {
    "group": "team",
@@ -1005,6 +1005,30 @@
    "sha": "44ef4d95571630dfb175b2124eaf7de0d1a6fd07",
    "evidence": "",
    "waiting": "Waiting on maralcbr for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-09"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 437,
+   "draft": false,
+   "state": "needs review",
+   "title": "drm/apple: M3 Pro mirroring freeze fix: take primary planes that reach past the mode's edge on 14.7 firmware",
+   "url": "https://github.com/omacom/linux-aurora/pull/437",
+   "owner": "erykwieliczko",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "1726d763c36a1ebb9be888fea2f8606c6a2361fe",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-09"
