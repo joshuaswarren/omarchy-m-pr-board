@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-09 01:20 UTC",
+ "generated": "2026-11-09 02:27 UTC",
  "rows": [
   {
    "group": "team",
@@ -455,7 +455,7 @@
    "waiting": "Waiting on a maintainer for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-10-29"
+   "updated": "2026-11-09"
   },
   {
    "group": "team",
@@ -1011,6 +1011,30 @@
   },
   {
    "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 429,
+   "draft": false,
+   "state": "needs review",
+   "title": "J516M (16\" M3 Max): native display and GPU, on by default",
+   "url": "https://github.com/omacom/linux-aurora/pull/429",
+   "owner": "scottjones",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "44ef4d95571630dfb175b2124eaf7de0d1a6fd07",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-09"
+  },
+  {
+   "group": "team",
    "repo": "omacom/omarchy-mac-installer",
    "number": 43,
    "draft": false,
@@ -1536,30 +1560,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-05"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/linux-aurora",
-   "number": 429,
-   "draft": false,
-   "state": "needs fixes",
-   "title": "J516M (16\" M3 Max): native display and GPU, on by default",
-   "url": "https://github.com/omacom/linux-aurora/pull/429",
-   "owner": "scottjones",
-   "merge": "mergeable",
-   "checks": "failing: requested build / KUnit, ci / KUnit, requested build / result, ci / result",
-   "approvals": "none yet",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Failing check",
-   "blocker": "Failing check: requested build / KUnit, ci / KUnit, requested build / result, ci / result",
-   "can_merge": false,
-   "sha": "baf495599c74f3731cc807019f443b4cda5b085f",
-   "evidence": "",
-   "waiting": "Waiting on scottjones to fix the failing check: requested build / KUnit, ci / KUnit, requested build / result, ci / result",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-08"
   },
   {
    "group": "team",
@@ -4080,6 +4080,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-08"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 430,
+   "draft": false,
+   "state": "needs review",
+   "title": "fix bindgen layout checks without rustfmt",
+   "url": "https://github.com/omacom/linux-aurora/pull/430",
+   "owner": "kzKallisti",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "6ba4695259f3d207f8d26aed8bf203f46abc8772",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-09"
   },
   {
    "group": "other",
