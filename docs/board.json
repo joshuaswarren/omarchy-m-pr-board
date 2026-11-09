@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-09 03:25 UTC",
+ "generated": "2026-11-09 04:25 UTC",
  "rows": [
   {
    "group": "team",
@@ -2999,7 +2999,7 @@
    "waiting": "Waiting on ludagoo to address the changes maralcbr, scottjones asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-04"
+   "updated": "2026-11-09"
   },
   {
    "group": "contributor",
@@ -4631,7 +4631,7 @@
    "waiting": "Waiting on DanielLemky to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-08"
+   "updated": "2026-11-09"
   },
   {
    "group": "other",
