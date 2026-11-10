@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-10 09:22 UTC",
+ "generated": "2026-11-10 11:24 UTC",
  "rows": [
   {
    "group": "team",
@@ -3580,6 +3580,30 @@
   {
    "group": "other",
    "repo": "omacom/omarchy-mac-pkgs",
+   "number": 103,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "Cover the 16-inch M5 Pro (J716s) in the audio tests and the manual",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/103",
+   "owner": "rolotrealanis98",
+   "merge": "mergeable",
+   "checks": "none",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "555566590d81ed8cede1eb43778ca19f66f9c147",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-10"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/omarchy-mac-pkgs",
    "number": 105,
    "draft": false,
    "state": "ready to merge",
@@ -4632,30 +4656,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-09"
-  },
-  {
-   "group": "other",
-   "repo": "omacom/omarchy-mac-pkgs",
-   "number": 103,
-   "draft": false,
-   "state": "needs fixes",
-   "title": "Cover the 16-inch M5 Pro (J716s) in the audio tests and the manual",
-   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/103",
-   "owner": "rolotrealanis98",
-   "merge": "conflicts",
-   "checks": "passing",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Merge conflicts",
-   "blocker": "Merge conflicts with the base branch",
-   "can_merge": false,
-   "sha": "f8884ff6a1acdd923aa1cee4984c1b5aacddf168",
-   "evidence": "",
-   "waiting": "Waiting on rolotrealanis98 to fix the conflicts",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-07"
   },
   {
    "group": "other",
