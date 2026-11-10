@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-10 21:21 UTC",
+ "generated": "2026-11-10 22:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -1138,31 +1138,7 @@
    "title": "speaker tuning: collect the BuzzKill quadrature matrix from AudioDSP",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/119",
    "owner": "RyanTheTide",
-   "merge": "conflicts",
-   "checks": "failing: Conformance matrix",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Merge conflicts",
-   "blocker": "Merge conflicts with the base branch",
-   "can_merge": false,
-   "sha": "a252d0ebc9de7a94fd99aaa421f83bfe046d4793",
-   "evidence": "",
-   "waiting": "Waiting on RyanTheTide to fix the conflicts",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-09"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 126,
-   "draft": false,
-   "state": "needs fixes",
-   "title": "Pin aura main bd9f3e82",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/126",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
+   "merge": "unknown",
    "checks": "failing: Conformance matrix",
    "approvals": "not required",
    "maclab": "",
@@ -1170,12 +1146,12 @@
    "kind": "Failing check",
    "blocker": "Failing check: Conformance matrix",
    "can_merge": false,
-   "sha": "ff679ab5255296c7373ad858f3380cf279af0e73",
+   "sha": "a252d0ebc9de7a94fd99aaa421f83bfe046d4793",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-10"
+   "updated": "2026-11-09"
   },
   {
    "group": "team",
