@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-10 18:21 UTC",
+ "generated": "2026-11-10 20:23 UTC",
  "rows": [
   {
    "group": "team",
@@ -1152,6 +1152,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-09"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 126,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "Pin aura main bd9f3e82",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/126",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "failing: Conformance matrix",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Failing check",
+   "blocker": "Failing check: Conformance matrix",
+   "can_merge": false,
+   "sha": "ff679ab5255296c7373ad858f3380cf279af0e73",
+   "evidence": "",
+   "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-10"
   },
   {
    "group": "team",
