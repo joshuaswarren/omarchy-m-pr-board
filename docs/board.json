@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-10 11:24 UTC",
+ "generated": "2026-11-10 12:27 UTC",
  "rows": [
   {
    "group": "team",
@@ -4315,6 +4315,30 @@
    "blocker": "Needs an approving review",
    "can_merge": false,
    "sha": "f868010507376ba153d7d9ae1cd582deacaa0baa",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-10"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 439,
+   "draft": false,
+   "state": "needs review",
+   "title": "drm/asahi: Carry aurora-silicon's G17 and M5 GPU driver work",
+   "url": "https://github.com/omacom/linux-aurora/pull/439",
+   "owner": "edimoldovan",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "76767e347ea925e8ac23eb44f288e847c26e1113",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones for an approving review",
    "act": true,
