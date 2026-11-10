@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-10 00:39 UTC",
+ "generated": "2026-11-10 03:26 UTC",
  "rows": [
   {
    "group": "team",
@@ -192,6 +192,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-06"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 437,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "drm/apple: M3 Pro mirroring freeze fix: take primary planes that reach past the mode's edge on 14.7 firmware",
+   "url": "https://github.com/omacom/linux-aurora/pull/437",
+   "owner": "erykwieliczko",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "approved by 1",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "b9ed2578d00a89e8e8809ed3cf9f5a29c462ef19",
+   "evidence": "",
+   "waiting": "Waiting on a maintainer to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-10"
   },
   {
    "group": "team",
@@ -1005,30 +1029,6 @@
    "sha": "44ef4d95571630dfb175b2124eaf7de0d1a6fd07",
    "evidence": "",
    "waiting": "Waiting on maralcbr for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-09"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/linux-aurora",
-   "number": 437,
-   "draft": false,
-   "state": "needs review",
-   "title": "drm/apple: M3 Pro mirroring freeze fix: take primary planes that reach past the mode's edge on 14.7 firmware",
-   "url": "https://github.com/omacom/linux-aurora/pull/437",
-   "owner": "erykwieliczko",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "none yet",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "b9ed2578d00a89e8e8809ed3cf9f5a29c462ef19",
-   "evidence": "",
-   "waiting": "Waiting on scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-09"
@@ -3579,6 +3579,30 @@
   },
   {
    "group": "other",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 122,
+   "draft": false,
+   "state": "needs review",
+   "title": "ci: build the UEFI-only boot.bin's aura as an ESP Stage 2",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/122",
+   "owner": "techmore",
+   "merge": "mergeable",
+   "checks": "none",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Branch rules",
+   "blocker": "Blocked by branch rules (a required check or review is missing)",
+   "can_merge": false,
+   "sha": "6f0584126ed7659d0eabe0f381cc49dc2d6e33f2",
+   "evidence": "",
+   "waiting": "Waiting on a maintainer for a required check or review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-10"
+  },
+  {
+   "group": "other",
    "repo": "omacom/linux-aurora",
    "number": 186,
    "draft": false,
@@ -4943,7 +4967,7 @@
    "waiting": "Waiting on chessing234 to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-08"
+   "updated": "2026-11-10"
   }
  ],
  "unreadable": []
