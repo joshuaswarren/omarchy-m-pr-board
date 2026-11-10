@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-09 23:20 UTC",
+ "generated": "2026-11-10 00:39 UTC",
  "rows": [
   {
    "group": "team",
@@ -2784,6 +2784,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-10-30"
+  },
+  {
+   "group": "contributor",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 116,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "Stop candidate-set's tamper tests failing about one run in 128",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/116",
+   "owner": "only21mil",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "b8128c7a392233b4cfc552d9dc11c4d0ecac029a",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-09"
   },
   {
    "group": "contributor",
