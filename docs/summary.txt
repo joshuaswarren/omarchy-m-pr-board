@@ -2,6 +2,6 @@
 Can merge now: maclab 69; linux-aurora 232, 234, 245, 271, 277, 296, 337; mesa 6, 18, 21, 22, and 31 more.
 Needs review (71): linux-aurora 110, 155, 192, 193, 197, 198, 207, 262, 270, 283, 301, 302, and 59 more.
 Branch rules (1): linux-aurora 257.
-Waiting on the author or a run: Merge conflicts 37, Draft 36, Changes requested 10, Failing check 9.
+Waiting on the author or a run: Merge conflicts 38, Draft 36, Changes requested 10, Failing check 8.
 Team 108, existing contributors 28, everyone else 71.
 Each PR and what it needs: https://joshuaswarren.github.io/omarchy-m-pr-board/

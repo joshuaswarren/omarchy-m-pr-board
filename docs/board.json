@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-10 22:22 UTC",
+ "generated": "2026-11-10 23:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -1138,17 +1138,17 @@
    "title": "speaker tuning: collect the BuzzKill quadrature matrix from AudioDSP",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/119",
    "owner": "RyanTheTide",
-   "merge": "unknown",
+   "merge": "conflicts",
    "checks": "failing: Conformance matrix",
    "approvals": "not required",
    "maclab": "",
    "maclab_title": "",
-   "kind": "Failing check",
-   "blocker": "Failing check: Conformance matrix",
+   "kind": "Merge conflicts",
+   "blocker": "Merge conflicts with the base branch",
    "can_merge": false,
    "sha": "a252d0ebc9de7a94fd99aaa421f83bfe046d4793",
    "evidence": "",
-   "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
+   "waiting": "Waiting on RyanTheTide to fix the conflicts",
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-09"
