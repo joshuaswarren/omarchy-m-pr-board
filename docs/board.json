@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-10 12:27 UTC",
+ "generated": "2026-11-10 14:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -2116,26 +2116,26 @@
   {
    "group": "team",
    "repo": "aurora-silicon/aurora-installer",
-   "number": 73,
-   "draft": true,
-   "state": "held",
-   "title": "Plumb optional per-SoC Apple AVD firmware collection",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/73",
+   "number": 125,
+   "draft": false,
+   "state": "waiting",
+   "title": "Pin aura main 9befaa04",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/125",
    "owner": "RyanTheTide",
-   "merge": "conflicts",
-   "checks": "passing",
+   "merge": "mergeable",
+   "checks": "running",
    "approvals": "not required",
    "maclab": "",
    "maclab_title": "",
-   "kind": "Draft",
-   "blocker": "Draft",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
    "can_merge": false,
-   "sha": "c0b319a928c6ea5a6afe63511ce8d01887b05568",
+   "sha": "2b36018e6b7174431fcb3ed2c6d64c59f99feda8",
    "evidence": "",
-   "waiting": "Waiting on RyanTheTide to mark it ready",
+   "waiting": "Waiting on CI to finish",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-10-31"
+   "updated": "2026-11-10"
   },
   {
    "group": "team",
