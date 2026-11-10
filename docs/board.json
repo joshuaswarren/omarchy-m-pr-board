@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-10 07:22 UTC",
+ "generated": "2026-11-10 08:29 UTC",
  "rows": [
   {
    "group": "team",
@@ -954,12 +954,12 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "4f38dcfc2717abf61205fa543d2bfb7db5ea8e97",
+   "sha": "415cb73569c6b6202e709d07fda873ffcc2b9fb7",
    "evidence": "",
    "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-09"
+   "updated": "2026-11-10"
   },
   {
    "group": "team",
@@ -978,12 +978,12 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "c28f63ace4c94ef080522da6f4c2f617e4fb6423",
+   "sha": "df1d434261740640d03dd76ad142cc4a9642658e",
    "evidence": "",
    "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-09"
+   "updated": "2026-11-10"
   },
   {
    "group": "team",
@@ -2160,30 +2160,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-07"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 123,
-   "draft": true,
-   "state": "held",
-   "title": "Pin aura main 2296392f and U-Boot aurora-wip 6363e77f",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/123",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Draft",
-   "blocker": "Draft",
-   "can_merge": false,
-   "sha": "ba47ce97c8122523708ad7bb4d63e8929ecc9dc7",
-   "evidence": "",
-   "waiting": "Waiting on RyanTheTide to mark it ready",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-10"
   },
   {
    "group": "team",
@@ -3983,7 +3959,7 @@
    "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-09"
+   "updated": "2026-11-10"
   },
   {
    "group": "other",
