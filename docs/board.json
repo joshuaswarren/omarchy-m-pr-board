@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11 03:24 UTC",
+ "generated": "2026-11-11 04:23 UTC",
  "rows": [
   {
    "group": "team",
@@ -1011,6 +1011,30 @@
   },
   {
    "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 443,
+   "draft": false,
+   "state": "needs review",
+   "title": "aurora-sep: send Ctrl-C again in the survey stop test (flaky 0 != 130)",
+   "url": "https://github.com/omacom/linux-aurora/pull/443",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "a3d44fa6ed116c3c71ea9c837e63b27f9ff089ac",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-11"
+  },
+  {
+   "group": "team",
    "repo": "omacom/omarchy-mac-installer",
    "number": 43,
    "draft": false,
@@ -1199,7 +1223,7 @@
    "waiting": "Waiting on joshuaswarren to fix the failing check: ci / host tests (aurora-sep), ci / result",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-10"
+   "updated": "2026-11-11"
   },
   {
    "group": "team",
