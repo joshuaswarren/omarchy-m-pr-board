@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11 02:24 UTC",
+ "generated": "2026-11-11 03:24 UTC",
  "rows": [
   {
    "group": "team",
@@ -1004,7 +1004,7 @@
    "can_merge": false,
    "sha": "09613a933661031b34d90cf684ff3c71e80e6fea",
    "evidence": "",
-   "waiting": "Waiting on maralcbr and scottjones for an approving review",
+   "waiting": "Waiting on maralcbr for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-11"
@@ -1415,7 +1415,7 @@
    "waiting": "Waiting on joshuaswarren to address the changes scottjones, chriskearney asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-07"
+   "updated": "2026-11-11"
   },
   {
    "group": "team",
@@ -1632,6 +1632,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-04"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/mesa",
+   "number": 38,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "honeykrisp: keep the whole VA window when sparse is unsupported",
+   "url": "https://github.com/omacom/mesa/pull/38",
+   "owner": "joshuaswarren",
+   "merge": "conflicts",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Merge conflicts",
+   "blocker": "Merge conflicts with the base branch",
+   "can_merge": false,
+   "sha": "2fb4b7d424743ed313d4a91e184811c95a39da25",
+   "evidence": "",
+   "waiting": "Waiting on joshuaswarren to fix the conflicts",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-11"
   },
   {
    "group": "team",
