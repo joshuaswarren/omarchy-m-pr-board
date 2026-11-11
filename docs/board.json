@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11 21:23 UTC",
+ "generated": "2026-11-11 22:21 UTC",
  "rows": [
   {
    "group": "team",
@@ -379,6 +379,30 @@
    "blocker": "None: can merge now",
    "can_merge": true,
    "sha": "2408e8b3ef79ff26d2b94fc47f700d0219c6b03f",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-11"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 130,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "wait-for-display: find the display node and card on other t6031 boards",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/130",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "35f46bd765e60e05abec0e5bc9ede37bd0fd476e",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
