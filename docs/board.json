@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11 18:22 UTC",
+ "generated": "2026-11-11 19:21 UTC",
  "rows": [
   {
    "group": "team",
@@ -3955,6 +3955,30 @@
    "blocker": "Needs an approving review",
    "can_merge": false,
    "sha": "a9b802bff1ecbeb848b3af7e3221bd056eb09f7d",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-11"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 453,
+   "draft": false,
+   "state": "needs review",
+   "title": "wifi: brcmfmac: pcie: stop reading the firmware console at a bad index",
+   "url": "https://github.com/omacom/linux-aurora/pull/453",
+   "owner": "netmojo",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "b077d11fe9f541c27d7aa133a44f7e0994726583",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones for an approving review",
    "act": true,
