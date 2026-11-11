@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-10 23:22 UTC",
+ "generated": "2026-11-11 01:21 UTC",
  "rows": [
   {
    "group": "team",
@@ -1536,6 +1536,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-05"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 441,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "pmdomain: apple: pmp-report: turn the AGX vote on by default on the t6001 (stacked on #334)",
+   "url": "https://github.com/omacom/linux-aurora/pull/441",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "failing: ci / commits",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Failing check",
+   "blocker": "Failing check: ci / commits",
+   "can_merge": false,
+   "sha": "5714e133f363810d96d42f25a40d62099fa3c9c3",
+   "evidence": "",
+   "waiting": "Waiting on joshuaswarren to fix the failing check: ci / commits",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-11"
   },
   {
    "group": "team",
