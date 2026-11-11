@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11 22:21 UTC",
+ "generated": "2026-11-11 23:20 UTC",
  "rows": [
   {
    "group": "team",
@@ -1762,20 +1762,20 @@
    "title": "Boot the Secure Enclave read-only at boot so M1-family microphones work",
    "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/90",
    "owner": "malik-na",
-   "merge": "conflicts",
+   "merge": "mergeable",
    "checks": "passing",
-   "approvals": "not required",
+   "approvals": "changes requested",
    "maclab": "",
    "maclab_title": "",
-   "kind": "Merge conflicts",
-   "blocker": "Merge conflicts with the base branch",
+   "kind": "Changes requested",
+   "blocker": "Changes requested by maralcbr",
    "can_merge": false,
-   "sha": "7510ab66d4b12e2c80c5e93bf7956ea6ae6f9a74",
+   "sha": "ed7c3ce1ba41614e1c4682de263a5acefb43796f",
    "evidence": "",
-   "waiting": "Waiting on malik-na to fix the conflicts",
+   "waiting": "Waiting on malik-na to address the changes maralcbr asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-07"
+   "updated": "2026-11-11"
   },
   {
    "group": "team",
