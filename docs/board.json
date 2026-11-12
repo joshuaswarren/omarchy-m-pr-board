@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-12 20:22 UTC",
+ "generated": "2026-11-12 21:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -504,30 +504,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-11"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/omarchy-mac-pkgs",
-   "number": 135,
-   "draft": false,
-   "state": "ready to merge",
-   "title": "Stop the J514C login wait once the GPU probe has failed",
-   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/135",
-   "owner": "scottjones",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "None",
-   "blocker": "None: can merge now",
-   "can_merge": true,
-   "sha": "41aed433c53013056dbf99cf2be70db7488a1e11",
-   "evidence": "",
-   "waiting": "Waiting on a maintainer to merge",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-12"
   },
   {
    "group": "team",
@@ -1893,6 +1869,30 @@
    "sha": "77a58f66cdbe4cf0fe1acbdbeb175b27435121c9",
    "evidence": "",
    "waiting": "Waiting on malik-na to address the changes maralcbr asked for",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-12"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 135,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "Stop the J514C login wait once the GPU probe has failed",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/135",
+   "owner": "scottjones",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "changes requested",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Changes requested",
+   "blocker": "Changes requested by maralcbr",
+   "can_merge": false,
+   "sha": "41aed433c53013056dbf99cf2be70db7488a1e11",
+   "evidence": "",
+   "waiting": "Waiting on scottjones to address the changes maralcbr asked for",
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-12"
