@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-12 10:20 UTC",
+ "generated": "2026-11-12 11:21 UTC",
  "rows": [
   {
    "group": "team",
@@ -186,12 +186,12 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "9323171c12c5aa6055f1031ea26c16c247191987",
+   "sha": "7b81213e000f46f3a43a96cf44caf42ee7951a85",
    "evidence": "",
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-08"
+   "updated": "2026-11-12"
   },
   {
    "group": "team",
@@ -1855,18 +1855,18 @@
    "number": 129,
    "draft": true,
    "state": "held",
-   "title": "Pin aura v1.0.0b11",
+   "title": "Pin aura v1.0.0b12 (ea20cedb)",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/129",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "failing: Conformance matrix",
    "approvals": "not required",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "033cb24d59509a7353c10d0a186d6a3c11974580",
+   "sha": "112e5a54935f98d54d4c2b484be0656e471b72de",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
@@ -2543,7 +2543,7 @@
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-10"
+   "updated": "2026-11-12"
   },
   {
    "group": "contributor",
