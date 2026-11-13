@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-12 23:21 UTC",
+ "generated": "2026-11-13 00:40 UTC",
  "rows": [
   {
    "group": "team",
@@ -1152,30 +1152,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-09"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 131,
-   "draft": false,
-   "state": "needs fixes",
-   "title": "tools: keep Wi-Fi firmware on the installed macOS's",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/131",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "failing: Conformance matrix",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Failing check",
-   "blocker": "Failing check: Conformance matrix",
-   "can_merge": false,
-   "sha": "0d4da00caa95b8b2263c37abcd59eadffaf9a596",
-   "evidence": "",
-   "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-12"
   },
   {
    "group": "team",
