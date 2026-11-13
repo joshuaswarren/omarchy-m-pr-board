@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13 07:20 UTC",
+ "generated": "2026-11-13 08:25 UTC",
  "rows": [
   {
    "group": "team",
@@ -191,7 +191,7 @@
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-12"
+   "updated": "2026-11-13"
   },
   {
    "group": "team",
@@ -1924,30 +1924,6 @@
   {
    "group": "team",
    "repo": "aurora-silicon/aurora-installer",
-   "number": 134,
-   "draft": false,
-   "state": "waiting",
-   "title": "tools/wifi-firmware: follow macOS's Bluetooth and MT7932 firmware",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/134",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Checks running",
-   "blocker": "Checks still running",
-   "can_merge": false,
-   "sha": "2371a2f610e97e7abb0d271dbe314f9c47741859",
-   "evidence": "",
-   "waiting": "Waiting on CI to finish",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-13"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
    "number": 135,
    "draft": true,
    "state": "held",
@@ -1963,6 +1939,30 @@
    "blocker": "Draft",
    "can_merge": false,
    "sha": "ee182c57e24741b52b907b911624fc6581b5772e",
+   "evidence": "",
+   "waiting": "Waiting on RyanTheTide to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-13"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 136,
+   "draft": true,
+   "state": "held",
+   "title": "aurora-wifi-firmware: restart MT7932 radios after an automatic rollback",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/136",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "9b248077cabcb5caadd50096cf2215c50a895fc4",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
