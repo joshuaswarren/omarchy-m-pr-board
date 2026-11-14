@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14 16:21 UTC",
+ "generated": "2026-11-14 17:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -2426,6 +2426,30 @@
    "updated": "2026-10-24"
   },
   {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 140,
+   "draft": true,
+   "state": "held",
+   "title": "Offer Touch ID on the 16-inch M4 Pro (J616s)",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/140",
+   "owner": "scottjones",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "b4d5c2f9480eeb171e4001c1352fd2a374dfb32e",
+   "evidence": "",
+   "waiting": "Waiting on scottjones to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-14"
+  },
+  {
    "group": "contributor",
    "repo": "aurora-silicon/aurora-installer",
    "number": 130,
@@ -2731,6 +2755,30 @@
    "blocker": "None: can merge now",
    "can_merge": true,
    "sha": "0e2d41b043d6a821ae1e2d94048237b65e4891f7",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-14"
+  },
+  {
+   "group": "contributor",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 141,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "omarchy-mac-boot: let a kernel downgrade pass update-verify on Macs with a device tree overlay",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/141",
+   "owner": "only21mil",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "fcaeb5d5fc0bd95e1fe0f5c3cb305ad31e8532e2",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
@@ -3047,7 +3095,7 @@
    "waiting": "Waiting on ludagoo to address the changes maralcbr, scottjones asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-09"
+   "updated": "2026-11-14"
   },
   {
    "group": "contributor",
