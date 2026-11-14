@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14 17:22 UTC",
+ "generated": "2026-11-14 18:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -3720,6 +3720,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-12"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 142,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "J604: display and keyboard brightness follow the room light as macOS does",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/142",
+   "owner": "IronsideXXVI",
+   "merge": "mergeable",
+   "checks": "none",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "5c31833ae133a8e298054cd8e45606fcd57408c7",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-14"
   },
   {
    "group": "other",
