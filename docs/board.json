@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14 02:25 UTC",
+ "generated": "2026-11-14 03:24 UTC",
  "rows": [
   {
    "group": "team",
@@ -1056,6 +1056,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-13"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 471,
+   "draft": false,
+   "state": "needs review",
+   "title": ".github: add a pull request template that asks what was booted",
+   "url": "https://github.com/omacom/linux-aurora/pull/471",
+   "owner": "malik-na",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "b3eef8b873769585e2a156858f0c6c3a874707d4",
+   "evidence": "",
+   "waiting": "Waiting on scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-14"
   },
   {
    "group": "team",
@@ -2663,7 +2687,7 @@
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-12"
+   "updated": "2026-11-14"
   },
   {
    "group": "contributor",
