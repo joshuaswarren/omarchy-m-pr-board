@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14 18:22 UTC",
+ "generated": "2026-11-14 19:20 UTC",
  "rows": [
   {
    "group": "team",
@@ -1026,7 +1026,7 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "824ea1695cdc513b9594717d6bc474ad187aba26",
+   "sha": "3495d5224fdb0090687bd7313c9c6c3efd9de149",
    "evidence": "",
    "waiting": "Waiting on scottjones for an approving review",
    "act": true,
@@ -2623,7 +2623,7 @@
    "number": 121,
    "draft": false,
    "state": "ready to merge",
-   "title": "Fail a Mac image scenario when the image lacks its entrypoint",
+   "title": "Probe a Mac image's boot hook inside the image, not on the host",
    "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/121",
    "owner": "only21mil",
    "merge": "mergeable",
@@ -2634,12 +2634,12 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "e735f9c008bbe0031c97bcc351854a9456472829",
+   "sha": "b98a236227050c701912a603a2f12e90affecc73",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-12"
+   "updated": "2026-11-14"
   },
   {
    "group": "contributor",
