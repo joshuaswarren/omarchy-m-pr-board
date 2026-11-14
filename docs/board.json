@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14 20:20 UTC",
+ "generated": "2026-11-14 21:19 UTC",
  "rows": [
   {
    "group": "team",
@@ -4603,6 +4603,30 @@
    "blocker": "Needs an approving review",
    "can_merge": false,
    "sha": "309260bd3c3d2bcdc329ce0df646a1aa67d732d4",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-14"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 477,
+   "draft": false,
+   "state": "needs review",
+   "title": "HID: apple-mtp-haptic, magicmouse: one click per press with host-driven feedback on MTP Macs",
+   "url": "https://github.com/omacom/linux-aurora/pull/477",
+   "owner": "rudra1601",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "34d715452dac273cdf34bb74148493f5fb343f60",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones for an approving review",
    "act": true,
