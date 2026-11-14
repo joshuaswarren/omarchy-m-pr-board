@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14 01:22 UTC",
+ "generated": "2026-11-14 02:25 UTC",
  "rows": [
   {
    "group": "team",
@@ -1895,7 +1895,7 @@
    "waiting": "Waiting on malik-na to address the changes maralcbr asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-13"
+   "updated": "2026-11-14"
   },
   {
    "group": "team",
@@ -2543,7 +2543,7 @@
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-12"
+   "updated": "2026-11-14"
   },
   {
    "group": "contributor",
