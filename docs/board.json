@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15 17:22 UTC",
+ "generated": "2026-11-15 18:20 UTC",
  "rows": [
   {
    "group": "team",
@@ -580,6 +580,30 @@
   {
    "group": "team",
    "repo": "omacom/omarchy-mac-pkgs",
+   "number": 144,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "omarchy-brightness-auto: ambient light brightness for the screen and keyboard, off by default",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/144",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "667764ee48b6fa3a6ec3887e996caa26d4c2c6d7",
+   "evidence": "",
+   "waiting": "Waiting on scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-15"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-pkgs",
    "number": 145,
    "draft": false,
    "state": "ready to merge",
@@ -594,7 +618,7 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "7bd1560778a20da293dffc5b607bea0c89396c6e",
+   "sha": "6e7d22341b5cc69be520c57e80998254d259ceeb",
    "evidence": "",
    "waiting": "Waiting on scottjones to merge",
    "act": true,
@@ -1920,30 +1944,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-13"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/omarchy-mac-pkgs",
-   "number": 144,
-   "draft": false,
-   "state": "waiting",
-   "title": "omarchy-brightness-auto: ambient light brightness for the screen and keyboard, off by default",
-   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/144",
-   "owner": "joshuaswarren",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Checks running",
-   "blocker": "Checks still running",
-   "can_merge": false,
-   "sha": "667764ee48b6fa3a6ec3887e996caa26d4c2c6d7",
-   "evidence": "",
-   "waiting": "Waiting on CI to finish",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-15"
   },
   {
    "group": "team",
@@ -4079,7 +4079,7 @@
    "waiting": "Waiting on maralcbr and chriskearney for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-11"
+   "updated": "2026-11-15"
   },
   {
    "group": "other",
