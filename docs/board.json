@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15 04:22 UTC",
+ "generated": "2026-11-15 05:20 UTC",
  "rows": [
   {
    "group": "team",
@@ -3219,6 +3219,30 @@
   },
   {
    "group": "other",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 144,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "Admit the M5 MacBook Air 15-inch (J815) on the macOS 27.2 (26B123) stub",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/144",
+   "owner": "m0d16l14n1",
+   "merge": "mergeable",
+   "checks": "none",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "116847153d90302c332fa047c19c69c52d443073",
+   "evidence": "",
+   "waiting": "Waiting on a maintainer to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-15"
+  },
+  {
+   "group": "other",
    "repo": "omacom/linux-aurora",
    "number": 9,
    "draft": false,
@@ -4992,30 +5016,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-09"
-  },
-  {
-   "group": "other",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 144,
-   "draft": true,
-   "state": "held",
-   "title": "Admit the M5 MacBook Air 15-inch (J815) on the macOS 27.2 (26B123) stub",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/144",
-   "owner": "m0d16l14n1",
-   "merge": "mergeable",
-   "checks": "none",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Draft",
-   "blocker": "Draft",
-   "can_merge": false,
-   "sha": "116847153d90302c332fa047c19c69c52d443073",
-   "evidence": "",
-   "waiting": "Waiting on m0d16l14n1 to mark it ready",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-14"
   },
   {
    "group": "other",
