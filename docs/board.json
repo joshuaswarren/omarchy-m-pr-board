@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15 22:22 UTC",
+ "generated": "2026-11-15 23:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -5352,6 +5352,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-11"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 486,
+   "draft": true,
+   "state": "held",
+   "title": "soc: apple: sep: Let a cold-boot Mac's owner pin the one shared xART locker",
+   "url": "https://github.com/omacom/linux-aurora/pull/486",
+   "owner": "poulguoskov",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "5d5030051538de66dcb92de1d15f3f2d88c15e0c",
+   "evidence": "",
+   "waiting": "Waiting on poulguoskov to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-15"
   },
   {
    "group": "other",
