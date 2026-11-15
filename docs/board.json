@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15 09:21 UTC",
+ "generated": "2026-11-15 11:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -573,6 +573,30 @@
    "sha": "146fcc2bbbe52eacd9cd37a776980672fdfde3a3",
    "evidence": "",
    "waiting": "Waiting on a maintainer to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-15"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 144,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "omarchy-brightness-auto: ambient light brightness for the screen and keyboard, off by default",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/144",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "fec1c5416d7f40b3dabd075a2724d6f4d975cfba",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-15"
@@ -4704,6 +4728,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-14"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 481,
+   "draft": false,
+   "state": "needs review",
+   "title": "J514S (M3 Pro 14\"): CPU energy model, die sensors, critical thermal zones, SoC die keys",
+   "url": "https://github.com/omacom/linux-aurora/pull/481",
+   "owner": "ilyasakin",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "0b16569a98c178bf2daa4af95fb194c32ba503c8",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-15"
   },
   {
    "group": "other",
