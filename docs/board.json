@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15 15:22 UTC",
+ "generated": "2026-11-15 16:21 UTC",
  "rows": [
   {
    "group": "team",
@@ -594,9 +594,9 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "0ddbc0e6580288bb999873c38b9d35c9c41b53ca",
+   "sha": "113ecbf3852d8697d904a939d6bddaab7aeb8715",
    "evidence": "",
-   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "waiting": "Waiting on scottjones to merge",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-15"
@@ -1074,33 +1074,9 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "d53d5bd193b249ba5d90e79a04059be51cbe7507",
+   "sha": "00fdcb87d01f7acecb8abf65bd351d4539ab13c6",
    "evidence": "",
    "waiting": "Waiting on scottjones for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-15"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/linux-aurora",
-   "number": 483,
-   "draft": false,
-   "state": "needs review",
-   "title": "power: supply: macsmc: skip an unreadable manufacture date quietly",
-   "url": "https://github.com/omacom/linux-aurora/pull/483",
-   "owner": "joshuaswarren",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "none yet",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "a314e0229ede8b2d56c0638cec9f929bccccc0f2",
-   "evidence": "",
-   "waiting": "Waiting on maralcbr and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-15"
@@ -1971,6 +1947,30 @@
   },
   {
    "group": "team",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 145,
+   "draft": false,
+   "state": "waiting",
+   "title": "omarchy-mac: Turn automatic brightness on by default",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/145",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "7bd1560778a20da293dffc5b607bea0c89396c6e",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-15"
+  },
+  {
+   "group": "team",
    "repo": "aurora-silicon/aurora-installer",
    "number": 135,
    "draft": true,
@@ -2783,7 +2783,7 @@
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-14"
+   "updated": "2026-11-15"
   },
   {
    "group": "contributor",
