@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15 14:22 UTC",
+ "generated": "2026-11-15 15:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -1075,6 +1075,30 @@
    "blocker": "Needs an approving review",
    "can_merge": false,
    "sha": "d53d5bd193b249ba5d90e79a04059be51cbe7507",
+   "evidence": "",
+   "waiting": "Waiting on scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-15"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 483,
+   "draft": false,
+   "state": "needs review",
+   "title": "power: supply: macsmc: skip an unreadable manufacture date quietly",
+   "url": "https://github.com/omacom/linux-aurora/pull/483",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "a314e0229ede8b2d56c0638cec9f929bccccc0f2",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones for an approving review",
    "act": true,
@@ -2735,7 +2759,7 @@
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-14"
+   "updated": "2026-11-15"
   },
   {
    "group": "contributor",
