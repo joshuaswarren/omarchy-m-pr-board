@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15 03:22 UTC",
+ "generated": "2026-11-15 04:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -3744,6 +3744,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-14"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 143,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "omarchy-mac: give Apple Silicon power profiles the CPU frequency floor",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/143",
+   "owner": "IronsideXXVI",
+   "merge": "mergeable",
+   "checks": "none",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "6ca225ea887372a4bcbbc6e3ed5ee03cd9e24888",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-15"
   },
   {
    "group": "other",
