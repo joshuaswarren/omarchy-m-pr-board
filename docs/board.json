@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15 07:22 UTC",
+ "generated": "2026-11-15 09:21 UTC",
  "rows": [
   {
    "group": "team",
@@ -1029,6 +1029,30 @@
    "sha": "5e0df43bb9d20b2a05bea3fcd09b723d02355e36",
    "evidence": "",
    "waiting": "Waiting on scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-15"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 480,
+   "draft": false,
+   "state": "needs review",
+   "title": "gpu: free a closed GEM's mappings at handle close",
+   "url": "https://github.com/omacom/linux-aurora/pull/480",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "d53d5bd193b249ba5d90e79a04059be51cbe7507",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-15"
