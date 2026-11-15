@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15 21:20 UTC",
+ "generated": "2026-11-15 22:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -4749,6 +4749,30 @@
    "sha": "c7f923940c38051ca6a9bb27f752d424eddb6970",
    "evidence": "",
    "waiting": "Waiting on maralcbr for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-15"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 485,
+   "draft": false,
+   "state": "needs review",
+   "title": "drm/apple: v14.7: scan out 10-bit framebuffers on the internal panel",
+   "url": "https://github.com/omacom/linux-aurora/pull/485",
+   "owner": "ilyasakin",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "45c641ced832414a08c2ecbd4e447f256230a12a",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-15"
