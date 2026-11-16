@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16 06:44 UTC",
+ "generated": "2026-11-16 09:32 UTC",
  "rows": [
   {
    "group": "team",
@@ -4824,6 +4824,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-15"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 488,
+   "draft": false,
+   "state": "needs review",
+   "title": "arm64: dts: apple: t6030-j514s: Add airflow, battery gauge and GPU temperatures",
+   "url": "https://github.com/omacom/linux-aurora/pull/488",
+   "owner": "ilyasakin",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "5c496717776082071a661f3245e685cd73b4c1ee",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-16"
   },
   {
    "group": "other",
