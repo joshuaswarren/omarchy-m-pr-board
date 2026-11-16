@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16 02:26 UTC",
+ "generated": "2026-11-16 03:27 UTC",
  "rows": [
   {
    "group": "team",
@@ -3816,6 +3816,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-15"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 147,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "omarchy-mac: wait for the udev queue before speaker safety starts",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/147",
+   "owner": "IronsideXXVI",
+   "merge": "mergeable",
+   "checks": "none",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "6f40e890ddfa9ca761ff063500d33854c513ff40",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-16"
   },
   {
    "group": "other",
