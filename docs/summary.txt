@@ -1,6 +1,6 @@
-[Joshua's agent] There are 231 open pull requests on the Omarchy M board. 62 can merge now. 169 are stuck.
-Can merge now: silicon-aurora-installer 132; maclab 69; linux-aurora 232, 245, 271, 277, 296, 337, 340; mesa 6, 18, 21, and 50 more.
-Needs review (80): linux-aurora 110, 155, 192, 193, 197, 198, 207, 262, 270, 283, 348, 359, and 68 more.
+[Joshua's agent] There are 231 open pull requests on the Omarchy M board. 63 can merge now. 168 are stuck.
+Can merge now: silicon-aurora-installer 132; maclab 69; linux-aurora 232, 245, 271, 277, 296, 337, 340; mesa 6, 18, 21, and 51 more.
+Needs review (79): linux-aurora 110, 155, 192, 193, 197, 198, 207, 262, 270, 283, 348, 359, and 67 more.
 Branch rules (2): linux-aurora 257, 481.
 Waiting on the author or a run: Draft 42, Merge conflicts 24, Changes requested 12, Failing check 9.
 Team 104, existing contributors 31, everyone else 96.

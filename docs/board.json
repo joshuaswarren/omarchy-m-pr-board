@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16 01:23 UTC",
+ "generated": "2026-11-16 02:26 UTC",
  "rows": [
   {
    "group": "team",
@@ -3316,6 +3316,30 @@
   {
    "group": "other",
    "repo": "omacom/linux-aurora",
+   "number": 354,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "drm/apple: enable J615 panel brightness control",
+   "url": "https://github.com/omacom/linux-aurora/pull/354",
+   "owner": "ericjuta",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "approved by 1",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "0591302998999d77145a4fe04980e035d15b71a6",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and chriskearney to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-16"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
    "number": 462,
    "draft": false,
    "state": "ready to merge",
@@ -4008,30 +4032,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-12"
-  },
-  {
-   "group": "other",
-   "repo": "omacom/linux-aurora",
-   "number": 354,
-   "draft": false,
-   "state": "needs review",
-   "title": "drm/apple: enable J615 panel brightness control",
-   "url": "https://github.com/omacom/linux-aurora/pull/354",
-   "owner": "ericjuta",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "none yet",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "0591302998999d77145a4fe04980e035d15b71a6",
-   "evidence": "",
-   "waiting": "Waiting on maralcbr and chriskearney for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-16"
   },
   {
    "group": "other",
