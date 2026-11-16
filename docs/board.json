@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16 12:37 UTC",
+ "generated": "2026-11-16 13:42 UTC",
  "rows": [
   {
    "group": "team",
@@ -3883,6 +3883,30 @@
    "blocker": "None: can merge now",
    "can_merge": true,
    "sha": "14a612e29ecf0a40bab25f30cfae601df631026f",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-16"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 151,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "omarchy-mac-boot: turn on the M4 Macs' native display at setup-boot",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/151",
+   "owner": "aeries0x",
+   "merge": "mergeable",
+   "checks": "none",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "55efc92e3c56f14ea4d134ae780457805c2ac919",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
