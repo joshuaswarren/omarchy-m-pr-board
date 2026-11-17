@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17 14:23 UTC",
+ "generated": "2026-11-17 15:23 UTC",
  "rows": [
   {
    "group": "team",
@@ -575,7 +575,7 @@
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-16"
+   "updated": "2026-11-17"
   },
   {
    "group": "team",
@@ -1344,30 +1344,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-13"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/linux-aurora",
-   "number": 336,
-   "draft": false,
-   "state": "needs fixes",
-   "title": "soc: apple: show the fabric and DCS clock-generator words in debugfs",
-   "url": "https://github.com/omacom/linux-aurora/pull/336",
-   "owner": "joshuaswarren",
-   "merge": "mergeable",
-   "checks": "failing: ci / result",
-   "approvals": "approved by 1",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Failing check",
-   "blocker": "Failing check: ci / result",
-   "can_merge": false,
-   "sha": "b50e681fb588da49c7fcbf71bd6a7b499600a6c4",
-   "evidence": "",
-   "waiting": "Waiting on joshuaswarren to fix the failing check: ci / result",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-06"
   },
   {
    "group": "team",
@@ -2232,30 +2208,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-02"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/linux-aurora",
-   "number": 338,
-   "draft": true,
-   "state": "held",
-   "title": "soc: apple: show the PMP request words and AGX vote state in the report status (stacked on #334)",
-   "url": "https://github.com/omacom/linux-aurora/pull/338",
-   "owner": "joshuaswarren",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "none yet",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Draft",
-   "blocker": "Draft",
-   "can_merge": false,
-   "sha": "d366ab11442bc5e0fbdbdcea1725d6473eb0251c",
-   "evidence": "",
-   "waiting": "Waiting on joshuaswarren to mark it ready",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-04"
   },
   {
    "group": "team",
@@ -5007,12 +4959,12 @@
    "approvals": "approved by 1",
    "maclab": "not run",
    "maclab_title": "",
-   "kind": "Branch rules",
-   "blocker": "Blocked by branch rules (a required check or review is missing)",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "f01cd08af866879f55066f153106c15aabe815b6",
+   "sha": "1519058fcefcbbb45fa9a91cb916d6ba265719bf",
    "evidence": "",
-   "waiting": "Waiting on maralcbr for a required check or review",
+   "waiting": "Waiting on maralcbr for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-17"
