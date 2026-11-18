@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18 16:35 UTC",
+ "generated": "2026-11-18 19:04 UTC",
  "rows": [
   {
    "group": "team",
@@ -1824,6 +1824,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-13"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 153,
+   "draft": true,
+   "state": "held",
+   "title": "Default qualified MacBook Neo installations to Edge",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/153",
+   "owner": "DjDeveloperr",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "d8d0f671bf35d728ad4991d6eab80d390a7b9ea5",
+   "evidence": "",
+   "waiting": "Waiting on DjDeveloperr to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-18"
   },
   {
    "group": "team",
