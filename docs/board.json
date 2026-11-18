@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18 14:23 UTC",
+ "generated": "2026-11-18 14:35 UTC",
  "rows": [
   {
    "group": "team",
@@ -2379,6 +2379,30 @@
   },
   {
    "group": "contributor",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 152,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "vendor firmware: write the Touch ID root key owner-only",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/152",
+   "owner": "AxxzyWasTaken",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "a3dc38fe2f38f908cd05ecdc624b302208f29bad",
+   "evidence": "",
+   "waiting": "Waiting on a maintainer to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-18"
+  },
+  {
+   "group": "contributor",
    "repo": "omacom/linux-aurora",
    "number": 284,
    "draft": false,
@@ -3096,30 +3120,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-10-30"
-  },
-  {
-   "group": "contributor",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 152,
-   "draft": false,
-   "state": "waiting",
-   "title": "vendor firmware: write the Touch ID root key owner-only",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/152",
-   "owner": "AxxzyWasTaken",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Checks running",
-   "blocker": "Checks still running",
-   "can_merge": false,
-   "sha": "a3dc38fe2f38f908cd05ecdc624b302208f29bad",
-   "evidence": "",
-   "waiting": "Waiting on CI to finish",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-18"
   },
   {
    "group": "contributor",
