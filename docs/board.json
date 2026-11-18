@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18 16:22 UTC",
+ "generated": "2026-11-18 16:35 UTC",
  "rows": [
   {
    "group": "team",
@@ -2620,6 +2620,30 @@
   {
    "group": "contributor",
    "repo": "omacom/omarchy-mac-pkgs",
+   "number": 125,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "omarchy-mac: keep a symlinked browser flags file linked and patch its target",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/125",
+   "owner": "only21mil",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "da314bb9b78b1afbee3925249f422a5e4522a394",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-18"
+  },
+  {
+   "group": "contributor",
+   "repo": "omacom/omarchy-mac-pkgs",
    "number": 139,
    "draft": false,
    "state": "ready to merge",
@@ -3072,30 +3096,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-10-30"
-  },
-  {
-   "group": "contributor",
-   "repo": "omacom/omarchy-mac-pkgs",
-   "number": 125,
-   "draft": false,
-   "state": "waiting",
-   "title": "omarchy-mac: keep a symlinked browser flags file linked and patch its target",
-   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/125",
-   "owner": "only21mil",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Checks running",
-   "blocker": "Checks still running",
-   "can_merge": false,
-   "sha": "da314bb9b78b1afbee3925249f422a5e4522a394",
-   "evidence": "",
-   "waiting": "Waiting on CI to finish",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-18"
   },
   {
    "group": "contributor",
