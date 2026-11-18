@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18 09:35 UTC",
+ "generated": "2026-11-18 11:04 UTC",
  "rows": [
   {
    "group": "team",
@@ -2099,14 +2099,14 @@
    "url": "https://github.com/omacom/mesa/pull/47",
    "owner": "joshuaswarren",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "failing: build (ubuntu-26.04, x86_64), build (ubuntu-26.04-arm, aarch64), ci / result",
    "approvals": "not required",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "ab5d6e94bcbd5db4d72aff3347be6b61253d71d0",
+   "sha": "2e0906b7c5bfc65ba1de41a7033670620f42fe66",
    "evidence": "",
    "waiting": "Waiting on joshuaswarren to mark it ready",
    "act": false,
