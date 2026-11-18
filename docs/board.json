@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18 01:21 UTC",
+ "generated": "2026-11-18 03:26 UTC",
  "rows": [
   {
    "group": "team",
@@ -528,30 +528,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-11"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/omarchy-mac-pkgs",
-   "number": 144,
-   "draft": false,
-   "state": "ready to merge",
-   "title": "omarchy-brightness-auto: ambient light brightness for the screen, off by default",
-   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/144",
-   "owner": "joshuaswarren",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "None",
-   "blocker": "None: can merge now",
-   "can_merge": true,
-   "sha": "6b5fc2da241aad887fc621da1bc250bab3115554",
-   "evidence": "",
-   "waiting": "Waiting on a maintainer to merge",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-17"
   },
   {
    "group": "team",
@@ -1776,6 +1752,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-16"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 144,
+   "draft": false,
+   "state": "waiting",
+   "title": "omarchy-brightness-auto: ambient light brightness for the screen, off by default",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/144",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "e0f420138b7840b632b061c7937bad012e1462b7",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-18"
   },
   {
    "group": "team",
