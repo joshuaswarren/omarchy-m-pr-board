@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18 06:06 UTC",
+ "generated": "2026-11-18 08:06 UTC",
  "rows": [
   {
    "group": "team",
@@ -522,7 +522,7 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "e0f420138b7840b632b061c7937bad012e1462b7",
+   "sha": "2d2ecbc1608371ec2b29636b555639f164703c42",
    "evidence": "",
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
@@ -546,7 +546,7 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "1f33a29971ebd4d2a5c2d86316700ea5a8585f25",
+   "sha": "d94d24af76fee04a8935d33b19820fd32406524a",
    "evidence": "",
    "waiting": "Waiting on scottjones to merge",
    "act": true,
@@ -572,10 +572,10 @@
    "can_merge": true,
    "sha": "17919130f45a205f7692f3edacd2157647363b38",
    "evidence": "",
-   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "waiting": "Waiting on maralcbr to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-17"
+   "updated": "2026-11-18"
   },
   {
    "group": "team",
