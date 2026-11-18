@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18 04:23 UTC",
+ "generated": "2026-11-18 05:06 UTC",
  "rows": [
   {
    "group": "team",
@@ -1098,12 +1098,12 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "0c785d2ec684ca84f52828ca9eb8d765448ad719",
+   "sha": "1f9fbcf7a2b26bb2646a5700908942c0697a7d8e",
    "evidence": "",
    "waiting": "Waiting on a maintainer for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-17"
+   "updated": "2026-11-18"
   },
   {
    "group": "team",
@@ -2147,19 +2147,19 @@
    "url": "https://github.com/omacom/omarchy-mac-installer/pull/225",
    "owner": "maralcbr",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "running",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "8336e9233efc6c956aa466ed73021eafdac0400c",
+   "sha": "dd10748869f5d10f428674235c8ca8240062c025",
    "evidence": "",
    "waiting": "Waiting on maralcbr to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-17"
+   "updated": "2026-11-18"
   },
   {
    "group": "team",
@@ -2322,12 +2322,12 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "ef728944e113d80ce23b21dd2af9c371258be863",
+   "sha": "0e93aa0c2fc0492ff37910c2c50f5b9e34959416",
    "evidence": "",
    "waiting": "Waiting on maralcbr to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-17"
+   "updated": "2026-11-18"
   },
   {
    "group": "team",
@@ -2346,12 +2346,12 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "2092dbd58143c99cd6f6fe5bd6ff88934c8e27c8",
+   "sha": "1737022d7cf876fe62b66a73587ac46e6548ecb3",
    "evidence": "",
    "waiting": "Waiting on maralcbr to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-17"
+   "updated": "2026-11-18"
   },
   {
    "group": "contributor",
