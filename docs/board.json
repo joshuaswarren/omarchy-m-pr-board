@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18 08:06 UTC",
+ "generated": "2026-11-18 09:09 UTC",
  "rows": [
   {
    "group": "team",
@@ -5458,7 +5458,7 @@
    "title": "soc: apple: sep: allow disjoint APFS extent-reference records",
    "url": "https://github.com/omacom/linux-aurora/pull/216",
    "owner": "jonkpub",
-   "merge": "mergeable",
+   "merge": "unknown",
    "checks": "passing",
    "approvals": "none yet",
    "maclab": "not run",
