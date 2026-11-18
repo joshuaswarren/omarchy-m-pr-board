@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18 12:36 UTC",
+ "generated": "2026-11-18 13:04 UTC",
  "rows": [
   {
    "group": "team",
@@ -3912,6 +3912,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-17"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 160,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "Offer Touch ID on the 16-inch M4 Max (J616c)",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/160",
+   "owner": "allanclempe",
+   "merge": "mergeable",
+   "checks": "none",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "35a4fe756d8215c0797291a244f4f8e88317a1e0",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-18"
   },
   {
    "group": "other",
