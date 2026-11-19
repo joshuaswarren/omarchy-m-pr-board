@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-19 09:08 UTC",
+ "generated": "2026-11-19 09:25 UTC",
  "rows": [
   {
    "group": "team",
@@ -2040,6 +2040,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-02"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 506,
+   "draft": true,
+   "state": "held",
+   "title": "soc: apple: sep: xart_guard_pin on the M1 Air: hold the window through the first activation, pin up to three lockers (builds on #486)",
+   "url": "https://github.com/omacom/linux-aurora/pull/506",
+   "owner": "malik-na",
+   "merge": "mergeable",
+   "checks": "failing: ci / host tests (aurora-sep), ci / commits, ci / result",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "f2f9c40b734eda029d4cffbd59b4568611bca9ac",
+   "evidence": "",
+   "waiting": "Waiting on malik-na to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-19"
   },
   {
    "group": "team",
@@ -5687,7 +5711,7 @@
    "waiting": "Waiting on poulguoskov to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-16"
+   "updated": "2026-11-19"
   },
   {
    "group": "other",
