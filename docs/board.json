@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-19 21:14 UTC",
+ "generated": "2026-11-19 21:23 UTC",
  "rows": [
   {
    "group": "team",
@@ -1123,6 +1123,30 @@
    "blocker": "Needs an approving review",
    "can_merge": false,
    "sha": "1c4663cf5637ee5ad9d1f9232ef784baee39ce7b",
+   "evidence": "",
+   "waiting": "Waiting on a maintainer for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-19"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-installer",
+   "number": 230,
+   "draft": false,
+   "state": "needs review",
+   "title": "Recognise a removal stub that has a macOS Update volume",
+   "url": "https://github.com/omacom/omarchy-mac-installer/pull/230",
+   "owner": "maralcbr",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "e101468c518624b816ba6a93a645fc594d1b04b4",
    "evidence": "",
    "waiting": "Waiting on a maintainer for an approving review",
    "act": true,
