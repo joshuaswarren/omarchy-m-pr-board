@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-19 06:32 UTC",
+ "generated": "2026-11-19 07:07 UTC",
  "rows": [
   {
    "group": "team",
@@ -1752,6 +1752,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-16"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 154,
+   "draft": false,
+   "state": "waiting",
+   "title": "firmware: collect the M3/M4 Bluetooth calibration from the factory data",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/154",
+   "owner": "DjDeveloperr",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "1d08f34e625c2b56de7a6578ccc05ed81a2d5207",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-19"
   },
   {
    "group": "team",
