@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18 23:34 UTC",
+ "generated": "2026-11-19 01:36 UTC",
  "rows": [
   {
    "group": "team",
@@ -1992,6 +1992,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-02"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 505,
+   "draft": true,
+   "state": "held",
+   "title": "power: supply: macsmc: gate AC ONLINE on battery status",
+   "url": "https://github.com/omacom/linux-aurora/pull/505",
+   "owner": "joshuaswarren",
+   "merge": "conflicts",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "71f1d802eb753e491dcc554bad219b3f81eed366",
+   "evidence": "",
+   "waiting": "Waiting on joshuaswarren to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-19"
   },
   {
    "group": "team",
