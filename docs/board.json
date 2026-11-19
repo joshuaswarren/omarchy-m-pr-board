@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-19 23:22 UTC",
+ "generated": "2026-11-19 23:35 UTC",
  "rows": [
   {
    "group": "team",
@@ -1115,7 +1115,7 @@
    "url": "https://github.com/omacom/omarchy-mac-installer/pull/230",
    "owner": "maralcbr",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
