@@ -7,15 +7,24 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["board.py", "maclab.json", ".github/workflows/refresh.yml"]
+    paths:
+      - "board.py"
+      - "maclab.json"
+      - "maclab_export.py"
+      - "team.json"
+      - "tests/**"
+      - ".github/workflows/refresh.yml"
 permissions:
   contents: write
 concurrency:
   group: refresh
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    # Last 30 runs finished in 1.5-5 min; 15 is 3x margin and still bounds a
+    # stuck board.py (hourly cron would otherwise serialize behind it).
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - name: Tests
@@ -27,7 +36,7 @@ jobs:
           git config user.name "pr-board"
           git config user.email "pr-board@users.noreply.github.com"
           url="https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}/"
-          for attempt in 1 2 3; do
+          for _ in 1 2 3; do
             python3 board.py --out docs --url "$url" --only-if-changed --keep-last-good
             git add docs
             if git diff --cached --quiet; then exit 0; fi
