@@ -13,6 +13,10 @@ on:
       - "maclab_export.py"
       - "team.json"
       - "tests/**"
+      - "docs/board.json"
+      - "docs/index.html"
+      - "docs/summary.txt"
+      - "docs/daily.txt"
       - ".github/workflows/refresh.yml"
 permissions:
   contents: write
