@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-19 02:07 UTC",
+ "generated": "2026-11-19 03:26 UTC",
  "rows": [
   {
    "group": "team",
@@ -2352,6 +2352,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-18"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 162,
+   "draft": true,
+   "state": "held",
+   "title": "Offer Touch ID on the M1 MacBook Air (J313)",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/162",
+   "owner": "malik-na",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "d9eee0ab1aafed0cd13441189be472065a68a5cb",
+   "evidence": "",
+   "waiting": "Waiting on malik-na to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-19"
   },
   {
    "group": "contributor",
