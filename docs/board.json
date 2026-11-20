@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20 09:24 UTC",
+ "generated": "2026-11-20 09:34 UTC",
  "rows": [
   {
    "group": "team",
@@ -1800,6 +1800,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-16"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 171,
+   "draft": false,
+   "state": "waiting",
+   "title": "Read hard-linked speaker tuning files from the sealed system volume",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/171",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "5f0817445af5ab0738bce99cf9c8ac87aae7f6d5",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-20"
   },
   {
    "group": "team",
