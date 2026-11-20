@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20 08:35 UTC",
+ "generated": "2026-11-20 09:24 UTC",
  "rows": [
   {
    "group": "team",
@@ -1067,7 +1067,7 @@
    "url": "https://github.com/omacom/omarchy-mac-installer/pull/235",
    "owner": "maralcbr",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
@@ -5735,7 +5735,7 @@
    "waiting": "Waiting on BTNG-studio to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-08"
+   "updated": "2026-11-20"
   },
   {
    "group": "other",
