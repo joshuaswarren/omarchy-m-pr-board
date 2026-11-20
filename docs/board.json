@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20 10:24 UTC",
+ "generated": "2026-11-20 10:37 UTC",
  "rows": [
   {
    "group": "team",
@@ -1043,7 +1043,7 @@
    "url": "https://github.com/omacom/omarchy-mac-installer/pull/224",
    "owner": "maralcbr",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
@@ -1776,6 +1776,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-16"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 172,
+   "draft": false,
+   "state": "waiting",
+   "title": "Collect the same speaker tuning bundle natively as the Python collector",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/172",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "30b52cd8b7b91248bf51eda25ca882f5d86f1f3d",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-20"
   },
   {
    "group": "team",
