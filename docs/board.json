@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20 08:27 UTC",
+ "generated": "2026-11-20 08:35 UTC",
  "rows": [
   {
    "group": "team",
@@ -1056,6 +1056,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-18"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-installer",
+   "number": 235,
+   "draft": false,
+   "state": "needs review",
+   "title": "Mark the M3 Macs and the MacBook Neo as tested",
+   "url": "https://github.com/omacom/omarchy-mac-installer/pull/235",
+   "owner": "maralcbr",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "4bee6c0a3f93fee1e182f51fd225aa5c17970ba8",
+   "evidence": "",
+   "waiting": "Waiting on a maintainer for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-20"
   },
   {
    "group": "team",
