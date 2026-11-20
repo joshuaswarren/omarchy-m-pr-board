@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20 11:24 UTC",
+ "generated": "2026-11-20 11:36 UTC",
  "rows": [
   {
    "group": "team",
@@ -24,6 +24,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-19"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 172,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "Collect the same speaker tuning bundle natively as the Python collector",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/172",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "7305337577b41e7f12e5c33384144e917e5316f6",
+   "evidence": "",
+   "waiting": "Waiting on a maintainer to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-20"
   },
   {
    "group": "team",
@@ -1776,30 +1800,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-16"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 172,
-   "draft": false,
-   "state": "waiting",
-   "title": "Collect the same speaker tuning bundle natively as the Python collector",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/172",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Checks running",
-   "blocker": "Checks still running",
-   "can_merge": false,
-   "sha": "7305337577b41e7f12e5c33384144e917e5316f6",
-   "evidence": "",
-   "waiting": "Waiting on CI to finish",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-20"
   },
   {
    "group": "team",
