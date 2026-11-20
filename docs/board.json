@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20 07:05 UTC",
+ "generated": "2026-11-20 07:25 UTC",
  "rows": [
   {
    "group": "team",
@@ -2556,7 +2556,7 @@
    "owner": "malik-na",
    "merge": "mergeable",
    "checks": "passing",
-   "approvals": "not required",
+   "approvals": "approved by 1",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
@@ -2844,7 +2844,7 @@
    "owner": "only21mil",
    "merge": "mergeable",
    "checks": "passing",
-   "approvals": "not required",
+   "approvals": "approved by 1",
    "maclab": "",
    "maclab_title": "",
    "kind": "None",
@@ -2852,7 +2852,7 @@
    "can_merge": true,
    "sha": "d1eebf418d79ef7905da049b56a0ee83f9ae24ef",
    "evidence": "",
-   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "waiting": "Waiting on maralcbr to merge",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-20"
