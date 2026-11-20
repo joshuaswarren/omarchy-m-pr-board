@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20 18:34 UTC",
+ "generated": "2026-11-20 19:04 UTC",
  "rows": [
   {
    "group": "team",
@@ -3642,7 +3642,7 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "674ac3702aaa524c13288926159a8d1eb7a8d2b3",
+   "sha": "d8e18f50a18ad94301eeb9fd5d60d9b84c66054e",
    "evidence": "",
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
@@ -3666,7 +3666,7 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "2886796191d26e5aad07d0362e8e683bd75140d9",
+   "sha": "a20fd5d9e9a87305762826d23e280a54d73a7cd5",
    "evidence": "",
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
@@ -5938,7 +5938,7 @@
    "title": "Name the 14-inch MacBook Pro M4 panel: 10-bit, Display P3",
    "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/134",
    "owner": "IronsideXXVI",
-   "merge": "conflicts",
+   "merge": "mergeable",
    "checks": "none",
    "approvals": "not required",
    "maclab": "",
@@ -5946,12 +5946,12 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "37fd709cb924fcbfc3efda9c046358bd6798df3f",
+   "sha": "42f45035248c9ac82455962886cbce162464d354",
    "evidence": "",
    "waiting": "Waiting on IronsideXXVI to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-12"
+   "updated": "2026-11-20"
   }
  ],
  "unreadable": []
