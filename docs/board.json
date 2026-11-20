@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20 22:22 UTC",
+ "generated": "2026-11-20 22:35 UTC",
  "rows": [
   {
    "group": "team",
@@ -919,7 +919,7 @@
    "number": 175,
    "draft": false,
    "state": "needs fixes",
-   "title": "Pin aura 1.0.0b14 (17a28203) for Stage 1",
+   "title": "Pin aura 1.0.0b14 (7cd1a46c) for Stage 1",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/175",
    "owner": "DjDeveloperr",
    "merge": "mergeable",
@@ -930,7 +930,7 @@
    "kind": "Failing check",
    "blocker": "Failing check: Conformance matrix",
    "can_merge": false,
-   "sha": "eac117f06aa94e8ca0c2e81fe2cfb680160ae4ae",
+   "sha": "b6006f8d148ccfb79b7557034203f1ac95dc68fe",
    "evidence": "",
    "waiting": "Waiting on DjDeveloperr to fix the failing check: Conformance matrix",
    "act": false,
