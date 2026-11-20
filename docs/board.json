@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20 15:22 UTC",
+ "generated": "2026-11-20 17:05 UTC",
  "rows": [
   {
    "group": "team",
@@ -336,30 +336,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-12"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/mesa",
-   "number": 40,
-   "draft": false,
-   "state": "ready to merge",
-   "title": "nir/algebraic: keep down-casts of signed up-casts in the u2u form",
-   "url": "https://github.com/omacom/mesa/pull/40",
-   "owner": "joshuaswarren",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "None",
-   "blocker": "None: can merge now",
-   "can_merge": true,
-   "sha": "a35c71f85c3a341daffd9040acd2e0f8edb2f29d",
-   "evidence": "",
-   "waiting": "Waiting on a maintainer to merge",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-18"
   },
   {
    "group": "team",
@@ -1800,6 +1776,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-16"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/mesa",
+   "number": 40,
+   "draft": false,
+   "state": "waiting",
+   "title": "nir/algebraic: keep down-casts of signed up-casts in the u2u form",
+   "url": "https://github.com/omacom/mesa/pull/40",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "12a759e4c3b2f9d4ec345ebbf21379bdd55e6092",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-20"
   },
   {
    "group": "team",
