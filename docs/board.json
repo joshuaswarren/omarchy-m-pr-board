@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21 04:06 UTC",
+ "generated": "2026-11-21 04:23 UTC",
  "rows": [
   {
    "group": "team",
@@ -1005,6 +1005,30 @@
    "sha": "ad0c27820cfc3bcb7a47d718acf7dab1cb62b836",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-21"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 180,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "agent-policy: add the Aurora assistant policy and pre-PR checklist",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/180",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "failing: policy",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Failing check",
+   "blocker": "Failing check: policy",
+   "can_merge": false,
+   "sha": "e62bda852018cfeeac8f2b1b1f82af857fefcbde",
+   "evidence": "",
+   "waiting": "Waiting on RyanTheTide to fix the failing check: policy",
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-21"
