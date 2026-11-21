@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21 15:22 UTC",
+ "generated": "2026-11-21 16:05 UTC",
  "rows": [
   {
    "group": "team",
@@ -522,7 +522,7 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "4afd245d02d396344d14c58d286ab19c35890b82",
+   "sha": "391bb1f2fdbbeeb8bc0d5cabf670efab15d2600e",
    "evidence": "",
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
@@ -984,6 +984,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-04"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-installer",
+   "number": 237,
+   "draft": false,
+   "state": "needs review",
+   "title": "Fix MacBook Neo installs with unsigned LSCI gains",
+   "url": "https://github.com/omacom/omarchy-mac-installer/pull/237",
+   "owner": "DjDeveloperr",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "e96ceabb5aca28bd538047f0b7338d76472410f9",
+   "evidence": "",
+   "waiting": "Waiting on a maintainer for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-21"
   },
   {
    "group": "team",
@@ -1991,7 +2015,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-19"
+   "updated": "2026-11-21"
   },
   {
    "group": "team",
@@ -2075,14 +2099,14 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/184",
    "owner": "DjDeveloperr",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "running",
    "approvals": "not required",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "24b8990315326ffa19c40b0130c2113d74a704a3",
+   "sha": "a2269987532c17d9c29c6115392b292511f49aa1",
    "evidence": "",
    "waiting": "Waiting on DjDeveloperr to mark it ready",
    "act": false,
