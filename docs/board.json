@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21 03:35 UTC",
+ "generated": "2026-11-21 04:06 UTC",
  "rows": [
   {
    "group": "team",
@@ -1679,7 +1679,7 @@
    "waiting": "Waiting on joshuaswarren to fix the conflicts",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-18"
+   "updated": "2026-11-21"
   },
   {
    "group": "team",
@@ -2522,6 +2522,30 @@
    "updated": "2026-11-21"
   },
   {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 170,
+   "draft": true,
+   "state": "held",
+   "title": "Follow the room light's colour with the display white point, off by default",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/170",
+   "owner": "malik-na",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "0745564780debcea7bc14b7388561b5365e5e5c1",
+   "evidence": "",
+   "waiting": "Waiting on malik-na to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-21"
+  },
+  {
    "group": "contributor",
    "repo": "aurora-silicon/aurora-installer",
    "number": 144,
@@ -2634,12 +2658,12 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "5b711fc56e291564954dc911da1a442acf49f89c",
+   "sha": "75f2a29b23ec36c3e785c32a8244f73a412fa951",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-15"
+   "updated": "2026-11-21"
   },
   {
    "group": "contributor",
@@ -2874,12 +2898,12 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "fcaeb5d5fc0bd95e1fe0f5c3cb305ad31e8532e2",
+   "sha": "4597f0f4f3e1a76b0ee2186c017ceabb5f6b3c8b",
    "evidence": "",
    "waiting": "Waiting on maralcbr to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-19"
+   "updated": "2026-11-21"
   },
   {
    "group": "contributor",
@@ -3402,12 +3426,12 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "cd1a54d32b8d4f3b8a27339efd84baa4f4e16185",
+   "sha": "95f950a5cbe04703cfc09579e7c88f0626efecb8",
    "evidence": "",
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-20"
+   "updated": "2026-11-21"
   },
   {
    "group": "other",
