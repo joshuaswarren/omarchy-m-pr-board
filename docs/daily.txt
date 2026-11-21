@@ -20,7 +20,7 @@ PR installer 107 by maralcbr: Needs an approving review.
 PR installer 128 by joshuaswarren: Needs an approving review.
 PR installer 162 by erykwieliczko: Needs an approving review.
 PR installer 166 by maralcbr: Needs an approving review.
-PR silicon-aurora-installer 175 by DjDeveloperr: Failing check: Conformance matrix.
+PR silicon-aurora-installer 175 by DjDeveloperr: Checks still running.
 ...and 34 more on the board.
 34 team drafts are not listed.
 All PRs and what each needs: https://joshuaswarren.github.io/omarchy-m-pr-board/
