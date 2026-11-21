@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21 04:23 UTC",
+ "generated": "2026-11-21 04:34 UTC",
  "rows": [
   {
    "group": "team",
@@ -1019,16 +1019,16 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/180",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "failing: policy",
+   "checks": "failing: Conformance matrix, policy",
    "approvals": "not required",
    "maclab": "",
    "maclab_title": "",
    "kind": "Failing check",
-   "blocker": "Failing check: policy",
+   "blocker": "Failing check: Conformance matrix, policy",
    "can_merge": false,
    "sha": "e62bda852018cfeeac8f2b1b1f82af857fefcbde",
    "evidence": "",
-   "waiting": "Waiting on RyanTheTide to fix the failing check: policy",
+   "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix, policy",
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-21"
