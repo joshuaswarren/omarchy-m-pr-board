@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21 12:05 UTC",
+ "generated": "2026-11-21 12:27 UTC",
  "rows": [
   {
    "group": "team",
@@ -2037,6 +2037,30 @@
    "sha": "24b8990315326ffa19c40b0130c2113d74a704a3",
    "evidence": "",
    "waiting": "Waiting on DjDeveloperr to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-21"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 185,
+   "draft": true,
+   "state": "held",
+   "title": "Remove macOS for a whole-disk install (Recovery aura remove-macos + aurora-whole-disk)",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/185",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "596f2246799896cffc36f13b3f77a99b23010072",
+   "evidence": "",
+   "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-21"
