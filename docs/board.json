@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21 03:24 UTC",
+ "generated": "2026-11-21 03:35 UTC",
  "rows": [
   {
    "group": "team",
@@ -2730,12 +2730,12 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "b98a236227050c701912a603a2f12e90affecc73",
+   "sha": "ed22c2c0d1b767a3ba542eebb39099abd800822d",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-14"
+   "updated": "2026-11-21"
   },
   {
    "group": "contributor",
@@ -2802,12 +2802,12 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "596aaacb6922dec71ed90f2ff10cefcf537ea71e",
+   "sha": "b3b23a085ef2277396d009644041af01d4d44fdd",
    "evidence": "",
    "waiting": "Waiting on maralcbr to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-20"
+   "updated": "2026-11-21"
   },
   {
    "group": "contributor",
@@ -2850,12 +2850,12 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "0e2d41b043d6a821ae1e2d94048237b65e4891f7",
+   "sha": "6de0b9187bcaf6d4f6d696c56c8362de7f64b197",
    "evidence": "",
    "waiting": "Waiting on maralcbr to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-19"
+   "updated": "2026-11-21"
   },
   {
    "group": "contributor",
