@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21 16:22 UTC",
+ "generated": "2026-11-21 17:04 UTC",
  "rows": [
   {
    "group": "team",
@@ -995,14 +995,14 @@
    "url": "https://github.com/omacom/omarchy-mac-installer/pull/237",
    "owner": "DjDeveloperr",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "running",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "e96ceabb5aca28bd538047f0b7338d76472410f9",
+   "sha": "0bdad713a10c547ab4022047e93c154ce6984001",
    "evidence": "",
    "waiting": "Waiting on a maintainer for an approving review",
    "act": true,
@@ -1847,7 +1847,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-20"
+   "updated": "2026-11-21"
   },
   {
    "group": "team",
@@ -1871,7 +1871,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-19"
+   "updated": "2026-11-21"
   },
   {
    "group": "team",
@@ -1895,7 +1895,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-20"
+   "updated": "2026-11-21"
   },
   {
    "group": "team",
@@ -1919,7 +1919,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-20"
+   "updated": "2026-11-21"
   },
   {
    "group": "team",
@@ -1943,7 +1943,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-19"
+   "updated": "2026-11-21"
   },
   {
    "group": "team",
@@ -1967,7 +1967,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-20"
+   "updated": "2026-11-21"
   },
   {
    "group": "team",
@@ -1991,7 +1991,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-19"
+   "updated": "2026-11-21"
   },
   {
    "group": "team",
@@ -2039,7 +2039,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-19"
+   "updated": "2026-11-21"
   },
   {
    "group": "team",
