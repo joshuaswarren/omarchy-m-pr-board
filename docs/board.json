@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21 11:22 UTC",
+ "generated": "2026-11-21 11:36 UTC",
  "rows": [
   {
    "group": "team",
@@ -2011,6 +2011,30 @@
    "blocker": "Draft",
    "can_merge": false,
    "sha": "c0bd508465823d4de2a88da978af9d68b57f2e15",
+   "evidence": "",
+   "waiting": "Waiting on DjDeveloperr to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-21"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 184,
+   "draft": true,
+   "state": "held",
+   "title": "Collect Bluetooth from the installed macOS, keyed by the radio board",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/184",
+   "owner": "DjDeveloperr",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "24b8990315326ffa19c40b0130c2113d74a704a3",
    "evidence": "",
    "waiting": "Waiting on DjDeveloperr to mark it ready",
    "act": false,
