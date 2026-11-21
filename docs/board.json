@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21 07:25 UTC",
+ "generated": "2026-11-21 07:36 UTC",
  "rows": [
   {
    "group": "team",
@@ -1011,6 +1011,30 @@
   },
   {
    "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 181,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "Preserve iOS APFS containers during native disk inspection",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/181",
+   "owner": "LiamRay11",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "changes requested",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Changes requested",
+   "blocker": "Changes requested by DjDeveloperr",
+   "can_merge": false,
+   "sha": "c766937db0f620804bdadb0ac8aadd121112f54b",
+   "evidence": "",
+   "waiting": "Waiting on LiamRay11 to address the changes DjDeveloperr asked for",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-21"
+  },
+  {
+   "group": "team",
    "repo": "omacom/linux-aurora",
    "number": 191,
    "draft": false,
@@ -1728,30 +1752,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-16"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 181,
-   "draft": false,
-   "state": "waiting",
-   "title": "Preserve iOS APFS containers during native disk inspection",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/181",
-   "owner": "LiamRay11",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Checks running",
-   "blocker": "Checks still running",
-   "can_merge": false,
-   "sha": "c766937db0f620804bdadb0ac8aadd121112f54b",
-   "evidence": "",
-   "waiting": "Waiting on CI to finish",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-21"
   },
   {
    "group": "team",
