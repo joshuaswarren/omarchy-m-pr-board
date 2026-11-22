@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22 14:22 UTC",
+ "generated": "2026-11-22 14:35 UTC",
  "rows": [
   {
    "group": "team",
@@ -2050,15 +2050,15 @@
    "title": "Admit J615 and J713 to the macOS 27.2 (26B123) stub; ask for macOS 27.2 first",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/188",
    "owner": "RyanTheTide",
-   "merge": "conflicts",
-   "checks": "passing",
+   "merge": "mergeable",
+   "checks": "running",
    "approvals": "not required",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "d4064a2bf955860ed3e2c3801fc2334a70329d16",
+   "sha": "226cbd377d3b142b1d424fb8f8e2e6cf8cd97713",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
