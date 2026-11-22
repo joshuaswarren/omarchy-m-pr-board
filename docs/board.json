@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22 14:35 UTC",
+ "generated": "2026-11-22 15:05 UTC",
  "rows": [
   {
    "group": "team",
@@ -2051,7 +2051,7 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/188",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "not required",
    "maclab": "",
    "maclab_title": "",
@@ -2082,7 +2082,7 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "49c8a9987f37ba7420dbd22a030c4cfde22f3aa5",
+   "sha": "ab1dd2714551e4eee6164705d77b30cac85ace9f",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
@@ -5386,20 +5386,20 @@
    "title": "M3 Max (J516C): external displays over USB-C and HDMI",
    "url": "https://github.com/omacom/linux-aurora/pull/292",
    "owner": "digital-brew",
-   "merge": "conflicts",
-   "checks": "passing",
+   "merge": "mergeable",
+   "checks": "running",
    "approvals": "changes requested",
    "maclab": "not run",
    "maclab_title": "",
-   "kind": "Merge conflicts",
-   "blocker": "Merge conflicts with the base branch",
+   "kind": "Changes requested",
+   "blocker": "Changes requested by chriskearney",
    "can_merge": false,
-   "sha": "8f6ea2ed39806579dae3b355b9fe7ed2d42a0b62",
+   "sha": "9d1335f1edd13c5c4dda603dfc4490a9fdabc88b",
    "evidence": "",
-   "waiting": "Waiting on digital-brew to fix the conflicts",
+   "waiting": "Waiting on digital-brew to address the changes chriskearney asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-17"
+   "updated": "2026-11-22"
   },
   {
    "group": "other",
@@ -5903,7 +5903,7 @@
    "waiting": "Waiting on BTNG-studio to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-20"
+   "updated": "2026-11-22"
   },
   {
    "group": "other",
