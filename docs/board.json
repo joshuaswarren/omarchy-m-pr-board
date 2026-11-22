@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22 11:22 UTC",
+ "generated": "2026-11-22 12:05 UTC",
  "rows": [
   {
    "group": "team",
@@ -930,7 +930,7 @@
    "kind": "Changes requested",
    "blocker": "Changes requested by DjDeveloperr",
    "can_merge": false,
-   "sha": "3057a82d7ef2f92b0d3ac464ca6a2e20ca6bdb65",
+   "sha": "2e3c9f16eb69003ac347f25697881a6db74f4cb3",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to address the changes DjDeveloperr asked for",
    "act": false,
@@ -5675,7 +5675,7 @@
    "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/103",
    "owner": "rolotrealanis98",
    "merge": "conflicts",
-   "checks": "none",
+   "checks": "passing",
    "approvals": "not required",
    "maclab": "",
    "maclab_title": "",
@@ -5687,7 +5687,7 @@
    "waiting": "Waiting on rolotrealanis98 to fix the conflicts",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-10"
+   "updated": "2026-11-22"
   },
   {
    "group": "other",
