@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22 12:05 UTC",
+ "generated": "2026-11-22 13:07 UTC",
  "rows": [
   {
    "group": "team",
@@ -1752,6 +1752,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-16"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 190,
+   "draft": false,
+   "state": "waiting",
+   "title": "Point at the free space after macOS; finish Recovery setup without Startup Disk",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/190",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "2e188d3f38743e9391def20b748399eb9ce5f77c",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-22"
   },
   {
    "group": "team",
@@ -4080,6 +4104,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-21"
+  },
+  {
+   "group": "other",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 191,
+   "draft": false,
+   "state": "needs review",
+   "title": "Offer Aurora Debian in builds that opt in",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/191",
+   "owner": "sithglan",
+   "merge": "mergeable",
+   "checks": "none",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Branch rules",
+   "blocker": "Blocked by branch rules (a required check or review is missing)",
+   "can_merge": false,
+   "sha": "11e114e74ad19a1e70747daec8f020820c4fa6ad",
+   "evidence": "",
+   "waiting": "Waiting on a maintainer for a required check or review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-22"
   },
   {
    "group": "other",
