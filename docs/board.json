@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22 08:28 UTC",
+ "generated": "2026-11-22 08:41 UTC",
  "rows": [
   {
    "group": "team",
@@ -923,14 +923,14 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/179",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "failing: Conformance matrix",
+   "checks": "running",
    "approvals": "changes requested",
    "maclab": "",
    "maclab_title": "",
    "kind": "Changes requested",
    "blocker": "Changes requested by DjDeveloperr",
    "can_merge": false,
-   "sha": "ad0c27820cfc3bcb7a47d718acf7dab1cb62b836",
+   "sha": "3057a82d7ef2f92b0d3ac464ca6a2e20ca6bdb65",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to address the changes DjDeveloperr asked for",
    "act": false,
