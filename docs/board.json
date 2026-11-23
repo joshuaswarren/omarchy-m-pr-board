@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23 10:24 UTC",
+ "generated": "2026-11-23 10:35 UTC",
  "rows": [
   {
    "group": "team",
@@ -1123,6 +1123,30 @@
    "blocker": "Failing check: Conformance matrix",
    "can_merge": false,
    "sha": "a430dc361214d87a685a2e02bed922f6c666ead7",
+   "evidence": "",
+   "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-23"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 223,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "Replay installer allocation rules in dry-run plans",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/223",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "failing: Conformance matrix",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Failing check",
+   "blocker": "Failing check: Conformance matrix",
+   "can_merge": false,
+   "sha": "da63da9c58a2f17d0455e6e8b16d49247e1af94b",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
    "act": false,
