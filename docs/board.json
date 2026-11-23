@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23 08:28 UTC",
+ "generated": "2026-11-23 09:05 UTC",
  "rows": [
   {
    "group": "team",
@@ -1907,14 +1907,14 @@
    "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/181",
    "owner": "maralcbr",
    "merge": "mergeable",
-   "checks": "failing: Resolve aarch64 package sets",
+   "checks": "running",
    "approvals": "changes requested",
    "maclab": "",
    "maclab_title": "",
    "kind": "Changes requested",
    "blocker": "Changes requested by scottjones",
    "can_merge": false,
-   "sha": "645a0ca88d90e5689d0cb65bb091d9c3b0236879",
+   "sha": "d490f7a031a82e3ce9262d51d8bb5eaef54333cc",
    "evidence": "",
    "waiting": "Waiting on maralcbr to address the changes scottjones asked for",
    "act": false,
