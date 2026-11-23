@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23 08:05 UTC",
+ "generated": "2026-11-23 08:28 UTC",
  "rows": [
   {
    "group": "team",
@@ -1084,30 +1084,6 @@
   {
    "group": "team",
    "repo": "aurora-silicon/aurora-installer",
-   "number": 211,
-   "draft": false,
-   "state": "needs fixes",
-   "title": "wifi-firmware: bound the APFS reader's work on malformed containers",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/211",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "failing: Conformance matrix",
-   "approvals": "changes requested",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Changes requested",
-   "blocker": "Changes requested by DjDeveloperr",
-   "can_merge": false,
-   "sha": "9db490bf03719ce60a1b67be2635fc774f2dca7b",
-   "evidence": "",
-   "waiting": "Waiting on RyanTheTide to address the changes DjDeveloperr asked for",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-23"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
    "number": 219,
    "draft": false,
    "state": "needs fixes",
@@ -1931,19 +1907,19 @@
    "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/181",
    "owner": "maralcbr",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "failing: Resolve aarch64 package sets",
    "approvals": "changes requested",
    "maclab": "",
    "maclab_title": "",
    "kind": "Changes requested",
    "blocker": "Changes requested by scottjones",
    "can_merge": false,
-   "sha": "72866825799cee8bfd5af8310c463dbb3ab35560",
+   "sha": "645a0ca88d90e5689d0cb65bb091d9c3b0236879",
    "evidence": "",
    "waiting": "Waiting on maralcbr to address the changes scottjones asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-22"
+   "updated": "2026-11-23"
   },
   {
    "group": "team",
