@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23 05:36 UTC",
+ "generated": "2026-11-23 06:06 UTC",
  "rows": [
   {
    "group": "team",
@@ -48,6 +48,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-06"
+  },
+  {
+   "group": "team",
+   "repo": "chriskearney/maclab",
+   "number": 70,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "lab status: print each device's Availability window beside its heartbeat state",
+   "url": "https://github.com/chriskearney/maclab/pull/70",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "a0fde98c39f3b3b34618f3d62de240ea07de843e",
+   "evidence": "",
+   "waiting": "Waiting on a maintainer to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-23"
   },
   {
    "group": "team",
@@ -1944,30 +1968,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-22"
-  },
-  {
-   "group": "team",
-   "repo": "chriskearney/maclab",
-   "number": 70,
-   "draft": false,
-   "state": "waiting",
-   "title": "lab status: print each device's Availability window beside its heartbeat state",
-   "url": "https://github.com/chriskearney/maclab/pull/70",
-   "owner": "joshuaswarren",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Checks running",
-   "blocker": "Checks still running",
-   "can_merge": false,
-   "sha": "a0fde98c39f3b3b34618f3d62de240ea07de843e",
-   "evidence": "",
-   "waiting": "Waiting on CI to finish",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-23"
   },
   {
    "group": "team",
