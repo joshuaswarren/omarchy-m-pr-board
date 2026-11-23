@@ -20,7 +20,7 @@ PR installer 128 by joshuaswarren: Needs an approving review.
 PR installer 162 by erykwieliczko: Needs an approving review.
 PR installer 166 by maralcbr: Needs an approving review.
 PR installer 247 by maralcbr: Needs an approving review.
-PR silicon-aurora-installer 177 by RyanTheTide: Changes requested by DjDeveloperr.
+PR silicon-aurora-installer 177 by RyanTheTide: Merge conflicts with the base branch.
 ...and 41 more on the board.
 49 team drafts are not listed.
 All PRs and what each needs: https://joshuaswarren.github.io/omarchy-m-pr-board/
