@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23 18:36 UTC",
+ "generated": "2026-11-23 19:07 UTC",
  "rows": [
   {
    "group": "team",
@@ -6156,7 +6156,7 @@
    "owner": "andrinoff",
    "merge": "mergeable",
    "checks": "failing: Resolve aarch64 package sets",
-   "approvals": "not required",
+   "approvals": "approved by 1",
    "maclab": "",
    "maclab_title": "",
    "kind": "Failing check",
@@ -6180,7 +6180,7 @@
    "owner": "andrinoff",
    "merge": "mergeable",
    "checks": "failing: Resolve aarch64 package sets",
-   "approvals": "not required",
+   "approvals": "approved by 1",
    "maclab": "",
    "maclab_title": "",
    "kind": "Failing check",
