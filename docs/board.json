@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23 04:06 UTC",
+ "generated": "2026-11-23 04:26 UTC",
  "rows": [
   {
    "group": "team",
@@ -1067,7 +1067,7 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/211",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "failing: Conformance matrix",
    "approvals": "changes requested",
    "maclab": "",
    "maclab_title": "",
@@ -1115,7 +1115,7 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/214",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "failing: Conformance matrix",
    "approvals": "changes requested",
    "maclab": "",
    "maclab_title": "",
@@ -1163,7 +1163,7 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/219",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "failing: Conformance matrix",
    "approvals": "changes requested",
    "maclab": "",
    "maclab_title": "",
@@ -2459,7 +2459,7 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/216",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "failing: Conformance matrix",
    "approvals": "changes requested",
    "maclab": "",
    "maclab_title": "",
@@ -2517,6 +2517,30 @@
    "sha": "b7ce060cf5315ccc3b8cad28db1d25d4da0a59ad",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-23"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 222,
+   "draft": true,
+   "state": "held",
+   "title": "Start the helper with SMJobSubmit instead of installing a LaunchDaemon",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/222",
+   "owner": "DjDeveloperr",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "aa71e551a75dfb5b808fa7674ec69c4fc06a35dd",
+   "evidence": "",
+   "waiting": "Waiting on DjDeveloperr to mark it ready",
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-23"
@@ -5783,7 +5807,7 @@
    "waiting": "Waiting on digital-brew to address the changes chriskearney asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-22"
+   "updated": "2026-11-23"
   },
   {
    "group": "other",
