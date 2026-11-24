@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24 02:29 UTC",
+ "generated": "2026-11-24 03:07 UTC",
  "rows": [
   {
    "group": "team",
@@ -5671,7 +5671,7 @@
    "number": 498,
    "draft": false,
    "state": "needs review",
-   "title": "M3 Max (J516C): USB4 PCIe tunnel on ATC0",
+   "title": "M3 Max (J516C): USB4 PCIe tunnels on all three USB-C ports",
    "url": "https://github.com/omacom/linux-aurora/pull/498",
    "owner": "wbunting",
    "merge": "mergeable",
@@ -5682,12 +5682,12 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "c593b5d2102793a5c05cb66772559eacc68e2794",
+   "sha": "0254919d64521923d1daa0532754514341bd00d1",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-17"
+   "updated": "2026-11-24"
   },
   {
    "group": "other",
