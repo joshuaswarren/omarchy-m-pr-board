@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24 16:38 UTC",
+ "generated": "2026-11-24 17:23 UTC",
  "rows": [
   {
    "group": "team",
@@ -2287,7 +2287,7 @@
    "number": 196,
    "draft": true,
    "state": "held",
-   "title": "Pin installer Aura to 1.0.0b16",
+   "title": "Pin installer Aura to 1.0.0b17",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/196",
    "owner": "RyanTheTide",
    "merge": "mergeable",
@@ -2298,7 +2298,7 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "8b46a6e9fb1bf9aa4a387a3e2a52e70f2003c0e4",
+   "sha": "48aa6185a7d153a461e9f380fdf5d46462fbc192",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
