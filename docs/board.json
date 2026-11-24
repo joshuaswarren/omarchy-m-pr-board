@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24 18:24 UTC",
+ "generated": "2026-11-24 19:06 UTC",
  "rows": [
   {
    "group": "team",
@@ -3507,6 +3507,30 @@
   },
   {
    "group": "contributor",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 198,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "omarchy-mac-boot: warn when the Aurora boot check leaves boot-ctxr.bin uncompared",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/198",
+   "owner": "only21mil",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "2e47edb1c4bd8789160ea484ef1e18ebf7f2706d",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-24"
+  },
+  {
+   "group": "contributor",
    "repo": "omacom/linux-aurora",
    "number": 127,
    "draft": false,
@@ -3983,7 +4007,7 @@
    "waiting": "Waiting on ludagoo to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-06"
+   "updated": "2026-11-24"
   },
   {
    "group": "contributor",
