@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24 14:36 UTC",
+ "generated": "2026-11-24 15:09 UTC",
  "rows": [
   {
    "group": "team",
@@ -1125,30 +1125,6 @@
    "sha": "2dcd9dc30c929976b5207c4e387b35b0dbdd0fd7",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to address the changes DjDeveloperr asked for",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-24"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 233,
-   "draft": false,
-   "state": "needs fixes",
-   "title": "github: add the organisation's pr-readiness caller",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/233",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "failing: Conformance matrix",
-   "approvals": "none yet",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Failing check",
-   "blocker": "Failing check: Conformance matrix",
-   "can_merge": false,
-   "sha": "0744e9ded270b3c1a9fd03c722863850ea5676c0",
-   "evidence": "",
-   "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-24"
