@@ -1,5 +1,5 @@
-[Joshua's agent] Omarchy M pull requests today: 66 can merge now, and 112 team PRs are stuck.
-Can merge now: maclab 69, 70; linux-aurora 232, 245, 271, 277; mesa 6, 18, 21, 22, 36, 38, and 54 more.
+[Joshua's agent] Omarchy M pull requests today: 65 can merge now, and 112 team PRs are stuck.
+Can merge now: maclab 69, 70; linux-aurora 232, 245, 271, 277; mesa 6, 18, 21, 22, 36, 38, and 53 more.
 Stuck team PRs, and the one thing each needs. Those waiting on a review or a maintainer come first:
 PR silicon-aurora-installer 154 by DjDeveloperr: Needs an approving review.
 PR silicon-aurora-installer 206 by RyanTheTide: Needs an approving review.
