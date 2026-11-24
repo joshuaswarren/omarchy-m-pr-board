@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24 06:33 UTC",
+ "generated": "2026-11-24 07:24 UTC",
  "rows": [
   {
    "group": "team",
@@ -1128,6 +1128,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-23"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 226,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "firmware: take radio firmware only from the stub's restore image",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/226",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "failing: Conformance matrix",
+   "approvals": "changes requested",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Changes requested",
+   "blocker": "Changes requested by DjDeveloperr",
+   "can_merge": false,
+   "sha": "7c197f632eefa5d86196231210bb7cbb62754a55",
+   "evidence": "",
+   "waiting": "Waiting on RyanTheTide to address the changes DjDeveloperr asked for",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-24"
   },
   {
    "group": "team",
