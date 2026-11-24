@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24 05:24 UTC",
+ "generated": "2026-11-24 06:33 UTC",
  "rows": [
   {
    "group": "team",
@@ -3887,7 +3887,7 @@
    "waiting": "Waiting on sithglan to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-23"
+   "updated": "2026-11-24"
   },
   {
    "group": "contributor",
@@ -6354,12 +6354,12 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "b1765b4604d4b141f487dbbee0852fb7f090ac11",
+   "sha": "a7f1682deb2243829f7f96821eaa3fac81965e04",
    "evidence": "",
    "waiting": "Waiting on jgoyvaerts to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-23"
+   "updated": "2026-11-24"
   },
   {
    "group": "other",
