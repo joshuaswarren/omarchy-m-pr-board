@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24 15:09 UTC",
+ "generated": "2026-11-24 15:23 UTC",
  "rows": [
   {
    "group": "team",
@@ -455,7 +455,7 @@
    "waiting": "Waiting on a maintainer for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-23"
+   "updated": "2026-11-24"
   },
   {
    "group": "team",
@@ -4276,6 +4276,30 @@
   {
    "group": "other",
    "repo": "omacom/omarchy-mac-pkgs",
+   "number": 103,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "Cover the 16-inch M5 Pro (J716s) in the audio tests and the manual",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/103",
+   "owner": "rolotrealanis98",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "1105e170c36827199d60645121289f745d9a260f",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-24"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/omarchy-mac-pkgs",
    "number": 127,
    "draft": false,
    "state": "ready to merge",
@@ -6216,30 +6240,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-24"
-  },
-  {
-   "group": "other",
-   "repo": "omacom/omarchy-mac-pkgs",
-   "number": 103,
-   "draft": false,
-   "state": "needs fixes",
-   "title": "Cover the 16-inch M5 Pro (J716s) in the audio tests and the manual",
-   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/103",
-   "owner": "rolotrealanis98",
-   "merge": "conflicts",
-   "checks": "passing",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Merge conflicts",
-   "blocker": "Merge conflicts with the base branch",
-   "can_merge": false,
-   "sha": "555566590d81ed8cede1eb43778ca19f66f9c147",
-   "evidence": "",
-   "waiting": "Waiting on rolotrealanis98 to fix the conflicts",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-22"
   },
   {
    "group": "other",
