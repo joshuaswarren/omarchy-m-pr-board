@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24 00:39 UTC",
+ "generated": "2026-11-24 01:09 UTC",
  "rows": [
   {
    "group": "team",
@@ -3840,6 +3840,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-10-28"
+  },
+  {
+   "group": "contributor",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 195,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "fix(omarchy-mac): wake the mic watcher when logind reports a LidClosed change",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/195",
+   "owner": "mmdisbrow",
+   "merge": "mergeable",
+   "checks": "failing: Package, integration and tooling suites",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Failing check",
+   "blocker": "Failing check: Package, integration and tooling suites",
+   "can_merge": false,
+   "sha": "790b1966bce1bf558883280ae2ffec5ab33e796f",
+   "evidence": "",
+   "waiting": "Waiting on mmdisbrow to fix the failing check: Package, integration and tooling suites",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-24"
   },
   {
    "group": "contributor",
