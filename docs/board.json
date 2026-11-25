@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 15:36 UTC",
+ "generated": "2026-11-25 16:07 UTC",
  "rows": [
   {
    "group": "team",
@@ -6144,30 +6144,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-23"
-  },
-  {
-   "group": "other",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 245,
-   "draft": false,
-   "state": "needs fixes",
-   "title": "policy: fix J804/J833ct minimumRecovery SFR version (26.2.124.7.0,0)",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/245",
-   "owner": "stefanodvx",
-   "merge": "mergeable",
-   "checks": "failing: pr-text / pr-text",
-   "approvals": "approved by 1",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Failing check",
-   "blocker": "Failing check: pr-text / pr-text",
-   "can_merge": false,
-   "sha": "4ea932cafcb39b343553845d782774cd2f3dba49",
-   "evidence": "",
-   "waiting": "Waiting on stefanodvx to fix the failing check: pr-text / pr-text",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-25"
   },
   {
    "group": "other",
