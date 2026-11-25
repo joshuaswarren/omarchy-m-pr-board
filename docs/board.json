@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 15:29 UTC",
+ "generated": "2026-11-25 15:36 UTC",
  "rows": [
   {
    "group": "team",
@@ -456,6 +456,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-11"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 201,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "omarchy-mac: keep the bar clear of the 14-inch PROLED notch",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/201",
+   "owner": "joshuaswarren",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "bcf71c9d7dc56d8714d87620a91bf8efb3a4f2f2",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-25"
   },
   {
    "group": "team",
@@ -1968,30 +1992,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-23"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/omarchy-mac-pkgs",
-   "number": 201,
-   "draft": false,
-   "state": "waiting",
-   "title": "omarchy-mac: keep the bar clear of the 14-inch PROLED notch",
-   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/201",
-   "owner": "joshuaswarren",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "not required",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Checks running",
-   "blocker": "Checks still running",
-   "can_merge": false,
-   "sha": "bcf71c9d7dc56d8714d87620a91bf8efb3a4f2f2",
-   "evidence": "",
-   "waiting": "Waiting on CI to finish",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-25"
   },
   {
    "group": "team",
