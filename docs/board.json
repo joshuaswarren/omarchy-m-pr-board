@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 14:25 UTC",
+ "generated": "2026-11-25 14:42 UTC",
  "rows": [
   {
    "group": "team",
@@ -802,7 +802,7 @@
    "title": "drm/apple: v14.7: J514M panel nits and swap timestamps",
    "url": "https://github.com/omacom/linux-aurora/pull/457",
    "owner": "scottjones",
-   "merge": "mergeable",
+   "merge": "unknown",
    "checks": "passing",
    "approvals": "none yet",
    "maclab": "not run",
