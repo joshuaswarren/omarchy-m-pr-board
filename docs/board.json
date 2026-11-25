@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 10:40 UTC",
+ "generated": "2026-11-25 11:10 UTC",
  "rows": [
   {
    "group": "team",
@@ -1043,7 +1043,7 @@
    "url": "https://github.com/omacom/omarchy-mac-installer/pull/250",
    "owner": "maralcbr",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
@@ -2579,14 +2579,14 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/238",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "running",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "047b8e4f5a1a020db8224e3c25d4b3f3c8dd853e",
+   "sha": "8b6b55024977e1588c460a5b8e1036d6fc1f70c6",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
