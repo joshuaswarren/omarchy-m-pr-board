@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 14:42 UTC",
+ "generated": "2026-11-25 15:09 UTC",
  "rows": [
   {
    "group": "team",
@@ -802,7 +802,7 @@
    "title": "drm/apple: v14.7: J514M panel nits and swap timestamps",
    "url": "https://github.com/omacom/linux-aurora/pull/457",
    "owner": "scottjones",
-   "merge": "unknown",
+   "merge": "mergeable",
    "checks": "passing",
    "approvals": "none yet",
    "maclab": "not run",
@@ -4920,6 +4920,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-24"
+  },
+  {
+   "group": "other",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 245,
+   "draft": false,
+   "state": "needs review",
+   "title": "policy: fix J804/J833ct minimumRecovery SFR version (26.2.124.7.0,0)",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/245",
+   "owner": "stefanodvx",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "4ea932cafcb39b343553845d782774cd2f3dba49",
+   "evidence": "",
+   "waiting": "Waiting on Acelogic for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-25"
   },
   {
    "group": "other",
