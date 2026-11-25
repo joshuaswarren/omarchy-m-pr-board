@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 12:09 UTC",
+ "generated": "2026-11-25 13:39 UTC",
  "rows": [
   {
    "group": "team",
@@ -1968,6 +1968,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-23"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 244,
+   "draft": false,
+   "state": "waiting",
+   "title": "Seal the native installer with its selected Stable catalogs",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/244",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "approved by 1",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "f24da6c563b2ef030c846f8555b2c2f8b735f23b",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-25"
   },
   {
    "group": "team",
