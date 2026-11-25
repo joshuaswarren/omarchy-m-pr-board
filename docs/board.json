@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 05:10 UTC",
+ "generated": "2026-11-25 06:07 UTC",
  "rows": [
   {
    "group": "team",
@@ -3655,23 +3655,23 @@
    "number": 191,
    "draft": false,
    "state": "needs review",
-   "title": "Offer \"Aurora, based on Debian testing\" in builds that opt in",
+   "title": "Offer \"Aurora, based on Debian testing\"",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/191",
    "owner": "sithglan",
    "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "approved by 2",
+   "checks": "running",
+   "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
-   "kind": "Branch rules",
-   "blocker": "Blocked by branch rules (a required check or review is missing)",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "b056cd57f1ba3d254040dc6bbe8998b9e7630f45",
+   "sha": "2dfd3b2a242aa873536b3a285c071b8de0a9ef0d",
    "evidence": "",
-   "waiting": "Waiting on a maintainer for a required check or review",
+   "waiting": "Waiting on a maintainer for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-24"
+   "updated": "2026-11-25"
   },
   {
    "group": "contributor",
