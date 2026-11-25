@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 06:38 UTC",
+ "generated": "2026-11-25 07:07 UTC",
  "rows": [
   {
    "group": "team",
@@ -540,7 +540,7 @@
    "owner": "RyanTheTide",
    "merge": "mergeable",
    "checks": "running",
-   "approvals": "none yet",
+   "approvals": "approved by 1",
    "maclab": "",
    "maclab_title": "",
    "kind": "Needs review",
@@ -549,6 +549,30 @@
    "sha": "9633d0309fb19a4757c2f068fe083ddfbf935c8a",
    "evidence": "",
    "waiting": "Waiting on LiamRay11 for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-25"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 242,
+   "draft": false,
+   "state": "needs review",
+   "title": "docs: name the startup-volume tool aurora-bless",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/242",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "0c9d0915d58835bd0f5474c27ec4a39bbd6bf2ba",
+   "evidence": "",
+   "waiting": "Waiting on Acelogic for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-25"
