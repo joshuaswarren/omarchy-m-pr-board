@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 01:25 UTC",
+ "generated": "2026-11-25 02:07 UTC",
  "rows": [
   {
    "group": "team",
@@ -479,7 +479,7 @@
    "waiting": "Waiting on a maintainer for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-24"
+   "updated": "2026-11-25"
   },
   {
    "group": "team",
@@ -2339,14 +2339,14 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/207",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "failing: jobs, macOS checks",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "d774e6bbf718482a42d451740c46d7ee7797e49c",
+   "sha": "170934089abbffebacb6dfe81b7218951f6e7aff",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
