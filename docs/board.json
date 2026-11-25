@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 02:07 UTC",
+ "generated": "2026-11-25 02:29 UTC",
  "rows": [
   {
    "group": "team",
@@ -504,6 +504,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-24"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 239,
+   "draft": false,
+   "state": "needs review",
+   "title": "CODEOWNERS: add Aurora Maintainers and fix the Omarchy Mac team name",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/239",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "73700675a50e12540fbf1c418ca027eab62322fe",
+   "evidence": "",
+   "waiting": "Waiting on DjDeveloperr for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-25"
   },
   {
    "group": "team",
