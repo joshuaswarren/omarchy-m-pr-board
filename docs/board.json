@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 04:11 UTC",
+ "generated": "2026-11-25 05:10 UTC",
  "rows": [
   {
    "group": "team",
@@ -516,7 +516,7 @@
    "owner": "RyanTheTide",
    "merge": "mergeable",
    "checks": "passing",
-   "approvals": "none yet",
+   "approvals": "approved by 1",
    "maclab": "",
    "maclab_title": "",
    "kind": "Needs review",
