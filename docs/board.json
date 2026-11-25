@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 08:10 UTC",
+ "generated": "2026-11-25 08:29 UTC",
  "rows": [
   {
    "group": "team",
@@ -525,30 +525,6 @@
    "sha": "73700675a50e12540fbf1c418ca027eab62322fe",
    "evidence": "",
    "waiting": "Waiting on DjDeveloperr for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-25"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 243,
-   "draft": false,
-   "state": "needs review",
-   "title": "release: make fedora-gnome the sealed root fallback catalog",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/243",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "none yet",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "57c31da605dcaaecd53475338149acbc207588c6",
-   "evidence": "",
-   "waiting": "Waiting on LiamRay11 and DjDeveloperr for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-25"
@@ -2458,7 +2434,7 @@
    "title": "catalog: refuse a catalog older than the one the app was built with",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/217",
    "owner": "RyanTheTide",
-   "merge": "mergeable",
+   "merge": "conflicts",
    "checks": "none",
    "approvals": "changes requested",
    "maclab": "",
