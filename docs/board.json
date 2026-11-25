@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 09:41 UTC",
+ "generated": "2026-11-25 10:10 UTC",
  "rows": [
   {
    "group": "team",
@@ -1032,6 +1032,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-22"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-installer",
+   "number": 250,
+   "draft": false,
+   "state": "needs review",
+   "title": "Offer M4 Macs on edge, with a qualification rung per Mac",
+   "url": "https://github.com/omacom/omarchy-mac-installer/pull/250",
+   "owner": "maralcbr",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "6b2779b14c43d310e2ee67632bc80b561677c638",
+   "evidence": "",
+   "waiting": "Waiting on a maintainer for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-25"
   },
   {
    "group": "team",
