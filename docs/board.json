@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 00:45 UTC",
+ "generated": "2026-11-25 01:11 UTC",
  "rows": [
   {
    "group": "team",
@@ -2531,7 +2531,7 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/238",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
@@ -4643,19 +4643,19 @@
    "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/157",
    "owner": "chrisohearn",
    "merge": "mergeable",
-   "checks": "none",
+   "checks": "passing",
    "approvals": "not required",
    "maclab": "",
    "maclab_title": "",
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "57cfa34448d951d278d10a874ecc9c43045d4bd1",
+   "sha": "74ab35f988e330ddd6ac259cec432f8afbaf8c48",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-17"
+   "updated": "2026-11-25"
   },
   {
    "group": "other",
