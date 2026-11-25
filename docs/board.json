@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 23:11 UTC",
+ "generated": "2026-11-25 23:22 UTC",
  "rows": [
   {
    "group": "team",
@@ -1164,15 +1164,15 @@
    "owner": "RyanTheTide",
    "merge": "mergeable",
    "checks": "failing: Conformance matrix",
-   "approvals": "approved by 1, changes requested",
+   "approvals": "approved by 2",
    "maclab": "",
    "maclab_title": "",
-   "kind": "Changes requested",
-   "blocker": "Changes requested by DjDeveloperr",
+   "kind": "Failing check",
+   "blocker": "Failing check: Conformance matrix",
    "can_merge": false,
    "sha": "9450f7b5eefa4496263895cf6bda72d9ecbfe569",
    "evidence": "",
-   "waiting": "Waiting on RyanTheTide to address the changes DjDeveloperr asked for",
+   "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-25"
