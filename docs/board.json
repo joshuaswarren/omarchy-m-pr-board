@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 00:39 UTC",
+ "generated": "2026-11-25 00:45 UTC",
  "rows": [
   {
    "group": "team",
@@ -2255,7 +2255,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-24"
+   "updated": "2026-11-25"
   },
   {
    "group": "team",
@@ -2303,7 +2303,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-24"
+   "updated": "2026-11-25"
   },
   {
    "group": "team",
@@ -2327,7 +2327,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-24"
+   "updated": "2026-11-25"
   },
   {
    "group": "team",
@@ -2351,7 +2351,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-24"
+   "updated": "2026-11-25"
   },
   {
    "group": "team",
@@ -2527,18 +2527,18 @@
    "number": 238,
    "draft": true,
    "state": "held",
-   "title": "tools: aurora-upgrade, the Linux side of a startup firmware upgrade",
+   "title": "tools: aurora-upgrade, in-place startup firmware upgrade (Linux side)",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/238",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "running",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "dadc0134e33a4451334c6e79497622be831c9cd8",
+   "sha": "3655c8aa2ff9cdf9439cdacdd4411c92614228b1",
    "evidence": "",
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
