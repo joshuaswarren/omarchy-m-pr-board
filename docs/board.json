@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26 11:07 UTC",
+ "generated": "2026-11-26 12:08 UTC",
  "rows": [
   {
    "group": "team",
@@ -547,6 +547,30 @@
    "blocker": "Needs an approving review",
    "can_merge": false,
    "sha": "869f44f82b3db95e2ef56b8e5d7a106d5044731a",
+   "evidence": "",
+   "waiting": "Waiting on LiamRay11 and maralcbr for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-26"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 249,
+   "draft": false,
+   "state": "needs review",
+   "title": "Compare boot firmware by number; name what is short on macOS 27.2",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/249",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "9fffb94cc1b2351ae4214c920e54ba213411cc40",
    "evidence": "",
    "waiting": "Waiting on LiamRay11 and maralcbr for an approving review",
    "act": true,
@@ -2267,8 +2291,8 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/190",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "none",
-   "approvals": "changes requested",
+   "checks": "passing",
+   "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
@@ -2279,7 +2303,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-24"
+   "updated": "2026-11-26"
   },
   {
    "group": "team",
@@ -2315,8 +2339,8 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/194",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "none",
-   "approvals": "changes requested",
+   "checks": "passing",
+   "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
@@ -2327,7 +2351,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-25"
+   "updated": "2026-11-26"
   },
   {
    "group": "team",
@@ -2435,8 +2459,8 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/212",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "none",
-   "approvals": "changes requested",
+   "checks": "passing",
+   "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
@@ -2447,7 +2471,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-25"
+   "updated": "2026-11-26"
   },
   {
    "group": "team",
@@ -2459,8 +2483,8 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/216",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "none",
-   "approvals": "changes requested",
+   "checks": "passing",
+   "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
@@ -2471,7 +2495,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-25"
+   "updated": "2026-11-26"
   },
   {
    "group": "team",
@@ -2483,8 +2507,8 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/218",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "none",
-   "approvals": "changes requested",
+   "checks": "running",
+   "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
    "kind": "Draft",
@@ -2495,7 +2519,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-24"
+   "updated": "2026-11-26"
   },
   {
    "group": "team",
