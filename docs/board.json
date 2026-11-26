@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26 06:35 UTC",
+ "generated": "2026-11-26 07:08 UTC",
  "rows": [
   {
    "group": "team",
@@ -23,7 +23,7 @@
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-25"
+   "updated": "2026-11-26"
   },
   {
    "group": "team",
@@ -47,7 +47,7 @@
    "waiting": "Waiting on LiamRay11, malik-na and DjDeveloperr to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-24"
+   "updated": "2026-11-26"
   },
   {
    "group": "team",
@@ -1127,7 +1127,7 @@
    "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-24"
+   "updated": "2026-11-26"
   },
   {
    "group": "team",
@@ -6899,14 +6899,14 @@
    "url": "https://github.com/omacom/linux-aurora/pull/526",
    "owner": "acrogenesis",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "not run",
    "maclab_title": "",
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "4cf3f98192694cce5375dd76355d24b2ef527b6b",
+   "sha": "53867b7f15faea4aa9e75ac36c0136c2d47250c2",
    "evidence": "",
    "waiting": "Waiting on acrogenesis to mark it ready",
    "act": false,
