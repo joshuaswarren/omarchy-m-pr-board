@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26 15:39 UTC",
+ "generated": "2026-11-26 16:08 UTC",
  "rows": [
   {
    "group": "team",
@@ -5376,30 +5376,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-19"
-  },
-  {
-   "group": "other",
-   "repo": "omacom/linux-aurora",
-   "number": 413,
-   "draft": false,
-   "state": "needs review",
-   "title": "Add the 16-inch MacBook Pro with the M5 Pro (J716s)",
-   "url": "https://github.com/omacom/linux-aurora/pull/413",
-   "owner": "rolotrealanis98",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "none yet",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "23480bf91efd7a742effebcd7f85a0d6c9711e45",
-   "evidence": "",
-   "waiting": "Waiting on maralcbr and scottjones for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-08"
   },
   {
    "group": "other",
