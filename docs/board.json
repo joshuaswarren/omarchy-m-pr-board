@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26 17:26 UTC",
+ "generated": "2026-11-26 18:40 UTC",
  "rows": [
   {
    "group": "team",
@@ -5688,30 +5688,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-12"
-  },
-  {
-   "group": "other",
-   "repo": "omacom/linux-aurora",
-   "number": 464,
-   "draft": false,
-   "state": "needs review",
-   "title": "hwmon: macsmc: SoC die keys for the 15-inch M3 MacBook Air",
-   "url": "https://github.com/omacom/linux-aurora/pull/464",
-   "owner": "freber",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "none yet",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "dbfd3e2619656925479a8ff5f095d08f2d8c1d06",
-   "evidence": "",
-   "waiting": "Waiting on maralcbr and scottjones for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-15"
   },
   {
    "group": "other",
