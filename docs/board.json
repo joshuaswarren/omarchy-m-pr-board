@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26 04:25 UTC",
+ "generated": "2026-11-26 05:38 UTC",
  "rows": [
   {
    "group": "team",
@@ -6888,6 +6888,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-24"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 525,
+   "draft": true,
+   "state": "held",
+   "title": "soc: apple: sep: Retry verify-time sensor registration on T6000",
+   "url": "https://github.com/omacom/linux-aurora/pull/525",
+   "owner": "acrogenesis",
+   "merge": "mergeable",
+   "checks": "failing: ci / host tests (aurora-sep), ci / result",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "6f9fd54246825792d0fe7a8e02a039cb479886eb",
+   "evidence": "",
+   "waiting": "Waiting on acrogenesis to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-26"
   },
   {
    "group": "other",
