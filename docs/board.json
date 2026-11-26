@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26 02:29 UTC",
+ "generated": "2026-11-26 04:25 UTC",
  "rows": [
   {
    "group": "team",
@@ -2807,7 +2807,7 @@
    "waiting": "Waiting on malik-na to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-21"
+   "updated": "2026-11-26"
   },
   {
    "group": "team",
@@ -6839,7 +6839,7 @@
    "waiting": "Waiting on poulguoskov to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-19"
+   "updated": "2026-11-26"
   },
   {
    "group": "other",
@@ -7032,6 +7032,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-23"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 202,
+   "draft": true,
+   "state": "held",
+   "title": "Offer guarded Touch ID on the 16-inch M1 Max MacBook Pro",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/202",
+   "owner": "acrogenesis",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "865916fa674a4ff003f90058bb7c26cb892fdf7c",
+   "evidence": "",
+   "waiting": "Waiting on acrogenesis to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-26"
   }
  ],
  "unreadable": []
