@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26 18:40 UTC",
+ "generated": "2026-11-26 23:24 UTC",
  "rows": [
   {
    "group": "team",
@@ -1995,6 +1995,30 @@
   },
   {
    "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 506,
+   "draft": false,
+   "state": "waiting",
+   "title": "soc: apple: sep: xart_guard_pin on the M1 Air: hold the window through the first activation, pin up to three lockers (builds on #486)",
+   "url": "https://github.com/omacom/linux-aurora/pull/506",
+   "owner": "malik-na",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "approved by 1",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "56b08faee168cfce4e35ea5fba0f6c0375a5bb47",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-26"
+  },
+  {
+   "group": "team",
    "repo": "aurora-silicon/aurora-installer",
    "number": 135,
    "draft": true,
@@ -2712,30 +2736,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-02"
-  },
-  {
-   "group": "team",
-   "repo": "omacom/linux-aurora",
-   "number": 506,
-   "draft": true,
-   "state": "held",
-   "title": "soc: apple: sep: xart_guard_pin on the M1 Air: hold the window through the first activation, pin up to three lockers (builds on #486)",
-   "url": "https://github.com/omacom/linux-aurora/pull/506",
-   "owner": "malik-na",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "approved by 1",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Draft",
-   "blocker": "Draft",
-   "can_merge": false,
-   "sha": "56b08faee168cfce4e35ea5fba0f6c0375a5bb47",
-   "evidence": "",
-   "waiting": "Waiting on malik-na to mark it ready",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-26"
   },
   {
    "group": "team",

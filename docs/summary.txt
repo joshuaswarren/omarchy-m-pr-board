@@ -2,6 +2,6 @@
 Can merge now: silicon-aurora-installer 154, 206, 219; maclab 69, 70; linux-aurora 232, 245, 271, 277; mesa 6, 18, 21, and 60 more.
 Needs review (80): silicon-aurora-installer 188, 248, 252; linux-aurora 110, 155, 192, 197, 198, 207, 262, 270, 283, and 68 more.
 Branch rules (6): linux-aurora 257, 481, 488, 489, 490, 491.
-Waiting on the author or a run: Draft 75, Merge conflicts 38, Changes requested 13, Failing check 11.
+Waiting on the author or a run: Draft 74, Merge conflicts 38, Changes requested 13, Failing check 11, Checks running 1.
 Team 137, existing contributors 41, everyone else 117.
 Each PR and what it needs: https://joshuaswarren.github.io/omarchy-m-pr-board/
