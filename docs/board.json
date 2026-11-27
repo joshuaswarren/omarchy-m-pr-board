@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27 06:38 UTC",
+ "generated": "2026-11-27 07:37 UTC",
  "rows": [
   {
    "group": "team",
@@ -597,6 +597,30 @@
    "sha": "2debb6808e7eee2aa430c7382f26fa1795a589af",
    "evidence": "",
    "waiting": "Waiting on Acelogic and maralcbr for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-27"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 263,
+   "draft": false,
+   "state": "needs review",
+   "title": "Convert the touchscreen firmware for Linux, with this Mac's calibration",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/263",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "52a52475333683c422ee67caa6a8cabf0bfcfe3e",
+   "evidence": "",
+   "waiting": "Waiting on LiamRay11 and malik-na for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-27"
