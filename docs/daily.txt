@@ -1,14 +1,14 @@
-[Joshua's agent] Omarchy M pull requests today: 57 can merge now, and 97 team PRs are stuck.
-Can merge now: silicon-aurora-installer 154, 206, 219; maclab 69, 70; linux-aurora 232; mesa 21, 22, 36, 38, 41; pkgs 128, and 45 more.
+[Joshua's agent] Omarchy M pull requests today: 64 can merge now, and 93 team PRs are stuck.
+Can merge now: silicon-aurora-installer 154, 206, 219; maclab 69, 70; linux-aurora 232, 245; mesa 6, 18, 21, 22, 36, and 52 more.
 Stuck team PRs, and the one thing each needs. Those waiting on a review or a maintainer come first:
 PR silicon-aurora-installer 188 by RyanTheTide: Needs an approving review.
 PR silicon-aurora-installer 263 by RyanTheTide: Needs an approving review.
+PR linux-aurora 110 by chriskearney: Needs an approving review.
 PR linux-aurora 155 by LiamRay11: Needs an approving review.
-PR linux-aurora 207 by joshuaswarren: Needs an approving review.
+PR linux-aurora 197 by joshuaswarren: Needs an approving review.
 PR installer 43 by joshuaswarren: Needs an approving review.
 PR installer 107 by maralcbr: Needs an approving review.
-PR installer 117 by themartiano: Needs an approving review.
-PR installer 137 by joshuaswarren: Needs an approving review.
+PR installer 128 by joshuaswarren: Needs an approving review.
 PR installer 162 by erykwieliczko: Needs an approving review.
 PR installer 166 by maralcbr: Needs an approving review.
 PR installer 237 by DjDeveloperr: Needs an approving review.
@@ -19,8 +19,8 @@ PR silicon-aurora-installer 179 by RyanTheTide: Failing check: Conformance matri
 PR silicon-aurora-installer 181 by LiamRay11: Changes requested by DjDeveloperr, satchlj.
 PR silicon-aurora-installer 186 by RyanTheTide: Failing check: Conformance matrix.
 PR silicon-aurora-installer 248 by DjDeveloperr: Changes requested by aurora-silicon-review.
-PR linux-aurora 245 by DjDeveloperr: GitHub has not computed mergeability yet.
-PR linux-aurora 264 by DjDeveloperr: Changes requested by scottjones.
-...and 27 more on the board.
-50 team drafts are not listed.
+PR mesa 8 by joshuaswarren: Changes requested by chriskearney, maralcbr.
+PR installer 45 by malik-na: Merge conflicts with the base branch.
+...and 24 more on the board.
+49 team drafts are not listed.
 All PRs and what each needs: https://joshuaswarren.github.io/omarchy-m-pr-board/
