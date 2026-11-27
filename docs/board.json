@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27 15:08 UTC",
+ "generated": "2026-11-27 16:09 UTC",
  "rows": [
   {
    "group": "team",
@@ -576,30 +576,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-27"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 248,
-   "draft": false,
-   "state": "needs review",
-   "title": "wifi-firmware: re-pin the vendor firmware for secure boot after a change",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/248",
-   "owner": "DjDeveloperr",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "none yet",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "869f44f82b3db95e2ef56b8e5d7a106d5044731a",
-   "evidence": "",
-   "waiting": "Waiting on LiamRay11 and maralcbr for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-26"
   },
   {
    "group": "team",
@@ -1224,6 +1200,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-26"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 248,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "wifi-firmware: re-pin the vendor firmware for secure boot after a change",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/248",
+   "owner": "DjDeveloperr",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "changes requested",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Changes requested",
+   "blocker": "Changes requested by aurora-silicon-review",
+   "can_merge": false,
+   "sha": "869f44f82b3db95e2ef56b8e5d7a106d5044731a",
+   "evidence": "",
+   "waiting": "Waiting on DjDeveloperr to address the changes aurora-silicon-review asked for",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-27"
   },
   {
    "group": "team",
@@ -6059,19 +6059,19 @@
    "url": "https://github.com/omacom/linux-aurora/pull/525",
    "owner": "acrogenesis",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "running",
    "approvals": "none yet",
    "maclab": "not run",
    "maclab_title": "",
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "7043dc5c8ec1a352f1785c1e5ee557ca4ce73a4d",
+   "sha": "f0956f34f2b03700d5e8dd36ac3c698f35777c8b",
    "evidence": "",
    "waiting": "Waiting on maralcbr and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-26"
+   "updated": "2026-11-27"
   },
   {
    "group": "other",
