@@ -6,6 +6,7 @@ PR silicon-aurora-installer 248 by DjDeveloperr: Needs an approving review.
 PR silicon-aurora-installer 252 by RyanTheTide: Needs an approving review.
 PR silicon-aurora-installer 253 by RyanTheTide: Needs an approving review.
 PR silicon-aurora-installer 255 by RyanTheTide: Needs an approving review.
+PR silicon-aurora-installer 257 by RyanTheTide: Needs an approving review.
 PR silicon-aurora-installer 258 by RyanTheTide: Needs an approving review.
 PR linux-aurora 110 by chriskearney: Needs an approving review.
 PR linux-aurora 155 by LiamRay11: Needs an approving review.
@@ -20,7 +21,6 @@ PR linux-aurora 348 by satchlj: Needs an approving review.
 PR linux-aurora 359 by joshuaswarren: Needs an approving review.
 PR linux-aurora 457 by scottjones: Needs an approving review.
 PR linux-aurora 471 by malik-na: Needs an approving review.
-PR installer 43 by joshuaswarren: Needs an approving review.
 ...and 44 more on the board.
 55 team drafts are not listed.
 All PRs and what each needs: https://joshuaswarren.github.io/omarchy-m-pr-board/
