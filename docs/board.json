@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27 04:37 UTC",
+ "generated": "2026-11-27 05:08 UTC",
  "rows": [
   {
    "group": "team",
@@ -546,7 +546,7 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "7fd948f3e8e3a27ac30a995fba8fbbc33e6f1559",
+   "sha": "7b399e4f58ec53b17f38b96ca8323e7e7b02547f",
    "evidence": "",
    "waiting": "Waiting on scottjones to merge",
    "act": true,
@@ -575,7 +575,7 @@
    "waiting": "Waiting on LiamRay11 and maralcbr for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-26"
+   "updated": "2026-11-27"
   },
   {
    "group": "team",
@@ -623,7 +623,7 @@
    "waiting": "Waiting on Acelogic and maralcbr for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-26"
+   "updated": "2026-11-27"
   },
   {
    "group": "team",
@@ -666,7 +666,7 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "2fa03e547da4a716cdca53040cd38f513c06a3ed",
+   "sha": "e7ff6e7bbab8a6c5925a643ccea8bf64cddcf3ec",
    "evidence": "",
    "waiting": "Waiting on LiamRay11 and maralcbr for an approving review",
    "act": true,
@@ -1247,7 +1247,7 @@
    "waiting": "Waiting on RyanTheTide to fix the failing check: Conformance matrix",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-26"
+   "updated": "2026-11-27"
   },
   {
    "group": "team",
@@ -1271,7 +1271,7 @@
    "waiting": "Waiting on LiamRay11 to address the changes DjDeveloperr, satchlj asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-24"
+   "updated": "2026-11-27"
   },
   {
    "group": "team",
