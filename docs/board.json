@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27 03:36 UTC",
+ "generated": "2026-11-27 04:07 UTC",
  "rows": [
   {
    "group": "team",
@@ -628,23 +628,23 @@
   {
    "group": "team",
    "repo": "aurora-silicon/aurora-installer",
-   "number": 257,
+   "number": 259,
    "draft": false,
    "state": "needs review",
-   "title": "Recovery: enroll the secure-flavour Stage 1 for the owner's own key",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/257",
+   "title": "UX: one generic experimental line instead of per-Mac caveats",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/259",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "running",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "85e3d2300698479042cc3f401495b6e698bf4374",
+   "sha": "87bc0a741bd9a9c2c87d2617fdef5e1a0f9c27cd",
    "evidence": "",
-   "waiting": "Waiting on Acelogic and maralcbr for an approving review",
+   "waiting": "Waiting on Acelogic and malik-na for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-27"
@@ -935,7 +935,7 @@
    "waiting": "Waiting on a maintainer for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-25"
+   "updated": "2026-11-27"
   },
   {
    "group": "team",
@@ -2578,7 +2578,7 @@
    "title": "Recovery: in-place startup firmware upgrade (Update startup firmware)",
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/240",
    "owner": "RyanTheTide",
-   "merge": "mergeable",
+   "merge": "conflicts",
    "checks": "passing",
    "approvals": "none yet",
    "maclab": "",
@@ -3792,30 +3792,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-24"
-  },
-  {
-   "group": "contributor",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 191,
-   "draft": false,
-   "state": "needs review",
-   "title": "Offer \"Aurora, based on Debian testing\"",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/191",
-   "owner": "sithglan",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "none yet",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "10e1a9a9271676e91aeae674693908f46e81f789",
-   "evidence": "",
-   "waiting": "Waiting on a maintainer for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-27"
   },
   {
    "group": "contributor",
