@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27 05:08 UTC",
+ "generated": "2026-11-27 05:25 UTC",
  "rows": [
   {
    "group": "team",
@@ -628,30 +628,6 @@
   {
    "group": "team",
    "repo": "aurora-silicon/aurora-installer",
-   "number": 259,
-   "draft": false,
-   "state": "needs review",
-   "title": "UX: one generic experimental line instead of per-Mac caveats",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/259",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "none yet",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "87bc0a741bd9a9c2c87d2617fdef5e1a0f9c27cd",
-   "evidence": "",
-   "waiting": "Waiting on Acelogic and malik-na for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-27"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
    "number": 261,
    "draft": false,
    "state": "needs review",
@@ -690,7 +666,7 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "46bdea450c8efcccdb0bae62ef39ad63aa66f58b",
+   "sha": "ab387468e5d81d949ec0eaf4d0971ea2f822ede0",
    "evidence": "",
    "waiting": "Waiting on Acelogic and malik-na for an approving review",
    "act": true,
@@ -1991,7 +1967,7 @@
    "waiting": "Waiting on joshuaswarren to fix the conflicts",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-21"
+   "updated": "2026-11-27"
   },
   {
    "group": "team",
