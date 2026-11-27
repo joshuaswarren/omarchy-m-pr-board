@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27 14:37 UTC",
+ "generated": "2026-11-27 15:08 UTC",
  "rows": [
   {
    "group": "team",
@@ -4604,7 +4604,7 @@
    "can_merge": true,
    "sha": "1105e170c36827199d60645121289f745d9a260f",
    "evidence": "",
-   "waiting": "Waiting on maralcbr and scottjones to merge",
+   "waiting": "Waiting on maralcbr to merge",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-27"
