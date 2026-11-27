@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27 03:25 UTC",
+ "generated": "2026-11-27 03:36 UTC",
  "rows": [
   {
    "group": "team",
@@ -546,7 +546,7 @@
    "kind": "None",
    "blocker": "None: can merge now",
    "can_merge": true,
-   "sha": "bcf71c9d7dc56d8714d87620a91bf8efb3a4f2f2",
+   "sha": "7fd948f3e8e3a27ac30a995fba8fbbc33e6f1559",
    "evidence": "",
    "waiting": "Waiting on scottjones to merge",
    "act": true,
