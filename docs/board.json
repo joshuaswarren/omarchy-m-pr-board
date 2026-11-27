@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27 14:06 UTC",
+ "generated": "2026-11-27 14:26 UTC",
  "rows": [
   {
    "group": "team",
@@ -600,30 +600,6 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-26"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 252,
-   "draft": false,
-   "state": "needs review",
-   "title": "docs: make Aurora's first admin the stub owner (design)",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/252",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "approved by 1",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "6e0038032088386c1b542f09ae86e655364874dc",
-   "evidence": "",
-   "waiting": "Waiting on Acelogic and maralcbr for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-27"
   },
   {
    "group": "team",
