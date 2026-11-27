@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27 01:25 UTC",
+ "generated": "2026-11-27 01:37 UTC",
  "rows": [
   {
    "group": "team",
@@ -659,7 +659,7 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/255",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
@@ -669,6 +669,30 @@
    "sha": "7bb46f97dd31e0c50243e2f3886d0732c1dd6538",
    "evidence": "",
    "waiting": "Waiting on Acelogic and malik-na for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-27"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 258,
+   "draft": false,
+   "state": "needs review",
+   "title": "installer: calmer native design and plain-language copy for alpha 26",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/258",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "b29dddcf2692784b2cc94d5a792269d616b1b3e4",
+   "evidence": "",
+   "waiting": "Waiting on DjDeveloperr for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-27"
