@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27 09:38 UTC",
+ "generated": "2026-11-27 10:36 UTC",
  "rows": [
   {
    "group": "team",
@@ -563,7 +563,7 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/188",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
