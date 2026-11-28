@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28 13:22 UTC",
+ "generated": "2026-11-28 14:39 UTC",
  "rows": [
   {
    "group": "team",
@@ -4224,6 +4224,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-07"
+  },
+  {
+   "group": "contributor",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 209,
+   "draft": true,
+   "state": "held",
+   "title": "First boot enables greetd's login screen since omarchy#20404 replaced SDDM",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/209",
+   "owner": "allanclempe",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "50e6bf5744aede304da2c3d1ccabd90a3d28290c",
+   "evidence": "",
+   "waiting": "Waiting on allanclempe to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-28"
   },
   {
    "group": "other",
