@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28 02:42 UTC",
+ "generated": "2026-11-28 03:08 UTC",
  "rows": [
   {
    "group": "team",
@@ -383,7 +383,7 @@
    "waiting": "Waiting on a maintainer to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-19"
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
@@ -503,7 +503,7 @@
    "waiting": "Waiting on maralcbr and scottjones to merge",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-11"
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
@@ -719,7 +719,7 @@
    "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-05"
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
@@ -839,7 +839,7 @@
    "waiting": "Waiting on maralcbr, chriskearney and scottjones for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-04"
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
@@ -1583,7 +1583,7 @@
    "waiting": "Waiting on joshuaswarren to fix the conflicts",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-05"
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
@@ -1919,7 +1919,7 @@
    "waiting": "Waiting on joshuaswarren to fix the conflicts",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-27"
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
@@ -2879,7 +2879,7 @@
    "waiting": "Waiting on joshuaswarren to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-18"
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
@@ -4300,6 +4300,30 @@
   {
    "group": "other",
    "repo": "omacom/linux-aurora",
+   "number": 251,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "soc: apple: sep: wipe capture buffers on rejected reads",
+   "url": "https://github.com/omacom/linux-aurora/pull/251",
+   "owner": "mmdisbrow",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "approved by 1",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "9e899a87332584704a189548549ff40c5ae1e16c",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and chriskearney to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-10-29"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
    "number": 354,
    "draft": false,
    "state": "ready to merge",
@@ -5136,6 +5160,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-10-28"
+  },
+  {
+   "group": "other",
+   "repo": "omacom/linux-aurora",
+   "number": 257,
+   "draft": false,
+   "state": "needs review",
+   "title": "soc: apple: sep: Report xART guard refusals only from the live guard",
+   "url": "https://github.com/omacom/linux-aurora/pull/257",
+   "owner": "audreyt",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "approved by 1",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Branch rules",
+   "blocker": "Blocked by branch rules (a required check or review is missing)",
+   "can_merge": false,
+   "sha": "7ba07eb3a1094d822af8601dd69457dd97660645",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr and chriskearney for a required check or review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-16"
   },
   {
    "group": "other",
@@ -6179,7 +6227,7 @@
    "url": "https://github.com/omacom/omarchy-mac-installer/pull/254",
    "owner": "trileminh94",
    "merge": "mergeable",
-   "checks": "none",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
@@ -6552,54 +6600,6 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-23"
-  },
-  {
-   "group": "other",
-   "repo": "omacom/linux-aurora",
-   "number": 251,
-   "draft": false,
-   "state": "waiting",
-   "title": "soc: apple: sep: wipe capture buffers on rejected reads",
-   "url": "https://github.com/omacom/linux-aurora/pull/251",
-   "owner": "mmdisbrow",
-   "merge": "unknown",
-   "checks": "passing",
-   "approvals": "approved by 1",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Mergeability unknown",
-   "blocker": "GitHub has not computed mergeability yet",
-   "can_merge": false,
-   "sha": "9e899a87332584704a189548549ff40c5ae1e16c",
-   "evidence": "",
-   "waiting": "Waiting on GitHub to compute the merge state",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-10-29"
-  },
-  {
-   "group": "other",
-   "repo": "omacom/linux-aurora",
-   "number": 257,
-   "draft": false,
-   "state": "waiting",
-   "title": "soc: apple: sep: Report xART guard refusals only from the live guard",
-   "url": "https://github.com/omacom/linux-aurora/pull/257",
-   "owner": "audreyt",
-   "merge": "unknown",
-   "checks": "passing",
-   "approvals": "approved by 1",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Mergeability unknown",
-   "blocker": "GitHub has not computed mergeability yet",
-   "can_merge": false,
-   "sha": "7ba07eb3a1094d822af8601dd69457dd97660645",
-   "evidence": "",
-   "waiting": "Waiting on GitHub to compute the merge state",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-16"
   },
   {
    "group": "other",
