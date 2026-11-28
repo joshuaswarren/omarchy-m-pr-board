@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28 01:38 UTC",
+ "generated": "2026-11-28 02:07 UTC",
  "rows": [
   {
    "group": "team",
@@ -3066,12 +3066,12 @@
    "kind": "Draft",
    "blocker": "Draft",
    "can_merge": false,
-   "sha": "94577179588a7c763a6a0d551c64dd9718bc015a",
+   "sha": "6c0aa06bf6658178b8f61c03041c49d59e82bb97",
    "evidence": "",
    "waiting": "Waiting on maralcbr to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-22"
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
