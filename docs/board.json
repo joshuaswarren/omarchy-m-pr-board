@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28 05:38 UTC",
+ "generated": "2026-11-28 06:08 UTC",
  "rows": [
   {
    "group": "team",
@@ -192,6 +192,30 @@
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-27"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 529,
+   "draft": false,
+   "state": "ready to merge",
+   "title": "carry.toml: carry aurora-silicon/linux#3490 (M3/G15 qualified agx_stats + gpu_memory)",
+   "url": "https://github.com/omacom/linux-aurora/pull/529",
+   "owner": "maralcbr",
+   "merge": "mergeable",
+   "checks": "passing",
+   "approvals": "not required",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "None",
+   "blocker": "None: can merge now",
+   "can_merge": true,
+   "sha": "0d7e2fbef041c535088107c10495718b69b5b991",
+   "evidence": "",
+   "waiting": "Waiting on a maintainer to merge",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
