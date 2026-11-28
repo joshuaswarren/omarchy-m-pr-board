@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28 11:39 UTC",
+ "generated": "2026-11-28 12:11 UTC",
  "rows": [
   {
    "group": "team",
@@ -539,7 +539,7 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/188",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "running",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
@@ -551,7 +551,7 @@
    "waiting": "Waiting on LiamRay11 and maralcbr for an approving review",
    "act": true,
    "rc_blocker": "no",
-   "updated": "2026-11-27"
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
@@ -573,6 +573,30 @@
    "sha": "52a52475333683c422ee67caa6a8cabf0bfcfe3e",
    "evidence": "",
    "waiting": "Waiting on LiamRay11 and malik-na for an approving review",
+   "act": true,
+   "rc_blocker": "no",
+   "updated": "2026-11-28"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 268,
+   "draft": false,
+   "state": "needs review",
+   "title": "Accept a late macOS 27 Update volume in the startup container",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/268",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Needs review",
+   "blocker": "Needs an approving review",
+   "can_merge": false,
+   "sha": "72b364eec27c361c7756abfb646d4abbe9ed5391",
+   "evidence": "",
+   "waiting": "Waiting on Acelogic and maralcbr for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-28"
@@ -1347,30 +1371,6 @@
   },
   {
    "group": "team",
-   "repo": "omacom/linux-aurora",
-   "number": 533,
-   "draft": false,
-   "state": "needs fixes",
-   "title": "aurora-sep: set the M3 GPU switches as aurora.* as well as asahi.*",
-   "url": "https://github.com/omacom/linux-aurora/pull/533",
-   "owner": "maralcbr",
-   "merge": "mergeable",
-   "checks": "failing: ci / commits, ci / result",
-   "approvals": "none yet",
-   "maclab": "not run",
-   "maclab_title": "",
-   "kind": "Failing check",
-   "blocker": "Failing check: ci / commits, ci / result",
-   "can_merge": false,
-   "sha": "ba53b6bb614b3d581cb371529938b8ce8d7f80a5",
-   "evidence": "",
-   "waiting": "Waiting on maralcbr to fix the failing check: ci / commits, ci / result",
-   "act": false,
-   "rc_blocker": "no",
-   "updated": "2026-11-28"
-  },
-  {
-   "group": "team",
    "repo": "omacom/mesa",
    "number": 8,
    "draft": false,
@@ -1992,6 +1992,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-23"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 534,
+   "draft": false,
+   "state": "waiting",
+   "title": "carry.toml: carry aurora-silicon/linux#3522 (aurora-sep M3 switches as aurora.*)",
+   "url": "https://github.com/omacom/linux-aurora/pull/534",
+   "owner": "maralcbr",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "35e196c83983bf1820f8e92dadbd01abe3925a87",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
@@ -6227,7 +6251,7 @@
    "url": "https://github.com/omacom/linux-aurora/pull/292",
    "owner": "digital-brew",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "changes requested",
    "maclab": "not run",
    "maclab_title": "",
@@ -6239,7 +6263,7 @@
    "waiting": "Waiting on digital-brew to address the changes chriskearney asked for",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-24"
+   "updated": "2026-11-28"
   },
   {
    "group": "other",
