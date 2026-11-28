@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28 12:28 UTC",
+ "generated": "2026-11-28 13:09 UTC",
  "rows": [
   {
    "group": "team",
@@ -618,7 +618,7 @@
    "kind": "Needs review",
    "blocker": "Needs an approving review",
    "can_merge": false,
-   "sha": "72b364eec27c361c7756abfb646d4abbe9ed5391",
+   "sha": "a9f9e3ca45f75c05527da4d63596e30012613ebf",
    "evidence": "",
    "waiting": "Waiting on Acelogic and maralcbr for an approving review",
    "act": true,
@@ -2639,7 +2639,7 @@
    "waiting": "Waiting on RyanTheTide to mark it ready",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-27"
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
