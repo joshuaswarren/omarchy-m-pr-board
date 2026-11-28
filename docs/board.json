@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28 05:07 UTC",
+ "generated": "2026-11-28 05:38 UTC",
  "rows": [
   {
    "group": "team",
@@ -501,30 +501,6 @@
    "sha": "52a52475333683c422ee67caa6a8cabf0bfcfe3e",
    "evidence": "",
    "waiting": "Waiting on LiamRay11 and malik-na for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-28"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 265,
-   "draft": false,
-   "state": "needs review",
-   "title": "Test that a K board on macOS 27.2.1 (26B8132) gets the 26B8125 stub",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/265",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "approved by 1",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "f9e5550a1c5c4ceadc634e944932813ab0ab695d",
-   "evidence": "",
-   "waiting": "Waiting on Acelogic and malik-na for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-28"
@@ -1919,7 +1895,7 @@
    "waiting": "Waiting on CI to finish",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-27"
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
@@ -1943,7 +1919,7 @@
    "waiting": "Waiting on CI to finish",
    "act": false,
    "rc_blocker": "no",
-   "updated": "2026-11-26"
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
