@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28 04:26 UTC",
+ "generated": "2026-11-28 04:38 UTC",
  "rows": [
   {
    "group": "team",
@@ -2616,6 +2616,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-27"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 267,
+   "draft": true,
+   "state": "held",
+   "title": "docs: draft Aurora Alpha 27 release notes",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/267",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Draft",
+   "blocker": "Draft",
+   "can_merge": false,
+   "sha": "198379d5f7275f0915e9f540dd24a428ccdd7160",
+   "evidence": "",
+   "waiting": "Waiting on RyanTheTide to mark it ready",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
