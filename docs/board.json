@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28 11:23 UTC",
+ "generated": "2026-11-28 11:39 UTC",
  "rows": [
   {
    "group": "team",
@@ -1344,6 +1344,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-22"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/linux-aurora",
+   "number": 533,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "aurora-sep: set the M3 GPU switches as aurora.* as well as asahi.*",
+   "url": "https://github.com/omacom/linux-aurora/pull/533",
+   "owner": "maralcbr",
+   "merge": "mergeable",
+   "checks": "failing: ci / commits, ci / result",
+   "approvals": "none yet",
+   "maclab": "not run",
+   "maclab_title": "",
+   "kind": "Failing check",
+   "blocker": "Failing check: ci / commits, ci / result",
+   "can_merge": false,
+   "sha": "ba53b6bb614b3d581cb371529938b8ce8d7f80a5",
+   "evidence": "",
+   "waiting": "Waiting on maralcbr to fix the failing check: ci / commits, ci / result",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
@@ -6203,7 +6227,7 @@
    "url": "https://github.com/omacom/linux-aurora/pull/292",
    "owner": "digital-brew",
    "merge": "mergeable",
-   "checks": "passing",
+   "checks": "running",
    "approvals": "changes requested",
    "maclab": "not run",
    "maclab_title": "",
