@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28 03:08 UTC",
+ "generated": "2026-11-28 03:37 UTC",
  "rows": [
   {
    "group": "team",
@@ -563,7 +563,7 @@
    "url": "https://github.com/aurora-silicon/aurora-installer/pull/266",
    "owner": "RyanTheTide",
    "merge": "mergeable",
-   "checks": "running",
+   "checks": "passing",
    "approvals": "none yet",
    "maclab": "",
    "maclab_title": "",
@@ -1992,6 +1992,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-23"
+  },
+  {
+   "group": "team",
+   "repo": "omacom/omarchy-mac-pkgs",
+   "number": 208,
+   "draft": false,
+   "state": "waiting",
+   "title": "Release omarchy-mac 0.2.8",
+   "url": "https://github.com/omacom/omarchy-mac-pkgs/pull/208",
+   "owner": "maralcbr",
+   "merge": "mergeable",
+   "checks": "running",
+   "approvals": "not required",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Checks running",
+   "blocker": "Checks still running",
+   "can_merge": false,
+   "sha": "55749fe37b66c834451276c224bc21f8afbdcc22",
+   "evidence": "",
+   "waiting": "Waiting on CI to finish",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
