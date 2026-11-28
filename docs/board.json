@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28 07:37 UTC",
+ "generated": "2026-11-28 08:09 UTC",
  "rows": [
   {
    "group": "team",
@@ -549,30 +549,6 @@
    "sha": "52a52475333683c422ee67caa6a8cabf0bfcfe3e",
    "evidence": "",
    "waiting": "Waiting on LiamRay11 and malik-na for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-28"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 266,
-   "draft": false,
-   "state": "needs review",
-   "title": "aurora-wifi-firmware: add the N1 firmware to installs that have none",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/266",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "passing",
-   "approvals": "approved by 1",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "7d131f3957947e8bd867166cd3a52dc5c9e9184d",
-   "evidence": "",
-   "waiting": "Waiting on Acelogic and maralcbr for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-28"
