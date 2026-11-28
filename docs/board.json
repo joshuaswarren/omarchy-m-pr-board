@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-28 00:38 UTC",
+ "generated": "2026-11-28 01:38 UTC",
  "rows": [
   {
    "group": "team",
@@ -549,30 +549,6 @@
    "sha": "52a52475333683c422ee67caa6a8cabf0bfcfe3e",
    "evidence": "",
    "waiting": "Waiting on LiamRay11 and malik-na for an approving review",
-   "act": true,
-   "rc_blocker": "no",
-   "updated": "2026-11-28"
-  },
-  {
-   "group": "team",
-   "repo": "aurora-silicon/aurora-installer",
-   "number": 265,
-   "draft": false,
-   "state": "needs review",
-   "title": "Test that a K board on macOS 27.2.1 (26B8132) gets the 26B8125 stub",
-   "url": "https://github.com/aurora-silicon/aurora-installer/pull/265",
-   "owner": "RyanTheTide",
-   "merge": "mergeable",
-   "checks": "running",
-   "approvals": "none yet",
-   "maclab": "",
-   "maclab_title": "",
-   "kind": "Needs review",
-   "blocker": "Needs an approving review",
-   "can_merge": false,
-   "sha": "6363476988a58655e072cd81c2edc70d5bddf476",
-   "evidence": "",
-   "waiting": "Waiting on Acelogic and malik-na for an approving review",
    "act": true,
    "rc_blocker": "no",
    "updated": "2026-11-28"
@@ -1200,6 +1176,30 @@
    "act": false,
    "rc_blocker": "no",
    "updated": "2026-11-27"
+  },
+  {
+   "group": "team",
+   "repo": "aurora-silicon/aurora-installer",
+   "number": 265,
+   "draft": false,
+   "state": "needs fixes",
+   "title": "Test that a K board on macOS 27.2.1 (26B8132) gets the 26B8125 stub",
+   "url": "https://github.com/aurora-silicon/aurora-installer/pull/265",
+   "owner": "RyanTheTide",
+   "merge": "mergeable",
+   "checks": "failing: pr-text / pr-text",
+   "approvals": "none yet",
+   "maclab": "",
+   "maclab_title": "",
+   "kind": "Failing check",
+   "blocker": "Failing check: pr-text / pr-text",
+   "can_merge": false,
+   "sha": "6363476988a58655e072cd81c2edc70d5bddf476",
+   "evidence": "",
+   "waiting": "Waiting on RyanTheTide to fix the failing check: pr-text / pr-text",
+   "act": false,
+   "rc_blocker": "no",
+   "updated": "2026-11-28"
   },
   {
    "group": "team",
